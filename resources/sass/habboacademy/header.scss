@@ -1,0 +1,237 @@
+* {
+	box-sizing: border-box;
+	image-rendering: pixelated;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Exo 2', sans-serif;
+	background-color: $background;
+	overflow: hidden auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-display: swap;
+}
+
+header {
+	width: 100vw;
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+	background-color: $strongblue;
+	margin-top: 1px;
+
+	&::after {
+		content: '';
+		width: 551px;
+		height: 312px;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		background-image: url('/images/right_header.png');
+	}
+
+	&::before {
+		content: '';
+		width: 100%;
+		height: 450px;
+		position: absolute;
+		background-position: top;
+		background-repeat: no-repeat;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		background-image: url('/images/planeta.webp');
+	}
+
+	.top-bar {
+		width: 100%;
+		height: 70px;
+		background-color: #fff;
+		overflow: hidden;
+		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+		position: relative;
+
+		.last-registers {
+			width: 400px;
+			height: 70px;
+			float: left;
+
+			.latests-box {
+				width: calc(100% - 140px);
+				height: 60px;
+				float: left;
+				margin-top: 5px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				position: relative;
+				margin-left: 8px;
+
+				.latest-user {
+					width: 30px;
+					height: 30px;
+					background-color: $interblue;
+					border-radius: 3px;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+			}
+		}
+
+		.site-custom {
+
+			.customs {
+				width: calc(100% - 140px);
+				height: 60px;
+				float: left;
+				margin-top: 5px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				position: relative;
+				margin-left: 8px;
+
+				.custom {
+					width: 15px;
+					height: 15px;
+					border-radius: 5px;
+					box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1);
+					cursor: pointer;
+					transition: border-radius .3s;
+
+					&:nth-child(1) {
+						background-color: $theme1;
+					}
+
+					&:nth-child(2) {
+						background-color: $theme2;
+					}
+
+					&:nth-child(3) {
+						background-color: $theme3;
+					}
+
+					&:nth-child(4) {
+						background-color: $theme4;
+					}
+
+					&:nth-child(5) {
+						background-color: $theme5;
+					}
+
+					&:hover {
+						border-radius: 25%;
+					}
+				}
+			}
+			width: 300px;
+			height: 70px;
+			float: left;
+			padding: 0 8px;
+			position: relative;
+			margin-left: 10px;
+
+			.default-title {
+				color: #f1f1f1;
+
+				b {
+					color: #f1f1f1;
+				}
+			}
+		}
+
+		.search-field {
+			width: 400px;
+			height: 70px;
+			float: left;
+			padding-left: 8px;
+
+			.input {
+				width: calc(100% - 140px);
+				height: 60px;
+				float: left;
+				margin-top: 5px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				position: relative;
+				margin-left: 8px;
+				height: 30px;
+				background-color: $strongblue;
+				margin-top: 20px;
+				border-radius: 5px;
+				display: block;
+				position: relative;
+
+				input {
+					width: 100%;
+					height: 30px;
+					border: none;
+					background: transparent;
+					color: #f1f1f1;
+					font-size: 13px;
+					padding-left: 10px;
+					padding-right: 30px;
+					font-weight: 300;
+
+					&::-webkit-input-placeholder {
+						color: #f1f1f1;
+					}
+				}
+
+				button {
+					position: absolute;
+					border: none;
+					background: transparent;
+					font-size: 12px;
+					top: 5px;
+					right: 5px;
+					color: white;
+				}
+			}
+		}
+
+		&::before {
+			content: '';
+			width: 320px;
+			height: 80px;
+			background-color: $purple;
+			position: absolute;
+			left: 50.25%;
+			transform: translateX(-50.25%) skewX(-20deg);
+		}
+	}
+}
+
+.customTransition {
+	transition: background-color .5s;
+}
+
+.default-title {
+	width: 120px;
+	height: 60px;
+	margin-top: 5px;
+	float: left;
+	line-height: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 13px;
+	text-transform: uppercase;
+	border-left: 1px solid rgba(0, 0, 0, 0.1);
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+	b {
+		color: $strongblue;
+		font-weight: 800;
+	}
+}
+
+.default-title.mini {
+	height: 40px;
+}

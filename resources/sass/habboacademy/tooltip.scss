@@ -1,0 +1,42 @@
+.bs-tooltip-top .tooltip-inner,
+.bs-tooltip-right .tooltip-inner,
+.bs-tooltip-bottom .tooltip-inner {
+	border-radius: 5px !important;
+	padding: 7px 12px;
+	background-color: $tooltip;
+	font-weight: 400;
+}
+
+.bs-tooltip-right .tooltip-inner {
+    margin-left: 13px;
+}
+
+.bs-tooltip-top.tooltip .arrow::before {
+	border-top-color: $tooltip;
+	border-width: .3rem .3rem 0;
+}
+
+.bs-tooltip-right.tooltip .arrow::before {
+    left: 14.5px;
+	border-right-color: $tooltip;
+	border-width: .4rem .4rem .4rem 0;
+}
+
+.bs-tooltip-bottom.tooltip .arrow::before {
+	border-bottom-color: $tooltip;
+	border-width: 0 .3rem .3rem;
+}
+
+.bs-tooltip-right .tooltip-inner {
+	font-weight: 400;
+    font-size: 14px;
+    letter-spacing: .8px;
+	max-width: 500px;
+}
+
+.bs-tooltip-top .tooltip-inner,
+.bs-tooltip-bottom .tooltip-inner {
+	font-weight: 400;
+    font-size: 12px;
+	opacity: 1;
+}
