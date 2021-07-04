@@ -22,7 +22,7 @@
 		top: 15px;
 		right: 10px;
 		font-size: 12px;
-		color: var(--strongblue);
+		color: $strongblue;
 	}
 }
 .pagination {
@@ -38,7 +38,7 @@
 		border: none;
 		background-color: white;
 		font-size: 14px;
-		color: var(--strongblue);
+		color: $strongblue;
 		border-radius: 50%;
 		box-shadow: 0 1px 0 2px rgba(0, 0, 0, .05);
 		cursor: pointer;
@@ -47,7 +47,7 @@
 
 		&:not([disabled]) {
 			&:hover {
-				box-shadow: 0 2px 0 1px var(--strongblue);
+				box-shadow: 0 2px 0 1px $strongblue;
 			}
 		}
 	}
@@ -137,7 +137,7 @@ section {
 						border: none;
 						background-color: white;
 						font-size: 14px;
-						color: var(--strongblue);
+						color: $strongblue;
 						border-radius: 50%;
 						box-shadow: 0 1px 0 2px rgba(0, 0, 0, .05);
 						cursor: pointer;

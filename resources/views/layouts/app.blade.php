@@ -32,22 +32,12 @@
                             <b class="customTransition">Últimos</b>Registrados
                         </div>
                         <div class="latests-box">
-                            <?php for($i = 0; $i < 6; $i++) { ?>
+                            <?php for($i = 0; $i < 10; $i++) { ?>
                                 <a href="/profile/iNicollas" class="latest-user"
                                     style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user=Bromarks&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s')"
                                     data-toggle="tooltip"
                                     title="Olá pessoal"
                                     data-placement="bottom"></a>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div class="site-custom">
-                        <div class="default-title border-left-0">
-                            <b>HabboAcademy</b>Customizado
-                        </div>
-                        <div class="customs">
-                            <?php for($i = 0; $i < 5; $i++) { ?>
-                                <div class="custom"></div>
                             <?php } ?>
                         </div>
                     </div>
@@ -62,6 +52,11 @@
                     </div>
                 </div>
             </div>
+            @auth
+                <div class="container position-relative">
+                    @include('habboacademy.layouts.user.menu')
+                </div>
+            @endauth
         </header>
 
         <main class="py-4">

@@ -10242,7 +10242,7 @@ header .top-bar {
   position: relative;
 }
 header .top-bar .last-registers {
-  width: 400px;
+  width: 50%;
   height: 70px;
   float: left;
 }
@@ -10260,64 +10260,13 @@ header .top-bar .last-registers .latests-box {
 header .top-bar .last-registers .latests-box .latest-user {
   width: 30px;
   height: 30px;
-  background-color: #7f8fa6;
+  background-color: #192a56;
   border-radius: 3px;
   background-position: center;
   background-repeat: no-repeat;
 }
-header .top-bar .site-custom {
-  width: 300px;
-  height: 70px;
-  float: left;
-  padding: 0 8px;
-  position: relative;
-  margin-left: 10px;
-}
-header .top-bar .site-custom .customs {
-  width: calc(100% - 140px);
-  height: 60px;
-  float: left;
-  margin-top: 5px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  margin-left: 8px;
-}
-header .top-bar .site-custom .customs .custom {
-  width: 15px;
-  height: 15px;
-  border-radius: 5px;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: border-radius 0.3s;
-}
-header .top-bar .site-custom .customs .custom:nth-child(1) {
-  background-color: #e1b12c;
-}
-header .top-bar .site-custom .customs .custom:nth-child(2) {
-  background-color: #c23616;
-}
-header .top-bar .site-custom .customs .custom:nth-child(3) {
-  background-color: #44bd32;
-}
-header .top-bar .site-custom .customs .custom:nth-child(4) {
-  background-color: #8c7ae6;
-}
-header .top-bar .site-custom .customs .custom:nth-child(5) {
-  background-color: #eb3b5a;
-}
-header .top-bar .site-custom .customs .custom:hover {
-  border-radius: 25%;
-}
-header .top-bar .site-custom .default-title {
-  color: #f1f1f1;
-}
-header .top-bar .site-custom .default-title b {
-  color: #f1f1f1;
-}
 header .top-bar .search-field {
-  width: 400px;
+  width: 50%;
   height: 70px;
   float: left;
   padding-left: 8px;
@@ -10332,44 +10281,97 @@ header .top-bar .search-field .input {
   align-items: center;
   position: relative;
   margin-left: 8px;
-  height: 30px;
-  background-color: #192a56;
-  margin-top: 20px;
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin-top: 12px;
   border-radius: 5px;
   display: block;
   position: relative;
 }
 header .top-bar .search-field .input input {
   width: 100%;
-  height: 30px;
+  height: 45px;
   border: none;
   background: transparent;
-  color: #f1f1f1;
+  color: #222;
   font-size: 13px;
   padding-left: 10px;
-  padding-right: 30px;
-  font-weight: 300;
+  padding-right: 35px;
+  font-weight: 500;
 }
 header .top-bar .search-field .input input::-webkit-input-placeholder {
-  color: #f1f1f1;
+  color: #222;
 }
 header .top-bar .search-field .input button {
   position: absolute;
   border: none;
   background: transparent;
-  font-size: 12px;
-  top: 5px;
-  right: 5px;
+  font-size: 14px;
+  top: 10px;
+  right: 10px;
+  color: #192a56;
+}
+header .user-menu {
+  width: 90px;
+  height: 320px;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 30px;
+  right: 0;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+header .user-menu button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #192a56;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: none;
+  transition: all 0.3s;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+header .user-menu button:hover {
+  color: white;
+  background-color: #192a56;
+}
+header .user-menu button:last-of-type {
+  background-color: #e3342f;
   color: white;
 }
-header .top-bar::before {
-  content: "";
-  width: 320px;
+header .user-menu .picture {
+  width: 80px;
   height: 80px;
-  background-color: #7158e2;
+  background-color: white;
+  border: 2px solid #f0f0f0;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 10px;
+}
+header .user-menu .picture .head {
+  width: 54px;
+  height: 62px;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
-  left: 50.25%;
-  transform: translateX(-50.25%) skewX(-20deg);
+  left: 11px;
+  top: 2px;
+  z-index: 1;
+}
+header .user-menu .picture .body {
+  width: 33px;
+  height: 56px;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 21.5px;
+  top: 20px;
 }
 
 .customTransition {
@@ -10423,7 +10425,7 @@ header .top-bar::before {
   top: 15px;
   right: 10px;
   font-size: 12px;
-  color: var(--strongblue);
+  color: #192a56;
 }
 
 .pagination {
@@ -10439,7 +10441,7 @@ header .top-bar::before {
   border: none;
   background-color: white;
   font-size: 14px;
-  color: var(--strongblue);
+  color: #192a56;
   border-radius: 50%;
   box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.05);
   cursor: pointer;
@@ -10447,7 +10449,7 @@ header .top-bar::before {
   position: relative;
 }
 .pagination .btn-pagination:not([disabled]):hover {
-  box-shadow: 0 2px 0 1px var(--strongblue);
+  box-shadow: 0 2px 0 1px #192a56;
 }
 .pagination div.btn-pagination .dropdown-pagination {
   width: 200px;
@@ -10519,7 +10521,7 @@ section .content-title .action-buttons .search i:not(.mirror) {
   border: none;
   background-color: white;
   font-size: 14px;
-  color: var(--strongblue);
+  color: #192a56;
   border-radius: 50%;
   box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.05);
   cursor: pointer;
@@ -11218,4 +11220,330 @@ section.section-forum {
   background: linear-gradient(to top, #777, #333);
   float: left;
   margin-top: -20px;
+}
+
+.box-content.box-postar {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  float: left;
+  margin-bottom: 40px;
+}
+.box-content.box-postar .titulo {
+  width: calc(100% + 2px);
+  height: 68px;
+  background: #4a69bd;
+  border: 1px solid #c3c5c5;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 14px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin: -1px;
+}
+.box-content.box-postar .titulo span {
+  font-weight: 700;
+  font-size: 15px;
+  color: white;
+}
+.box-content.box-postar .content {
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 10px;
+  min-height: 540px;
+  max-height: 630px;
+}
+.box-content.box-postar .content form input {
+  height: 50px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  border-radius: 5px;
+  color: #777;
+}
+.box-content.box-postar .content form input:focus {
+  box-shadow: none;
+  border: 1px solid #192a56;
+}
+.box-content.box-postar .content form select {
+  height: 50px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  border-radius: 5px;
+  color: #777;
+}
+.box-content.box-postar .content form select:focus {
+  box-shadow: none;
+  border: 1px solid #192a56;
+}
+.box-content.box-postar .content form textarea {
+  height: 50px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  border-radius: 5px;
+  color: #777;
+  min-height: 200px;
+  max-height: 250px;
+  background-color: #fafafa;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 15px;
+}
+.box-content.box-postar .content form textarea:focus {
+  box-shadow: none;
+  border: 1px solid #192a56;
+}
+.box-content.box-postar .content form .form-group {
+  float: left;
+  width: 100%;
+}
+.box-content.box-postar .content form .form-group .categorias {
+  height: 50px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  border-radius: 5px;
+  color: #777;
+  width: 100%;
+  height: 50px;
+  float: left;
+  display: flex;
+  padding-left: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  cursor: default;
+  z-index: 2;
+}
+.box-content.box-postar .content form .form-group .categorias span {
+  width: 100%;
+  float: left;
+}
+.box-content.box-postar .content form .form-group .categorias span.selected {
+  font-weight: 600;
+}
+.box-content.box-postar .content form .form-group .categorias ul {
+  width: calc(100% + 3px);
+  left: -1px;
+  float: left;
+  max-height: 200px;
+  position: absolute;
+  top: 48px;
+  transform: skewX(10deg);
+  transition: transform 0.3s;
+  background-color: white;
+  border: 1px solid #ddd;
+  overflow-y: auto;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  visibility: hidden;
+}
+.box-content.box-postar .content form .form-group .categorias ul li {
+  width: 100%;
+  float: left;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  transition: all 0.1s;
+}
+.box-content.box-postar .content form .form-group .categorias ul li:not(:last-of-type) {
+  border-bottom: 1px solid #ddd;
+}
+.box-content.box-postar .content form .form-group .categorias ul li:hover {
+  padding-left: 30px;
+  color: #4a69bd;
+  transition: all 0.4s;
+  cursor: pointer;
+  font-weight: 600;
+}
+.box-content.box-postar .content form .form-group .categorias ul li:last-of-type {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.box-content.box-postar .content form .form-group .categorias:hover > ul {
+  visibility: visible;
+  transition: transform 0.1s;
+  transform: skewY(0deg);
+}
+.box-content.box-postar .content form .preview {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.3);
+  background-color: #4a69bd;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  border: 1px solid #6590e0;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.box-content.box-postar .content form .preview:hover {
+  background-color: #192a56;
+  transition: all 0.2s;
+}
+.box-content.box-postar .content form button[type=submit] {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.3);
+  background-color: #4a69bd;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  border: 1px solid #6590e0;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.box-content.box-postar .content form button[type=submit]:hover {
+  background-color: #192a56;
+  transition: all 0.2s;
+}
+.box-content.box-postar button[favoriteBadge] {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.3);
+  background-color: #4a69bd;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  border: 1px solid #6590e0;
+  border-radius: 5px;
+  transition: all 0.2s;
+  background-color: #eb3b5a;
+  border: 1px solid #c23616;
+  float: left;
+  margin-top: 10px;
+}
+
+.bbcode {
+  width: 100%;
+  height: auto;
+  padding: 8px 10px;
+  float: left;
+  background-color: #96b7f3;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+  border: 1px solid #507ac7;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.bbcode button[type=button]:not(.emoji) {
+  width: auto;
+  height: 35px;
+  min-width: 35px;
+  padding: 0 10px;
+  margin: 0 5px 0;
+  background-color: #4a69bd;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+  border: 1px solid #507ac7;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  float: left;
+  transition: all 0.3s;
+}
+.bbcode button[type=button]:last-of-type {
+  margin-right: 0;
+}
+.bbcode button[type=button]:hover {
+  background-color: #507ac7;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.bbcode .moreButtons {
+  width: 100%;
+  height: auto;
+  display: none;
+  float: left;
+  margin-top: 10px;
+}
+.bbcode .moreButtons button.emoji {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #6590e0;
+  margin-right: 2.5px;
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+.bbcode .moreButtons button.emoji:hover {
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.5));
+}
+.bbcode .moreButtons.cor button {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #6590e0;
+  margin-right: 2.5px;
+  transition: all 0.3s;
+  border-radius: 50%;
+  padding: 5px;
+  border-radius: 50%;
+}
+.bbcode .moreButtons.cor button:hover {
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.5));
+}
+.bbcode .moreButtons.cor button span {
+  width: 28px;
+  height: 28px;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  float: left;
+}
+.bbcode .moreButtons.cor button:nth-child(1) span {
+  background-color: #607d8b;
+}
+.bbcode .moreButtons.cor button:nth-child(2) span {
+  background-color: #3aa8ce;
+}
+.bbcode .moreButtons.cor button:nth-child(3) span {
+  background-color: #80d500;
+}
+.bbcode .moreButtons.cor button:nth-child(4) span {
+  background-color: #ffbc00;
+}
+.bbcode .moreButtons.cor button:nth-child(5) span {
+  background-color: #D96D00;
+}
+.bbcode .moreButtons.cor button:nth-child(6) span {
+  background-color: #f82a2a;
+}
+.bbcode .moreButtons.cor button:nth-child(7) span {
+  background-color: #145b73;
+}
+.bbcode .moreButtons.cor button:nth-child(8) span {
+  background-color: #ff008d;
+}
+.bbcode .moreButtons.cor button:nth-child(9) span {
+  background-color: #00aeae;
+}
+.bbcode .moreButtons.cor button:nth-child(10) span {
+  background-color: #A300D9;
 }

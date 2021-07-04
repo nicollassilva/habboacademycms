@@ -24,5 +24,4 @@
     @include('habboacademy.layouts.news')
 </div>
 @include('habboacademy.layouts.forum')
-@include('habboacademy.layouts.youtube')
 @endsection

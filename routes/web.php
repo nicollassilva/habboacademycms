@@ -13,8 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('habboacademy.index');
+Route::group([
+    'namespace' => 'App\Http\Controllers\Web',
+    'as' => 'habboacademy'
+], function() {
+    Route::get('/', 'AcademyController@index')->name('index');
+});
+
+Route::group([
+    'namespace' => 'App\Http\Controllers\Web',
+    'as' => 'habboacademy.',
+    'middleware' => ['auth'],
+    'prefix' => 'user'
+], function() {
+    Route::get('/topics/create', 'TopicController@create')->name('topics.index');
+    Route::post('/topics', 'TopicController@store')->name('topics.store');
 });
 
 Auth::routes();

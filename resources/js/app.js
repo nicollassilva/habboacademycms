@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./habboacademy/default');
 
 window.Vue = require('vue').default;
 
