@@ -426,6 +426,18 @@ section {
 						font-weight: 600;
 					}
 				}
+
+				&.fixed {
+					background-color: $theme4;
+					border: 1px solid $purple;
+
+					.title,
+					.data {
+						color: #f1f1f1;
+
+						a { color: #f1f1f1; }
+					}
+				}
 			}
 		}
 

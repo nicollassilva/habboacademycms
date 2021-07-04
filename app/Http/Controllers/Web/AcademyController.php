@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
+use App\Models\Topic;
 use Illuminate\Http\Request;
+use App\Models\TopicsCategories;
+use App\Http\Controllers\Controller;
 
 class AcademyController extends Controller
 {
     public function index()
     {
-        return view('habboacademy.index');
+        $topics = Topic::getListForIndex();
+        $topicsCategories = TopicsCategories::all();
+
+        return view('habboacademy.index', [
+            'topics' => $topics,
+            'topicsCategories' => $topicsCategories,
+        ]);
     }
 }

@@ -10050,21 +10050,16 @@ h3 {
   height: 70px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.menu ul.principal-list li.item-menu:hover a.title-menu {
+.menu ul.principal-list li.item-menu:hover a.title-menu span, .menu ul.principal-list li.item-menu:hover a.title-menu i {
   visibility: hidden;
 }
-.menu ul.principal-list li.item-menu:hover .icon-menu {
+.menu ul.principal-list li.item-menu:hover a.title-menu .icon-menu {
   transform: translate(-50%, -50%) rotateY(0deg);
 }
 .menu ul.principal-list li.item-menu:hover .drop-menu {
   transform: rotateX(0deg);
 }
-.menu ul.principal-list li.item-menu a.title-menu i {
-  margin-right: 5px;
-  font-size: 12px;
-  margin-top: 2px;
-}
-.menu ul.principal-list li.item-menu .icon-menu {
+.menu ul.principal-list li.item-menu a.title-menu .icon-menu {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -10203,6 +10198,22 @@ body {
   font-display: swap;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a69bd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #192a56;
+}
+
 header {
   width: 100vw;
   height: 450px;
@@ -10325,8 +10336,11 @@ header .user-menu {
   align-items: center;
   border-radius: 5px;
 }
-header .user-menu button {
+header .user-menu .button {
   width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   border-radius: 50%;
   color: #192a56;
@@ -10337,11 +10351,12 @@ header .user-menu button {
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
-header .user-menu button:hover {
+header .user-menu .button:hover {
   color: white;
   background-color: #192a56;
+  text-decoration: none;
 }
-header .user-menu button:last-of-type {
+header .user-menu .button:last-of-type {
   background-color: #e3342f;
   color: white;
 }
@@ -10454,6 +10469,8 @@ header .user-menu .picture .body {
 .pagination div.btn-pagination .dropdown-pagination {
   width: 200px;
   height: auto;
+  max-height: 200px;
+  overflow: hidden auto;
   position: absolute;
   top: 45px;
   transform: rotateX(90deg);
@@ -10995,6 +11012,18 @@ section .slider-news {
   font-size: 12px;
   color: #222;
   font-weight: 600;
+}
+.section-forum .box-topics .topics .topic.fixed {
+  background-color: #8c7ae6;
+  border: 1px solid #7158e2;
+}
+.section-forum .box-topics .topics .topic.fixed .title,
+.section-forum .box-topics .topics .topic.fixed .data {
+  color: #f1f1f1;
+}
+.section-forum .box-topics .topics .topic.fixed .title a,
+.section-forum .box-topics .topics .topic.fixed .data a {
+  color: #f1f1f1;
 }
 .section-forum .box-topics .pagination {
   width: 100%;

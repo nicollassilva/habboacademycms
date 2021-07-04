@@ -13,7 +13,12 @@ class Topic extends Model
         'title', 'content', 'slug', 'category_id'
     ];
 
-    public function author()
+    protected $casts = [
+        'fixed' => 'boolean',
+        'status' => 'boolean'
+    ];
+
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -21,5 +26,15 @@ class Topic extends Model
     public function category()
     {
         return $this->belongsTo(TopicsCategories::class);
+    }
+
+    public static function getListForIndex()
+    {
+        return Topic::whereStatus(true)
+            ->with('user')
+            ->orderBy('fixed', 'desc')
+            ->latest()
+            ->limit(8)
+            ->get();
     }
 }

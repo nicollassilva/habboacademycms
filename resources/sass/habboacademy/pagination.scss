@@ -55,6 +55,8 @@
 		.dropdown-pagination {
 			width: 200px;
 			height: auto;
+			max-height: 200px;
+			overflow: hidden auto;
 			position: absolute;
 			top: 45px;
 			transform: rotateX(90deg);

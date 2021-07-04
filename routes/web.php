@@ -26,7 +26,7 @@ Route::group([
     'middleware' => ['auth'],
     'prefix' => 'user'
 ], function() {
-    Route::get('/topics/create', 'TopicController@create')->name('topics.index');
+    Route::get('/topics/create', 'TopicController@create')->name('topics.create');
     Route::post('/topics', 'TopicController@store')->name('topics.store');
 });
 

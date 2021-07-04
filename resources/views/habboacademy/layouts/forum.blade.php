@@ -4,7 +4,12 @@
             <div class="content-title mb-2">
                 <div class="icon" style="background-image: url('images/content-icons/forum.png')"></div>
                 <div class="data">
-                    <div class="principal text-light">Fórum de Discussões</div>
+                    <div class="principal text-light">
+                        Fórum de Discussões
+                        @auth
+                            <a href="{{ route('habboacademy.topics.create') }}" class="btn btn-primary btn-sm ml-2 shadow text-white" style="height: 30px">Criar novo tópico</a>
+                        @endauth
+                    </div>
                     <div class="description text-light">Pode debater de tudo, mas claro, com respeito.</div>
                 </div>
                 <div class="action-buttons">
@@ -16,11 +21,9 @@
                         <div class="btn-pagination d-flex justify-content-center align-items-center">
                             <i class="fas fa-ellipsis-v"></i>
                             <div class="dropdown-pagination">
-                                <button>Categoria</button>
-                                <button>Categoria</button>
-                                <button>Categoria</button>
-                                <button>Categoria</button>
-                                <button>Categoria</button>
+                                @foreach ($topicsCategories as $topicCategory)     
+                                <button id="{{ $topicCategory->id }}">{{ $topicCategory->name }}</button>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -55,21 +58,21 @@
             </div>
             <div class="box-topics">
                 <div class="topics">
-                    <?php for($i = 1; $i <= 8; $i++) { ?>
-                        <div class="topic">
-                            <div class="background-user" style="background-image: url('uploads/slides/welcome.png')">
-                                <div class="comments">
-                                    <div class="chat-icon mr-1"></div>0
-                                </div>
-                            </div>
-                            <a href=""><div class="title text-truncate">Teste testando testando bem testado</div></a>
-                            <div class="avatar"
-                                    style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user=nicollas1073&action=&direction=2&head_direction=2&img_format=png&gesture=&size=s')"></div>
-                            <div class="data">
-                                <a href="">nicollas1073</a> • <i class="fas fa-clock mr-1"></i> há 59 segundos atrás
+                    @foreach ($topics as $topic)
+                    <div class="topic{{ $topic->fixed ? ' fixed' : '' }}">
+                        <div class="background-user" style="background-image: url('uploads/slides/welcome.png')">
+                            <div class="comments">
+                                <div class="chat-icon mr-1"></div>0
                             </div>
                         </div>
-                    <?php } ?>
+                        <a href=""><div class="title text-truncate">{{ $topic->title }}</div></a>
+                        <div class="avatar"
+                                style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $topic->user->username }}&action=&direction=2&head_direction=2&img_format=png&gesture=&size=s')"></div>
+                        <div class="data">
+                            <a href="">{{ $topic->user->username }}</a> • <i class="fas fa-clock mr-1"></i> {{ dateToString($topic->created_at) }}
+                        </div>
+                    </div>
+                    @endforeach 
                 </div>
                 <div class="pagination p-1 bg-white">
                     <button class="btn-pagination" disabled><i class="fas fa-chevron-left"></i></button>
