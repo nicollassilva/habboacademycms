@@ -42,6 +42,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Topic::class);
     }
+    
+    public function topicComments()
+    {
+        return $this->hasMany(TopicComment::class);
+    }
+
+    public function getCommentsCount()
+    {
+        return $this->topicComments()->count();
+    }
 
     public function checkLastTopicTime()
     {

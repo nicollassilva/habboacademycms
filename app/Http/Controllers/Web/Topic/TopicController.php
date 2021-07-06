@@ -21,8 +21,11 @@ class TopicController extends Controller
             return redirect()->back();
         }
 
+        $comments = $topic->comments()->with('user')->latest()->paginate(10);
+
         return view('habboacademy.topic', [
-            'topic' => $topic
+            'topic' => $topic,
+            'comments' => $comments
         ]);
     }
 

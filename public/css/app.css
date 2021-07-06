@@ -12332,72 +12332,6 @@ section.section-forum {
   background-color: #343a40 !important;
 }
 
-.display.topico-ler {
-  font-family: "Exo 2", sans-serif;
-  padding: 30px 20px;
-  text-align: justify;
-  min-height: 300px;
-  float: left;
-  background-color: white;
-  width: 100%;
-  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  line-height: 20px;
-  color: #333;
-}
-.display.topico-ler .assinatura {
-  width: calc(100% - 60px);
-  max-height: 600px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  margin-top: 40px;
-  font-size: 12px;
-  margin-left: 20px;
-  float: left;
-  padding: 10px;
-  background-color: #fff;
-  min-height: 130px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.display.topico-ler .assinatura span.titleAss {
-  width: calc(100% + 20px);
-  height: 35px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  background: #f2f2f2;
-  border: 1px solid #e7e7e7;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  font-size: 11px;
-  color: #a7a7a7;
-  text-transform: uppercase;
-  margin: -10px 0 0 -10px;
-  margin-bottom: 10px;
-}
-.display.topico-ler .assinatura > img {
-  max-width: 100% !important;
-}
-
-.display.noticia-ler {
-  font-family: "Exo 2", sans-serif;
-  padding: 30px 20px;
-  text-align: justify;
-  min-height: 300px;
-  float: left;
-  background-color: white;
-  width: 100%;
-  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  line-height: 20px;
-  color: #333;
-  box-shadow: none;
-}
-
 .display.topico-comentarios .comentario .conteudo .assinatura {
   width: calc(100% - 60px);
   max-height: 600px;
@@ -12592,4 +12526,462 @@ section.section-forum {
 }
 .comentar-neg button.prevComment[disabled] {
   border: 1px solid #777;
+}
+
+.display.topico-ler {
+  font-family: "Exo 2", sans-serif;
+  padding: 30px 20px;
+  text-align: justify;
+  min-height: 300px;
+  float: left;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #333;
+}
+.display.topico-ler .assinatura {
+  width: calc(100% - 60px);
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 40px;
+  font-size: 12px;
+  margin-left: 20px;
+  float: left;
+  padding: 10px;
+  background-color: #fff;
+  min-height: 130px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.display.topico-ler .assinatura span.titleAss {
+  width: calc(100% + 20px);
+  height: 35px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: #f2f2f2;
+  border: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 11px;
+  color: #a7a7a7;
+  text-transform: uppercase;
+  margin: -10px 0 0 -10px;
+  margin-bottom: 10px;
+}
+.display.topico-ler .assinatura > img {
+  max-width: 100% !important;
+}
+.display.topico-ler img {
+  max-width: 100%;
+}
+
+.display.noticia-ler {
+  font-family: "Exo 2", sans-serif;
+  padding: 30px 20px;
+  text-align: justify;
+  min-height: 300px;
+  float: left;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #333;
+}
+.display.noticia-ler img {
+  max-width: 100%;
+}
+
+.display.topico-comentarios .comentario {
+  background: linear-gradient(to right, #eee 20.6%, rgba(0, 0, 0, 0.01) 0.6%, #fbfbfb 21.2%);
+  margin: 12px 0 30px 0;
+  width: 100%;
+  min-height: 500px;
+  float: left;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: #535353;
+  font-size: 15px;
+  position: relative;
+  font-weight: 400;
+}
+.display.topico-comentarios .comentario .conteudo {
+  width: calc(100% - 230px);
+  padding: 10px;
+  font-size: 14px;
+  text-align: justify;
+  float: left;
+}
+.display.topico-comentarios .comentario .conteudo .assinatura {
+  width: calc(100% - 60px);
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 40px;
+  font-size: 12px;
+  margin-left: 20px;
+  float: left;
+  padding: 10px;
+  background-color: #fff;
+  min-height: 130px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.display.topico-comentarios .comentario .conteudo .assinatura span.titleAss {
+  width: calc(100% + 20px);
+  height: 35px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: #f2f2f2;
+  border: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 11px;
+  color: #a7a7a7;
+  text-transform: uppercase;
+  margin: -10px 0 0 -10px;
+  margin-bottom: 10px;
+}
+.display.topico-comentarios .comentario .conteudo .assinatura > img {
+  max-width: 100% !important;
+}
+.display.topico-comentarios .comentario .conteudo img {
+  max-width: 100%;
+}
+.display.topico-comentarios .comentario .titulo {
+  background-color: var(--azul-claro);
+  height: 72px;
+  color: #FFFFFF;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 4px 4px 0 0;
+  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.3), inset 0 -4px rgba(255, 255, 255, 0.14);
+}
+.display.topico-comentarios .comentario .titulo .user {
+  background-color: #EEEEEE;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 54px;
+  height: 51px;
+  border-radius: 4px;
+  float: left;
+  margin: 9px 6px;
+  box-shadow: inset 0 0 0 2px #FFFFFF;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.display.topico-comentarios .comentario .titulo .user .cabeca {
+  float: left;
+  width: 54px;
+  height: 62px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.display.topico-comentarios .comentario .titulo .user::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 7px;
+  border-color: transparent transparent transparent #FFFFFF;
+  position: absolute;
+  right: -7px;
+  top: calc(50% - 7px);
+}
+.display.topico-comentarios .comentario .titulo.azul-claro {
+  background-color: var(--azul-claro);
+}
+.display.topico-comentarios .comentario .area-user {
+  width: 230px;
+  padding: 15px;
+  float: left;
+  min-height: 430px;
+  border-bottom-left-radius: 3px;
+  background-color: #eee;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-position: center;
+  box-shadow: inset 0 2px 0 white;
+}
+.display.topico-comentarios .comentario .area-user .foto {
+  background-color: #FFFFFF;
+  width: 198px;
+  height: 198px;
+  border: 4px solid white;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.display.topico-comentarios .comentario .area-user .foto .user {
+  position: relative;
+  margin-left: 55px;
+  margin-top: 115px;
+  height: 30px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1), 0 2px 2px rgba(0, 0, 0, 0.3);
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 7px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  overflow: visible;
+}
+.display.topico-comentarios .comentario .area-user .foto .user span {
+  max-width: 100%;
+  float: left;
+}
+.display.topico-comentarios .comentario .area-user .foto .user::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 7px 7px 0;
+  border-color: transparent #0abde3 transparent transparent;
+  position: absolute;
+  left: -7px;
+  top: calc(50% - 7px);
+}
+.display.topico-comentarios .comentario .area-user .foto .stage-user {
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  z-index: 5;
+}
+.display.topico-comentarios .comentario .area-user .foto .avatar.normal {
+  position: absolute;
+  bottom: 0px;
+  left: -10px;
+  z-index: 6;
+}
+.display.topico-comentarios .comentario .area-user .box-tarja {
+  width: 198px;
+  height: 67px;
+  border-radius: 5px;
+  margin-top: 10px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.display.topico-comentarios .comentario .area-user .box-tarja .restantes {
+  width: 100%;
+  height: 20px;
+  background: #f2f2f2;
+  box-shadow: inset -2px -2px 0 #fff, inset 2px 2px 0 #fff;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  display: flex;
+  position: relative;
+  border-top: none;
+}
+.display.topico-comentarios .comentario .area-user .box-tarja .restantes span {
+  height: 12px;
+  border-radius: 2px;
+  background: #0abde3;
+  border: 1px solid #4a69bd;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.1), inset -2px -2px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 300;
+  color: white;
+}
+.display.topico-comentarios .comentario .area-user .box-tarja .tarja {
+  width: 100%;
+  height: 45px;
+  float: left;
+  background: transparent;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
+  border: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+}
+.display.topico-comentarios .comentario .topico {
+  margin: 0 8px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  width: 505px;
+  font-weight: 500;
+  font-size: 12px;
+  float: left;
+}
+.display.topico-comentarios .comentario .acoes {
+  max-width: 295px;
+  height: 55px;
+  margin-top: 7.5px;
+  padding: 0 5px;
+  float: right;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.display.topico-comentarios .comentario .acoes button {
+  min-width: 45px;
+  height: 45px;
+  float: left;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+.display.topico-comentarios .comentario .acoes .data {
+  min-width: 45px;
+  height: 45px;
+  float: left;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+  color: white;
+}
+.display.topico-comentarios .comentario .acoes .reacao {
+  min-width: 45px;
+  height: 45px;
+  float: left;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+.display.topico-comentarios .comentario .acoes div:last-of-type {
+  margin-right: 0;
+}
+.display.topico-comentarios .comentario .acoes .reacao.curtiu {
+  background-color: #38c172;
+  border: 2px solid white;
+}
+.display.topico-comentarios .comentario .acoes .reacao.descurtiu {
+  background-color: #c23616;
+  border: 2px solid white;
+}
+.display.topico-comentarios .comentario .acoes button.reportar {
+  background-color: #e3342f;
+  border: 2px solid white;
+}
+.display.topico-comentarios .comentario .acoes button.reportar:hover {
+  filter: brightness(120%);
+}
+
+.display.topico-ler.large {
+  margin-top: 270px;
+}
+
+.area-comentar {
+  width: 100%;
+  position: relative;
+  float: left;
+  min-height: 200px;
+  margin: 20px 0 0 0;
+  background-color: #f8f8f8;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.display.noticia-comentarios .comentario .user .direita .reportar {
+  min-width: 45px;
+  height: 45px;
+  float: left;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+  background-color: #e3342f;
+  border: 2px solid white;
+}
+.display.noticia-comentarios .comentario .user .direita .reportar:hover {
+  filter: brightness(120%);
+}
+.display.noticia-comentarios .comentario .user .direita .responder {
+  min-width: 45px;
+  height: 45px;
+  float: left;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+  background-color: #e3342f;
+  border: 2px solid white;
+}
+.display.noticia-comentarios .comentario .user .direita .responder:hover {
+  filter: brightness(120%);
+}
+
+.navigation-pages {
+  float: left;
+  width: 100%;
+}
+.navigation-pages ul.pagination {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.navigation-pages ul.pagination li {
+  margin: 0 2px;
+}
+.navigation-pages ul.pagination li a {
+  font-size: 12px;
+  background-color: #eb3b5a;
+  color: white;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+.navigation-pages ul.pagination li:hover a {
+  color: white;
+  background-color: #f66d9b;
+  border-color: #eb3b5a;
+}
+.navigation-pages ul.pagination li.page-item.setas a {
+  background-color: #f66d9b;
+  color: white;
+  border-color: #eb3b5a;
+}
+.navigation-pages ul.pagination li.page-item.setas.disabled a {
+  background-color: #bbb !important;
+  border: 1px solid #aaa;
+}
+.navigation-pages ul.pagination li.active a {
+  background-color: #f66d9b;
+  border-color: #eb3b5a;
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $tarja = getTarja(0);
+    $tarja = getTarja($topic->user->getCommentsCount());
 @endphp
 
 @section('content')
@@ -35,7 +35,7 @@
         <div class="estatisticas">
             <div class="estatistica" data-toggle="tooltip" title="Gostei"><i class="curtida mr-1"></i><b class="ml-1">2</b></div>
             <div class="estatistica" data-toggle="tooltip" title="Não gostei"><i class="descurtida mr-1"></i><b class="ml-1">3</b></div>
-            <div class="estatistica" data-toggle="tooltip" title="Comentários"><i class="comentarios mr-1"></i><b class="ml-1">4</b></div>
+            <div class="estatistica" data-toggle="tooltip" title="Comentários"><i class="comentarios mr-1"></i><b class="ml-1">{{ $topic->comments()->count() }}</b></div>
             <div class="estatistica"><i class="calendario mr-1"></i>{{ dateToString($topic->created_at) }}</div>
             <div class="estatistica"><i class="noticias mr-1"></i>Categoria:<b class="ml-1">{{ $topic->category->name }}</b></div>
             @if ($topic->moderated == 'moderated')
@@ -103,4 +103,54 @@
     </div>
 </div>
 @endif
+<div class="container">
+    <h4 class="h4 font-weight-bold font-italic my-4 float-left w-100">Comentários deste tópico</h4>
+    <div class="display topico-comentarios">
+        @foreach ($comments as $comment)
+        <div class="comentario">
+            <div class="titulo bg-primary">
+                <div class="user">
+                    <div class="cabeca" style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $comment->user->username }}&headonly=1&direction=2&head_direction=3&action=&gesture=&size=m')"></div>
+                </div>
+                <div class="topico text-truncate">RE: {{ $topic->title }}</div>
+                <div class="acoes">
+                    {{-- <div class="reacao <?php echo $autorReaction['reacao'] ?>" data-toggle="tooltip" title="<?php echo $comment['autor'] .' '. $autorReaction['reacao'] ?> esse tópico"><i class="<?php echo $autorReaction['reacao'] == 'curtiu' ? 'curtida' : 'descurtida' ?>"></i></div> --}}
+                    <button class="reportar" data-toggle="tooltip" title="Reportar comentário"><i class="alerta"></i></button>
+                    <div class="data"><i class="relogio mr-2"></i>{{ dateToString($comment->created_at) }}</div>
+                </div>
+            </div>
+            <div class="area-user">
+                <div class="foto" style="background-image: url('{{ asset('storage/' . $comment->user->profile_image_path) }}')">
+                    <div class="stage-user"></div>
+                    <div class="user bg-primary"><span class="text-truncate"><a href="/home/{{ $comment->user->username }}" class="text-white" style="text-decoration: none !important">{{ $comment->user->username }}</a></span></div>
+                    <div class="avatar normal" style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $comment->user->username }}&headonly=0&direction=2&head_direction=3&action=wav&gesture=sit&size=m')"></div>
+                </div>
+                <div class="box-tarja">
+                    <div class="restantes" data-toggle="tooltip" data-placement="bottom" title="15 comentários no fórum">
+                        @php
+                            $totalComments = $comment->user->getCommentsCount();
+
+                            $tarja = getTarja($totalComments);
+
+                            $final = $totalComments / $tarja["next"] * 100;
+                        @endphp
+                        <span style="width: {{ $final }}%" data-toggle="tooltip" title="Faltam {{ $tarja["next"] - $totalComments }} comentários para o próximo nível">{{ $final }}%</span>
+                    </div>
+                    <div class="tarja" style="background-image: url('{{ asset('/images/tarjas/' . $tarja["level"]) }}.png')"></div>
+                </div>
+            </div>
+            <div class="conteudo">
+                {{ renderUserCode($comment->content) }}
+                <div class="assinatura">
+                    <span class="titleAss">
+                        <i class="noticias"></i> Assinatura de <b class="ml-1">{{ $comment->user->username }}</b>
+                    </span>
+                    Assinatura do usuário do comentário
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    {!! $comments->links('habboacademy.utils.custom_paginator') !!}
+</div>
 @endsection

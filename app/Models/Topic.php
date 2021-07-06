@@ -37,6 +37,7 @@ class Topic extends Model
     {
         return Topic::whereStatus(true)
             ->with('user')
+            ->withCount('comments')
             ->orderBy('fixed', 'desc')
             ->latest()
             ->limit(8)
