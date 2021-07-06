@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Topic extends Model
 {
@@ -25,7 +25,12 @@ class Topic extends Model
 
     public function category()
     {
-        return $this->belongsTo(TopicsCategories::class);
+        return $this->belongsTo(TopicCategory::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(TopicComment::class);
     }
 
     public static function getListForIndex()

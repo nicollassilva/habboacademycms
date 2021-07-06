@@ -29,6 +29,7 @@ Route::group([
 ], function() {
     Route::get('/topics/create', 'TopicController@create')->name('topics.create');
     Route::post('/topics', 'TopicController@store')->name('topics.store');
+    Route::post('/topic/{id}/{slug}/comment', 'TopicController@storeComment')->name('topics.storeComment');
 });
 
 Auth::routes();

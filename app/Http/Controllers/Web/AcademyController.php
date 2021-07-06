@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Models\Topic;
 use Illuminate\Http\Request;
-use App\Models\TopicsCategories;
+use App\Models\TopicCategory;
 use App\Http\Controllers\Controller;
 
 class AcademyController extends Controller
@@ -12,7 +12,7 @@ class AcademyController extends Controller
     public function index()
     {
         $topics = Topic::getListForIndex();
-        $topicsCategories = TopicsCategories::all();
+        $topicsCategories = TopicCategory::all();
 
         return view('habboacademy.index', [
             'topics' => $topics,
