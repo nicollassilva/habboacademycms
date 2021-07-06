@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'namespace' => 'App\Http\Controllers\Web',
-    'as' => 'habboacademy'
+    'as' => 'habboacademy.'
 ], function() {
     Route::get('/', 'AcademyController@index')->name('index');
+    Route::get('/topic/{id}/{slug}', 'TopicController@show')->name('topics.show');
 });
 
 Route::group([

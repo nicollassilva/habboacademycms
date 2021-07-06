@@ -2,16 +2,28 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Models\Topic;
+use Illuminate\Http\Request;
 use App\Models\TopicsCategories;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateTopic;
+use App\Models\Topic;
 
 class TopicController extends Controller
 {
     public function index()
     {
 
+    }
+
+    public function show($id, $slug, Request $request)
+    {
+        if(!$topic = Topic::whereSlug($slug)->where('id', $id)->with(['user', 'category'])->first()) {
+            return redirect()->back();
+        }
+
+        return view('habboacademy.topic', [
+            'topic' => $topic
+        ]);
     }
 
     public function create()

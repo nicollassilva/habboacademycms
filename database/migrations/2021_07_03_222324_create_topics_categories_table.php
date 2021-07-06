@@ -23,7 +23,6 @@ class CreateTopicsCategoriesTable extends Migration
 
         DB::table('topics_categories')->insert([
             ['name' => 'HabboAcademy'],
-            ['name' => 'IronRetro'],
             ['name' => 'Apresentação'],
             ['name' => 'Dúvidas'],
             ['name' => 'Novidades'],

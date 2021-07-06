@@ -15,6 +15,44 @@ body {
 	font-display: swap;
 }
 
+.avatar,
+.avatar,
+.avatar {
+	position: relative;
+	float: left;
+
+	&.normal {
+		width: 64px;
+		height: 110px;
+	}
+
+	&.small {
+		width: 33px;
+		height: 54px;
+	}
+
+	&.big {
+		width: 128px;
+		height: 220px;
+	}
+}
+
+.stage {
+	width: 93px;
+	height: 54px;
+	background-image: url('/images/stage.png');
+	float: left;
+	position: relative;
+}
+
+.stage-user {
+	width: 73px;
+	height: 45px;
+	background-image: url('/images/user_base.png');
+	float: left;
+	position: relative;
+}
+
 ::-webkit-scrollbar {
 	width: 8px;
 }

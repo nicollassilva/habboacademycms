@@ -65,7 +65,7 @@
                                 <div class="chat-icon mr-1"></div>0
                             </div>
                         </div>
-                        <a href=""><div class="title text-truncate">{{ $topic->title }}</div></a>
+                        <a href="{{ route('habboacademy.topics.show', [$topic->id, $topic->slug]) }}"><div class="title text-truncate">{{ $topic->title }}</div></a>
                         <div class="avatar"
                                 style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $topic->user->username }}&action=&direction=2&head_direction=2&img_format=png&gesture=&size=s')"></div>
                         <div class="data">

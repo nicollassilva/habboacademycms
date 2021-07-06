@@ -1,0 +1,420 @@
+i.r-presenca,
+i.r-emblemas,
+i.r-curtidas,
+i.r-moedas,
+i.relogio,
+i.cadeado,
+i.cadeado,
+i.ducket,
+i.lupa,
+i.destaque,
+i.amor,
+i.menuinteracao,
+i.toolbox,
+i.config,
+i.forums,
+i.arte2,
+i.emblemas,
+i.frank,
+i.ferramenta,
+i.calendario,
+i.diam,
+i.camb,
+i.artes-postadas,
+i.calendary,
+i.engrenagem,
+i.moedas,
+i.subir,
+i.descer,
+i.icone-titulo,
+i.essenciais,
+i.icone-registros,
+i.curtida,
+i.descurtida,
+i.boia,
+i.carta,
+i.alerta,
+i.shop,
+i.frank-comentarios,
+i.logout,
+i.comentarios,
+i.fixo,
+i.loja,
+i.eventsIcon,
+i.moderado,
+i.salvar,
+i.valoresM,
+i.new,
+i.hotel,
+i.cancelar,
+i.presente {
+	position: relative;
+	float: left;
+}
+
+i.subir,
+i.descer {
+	width: 40px;
+	height: 40px;
+	background-image: url('/images/mini-icons/subir.png');
+}
+
+i.descer {
+	background-image: url('/images/mini-icons/descer.png');
+}
+
+i.retrocoin {
+	background-image: url('/images/mini-icons/retrocoin.png');
+	width: 20px;
+	height: 20px;
+	float: left;
+}
+
+i.valoresM {
+	background-image: url('/images/mini-icons/valores.png');
+	width: 29px;
+	height: 25px;
+	float: left;
+}
+
+i.ferramenta {
+	width: 17px;
+	height: 17px;
+	background-image: url('/images/mini-icons/ferramenta.gif');
+}
+
+i.ducket {
+	width: 22px;
+	height: 22px;
+	background-image: url('/images/mini-icons/ducket.png');
+}
+
+i.arte2 {
+	width: 25px;
+	height: 17px;
+	background-image: url('/images/mini-icons/arte2.gif');
+}
+
+i.config {
+	width: 14px;
+	height: 15px;
+	background-image: url('/images/mini-icons/config.gif');
+}
+
+i.calendary {
+	width: 20px;
+	height: 20px;
+	background-image: url('/images/mini-icons/calendary.png');
+}
+
+i.eventsIcon {
+	width: 21px;
+	height: 17px;
+	background-image: url('/images/mini-icons/events.gif');
+}
+
+i.salvar {
+	width: 15px;
+	height: 13px;
+	background-image: url('/images/mini-icons/salvar.gif');
+}
+
+i.new {
+	width: 23px;
+	height: 15px;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	background-image: url('/images/mini-icons/new.png');
+	animation: pisc 1s linear infinite;
+}
+
+@keyframes pisc {
+	0% { opacity: 1 }
+	33% { opacity: .5 }
+	66% { opacity: 0 }
+}
+
+i.loja {
+	width: 23px;
+	height: 18px;
+	background-image: url('/images/mini-icons/loja.png');
+}
+
+i.toolbox {
+	width: 28px;
+	height: 20px;
+	background-image: url('/images/mini-icons/toolbox.gif');
+}
+
+i.relogio {
+	width: 19px;
+	height: 16px;
+	background-image: url('/images/mini-icons/relogio.png');
+}
+
+i.fixo {
+	width: 13px;
+	height: 15px;
+	background-image: url('/images/mini-icons/fixo.png');
+}
+
+i.comentarios {
+	width: 13px;
+	height: 12px;
+	background-image: url('/images/mini-icons/comentarios.png');
+}
+
+i.frank-comentarios {
+	width: 86px;
+	height: 174px;
+	background-image: url('/images/mini-iconscomentarios.gif');
+	filter: drop-shadow(0 0 0 #f1f1f1) drop-shadow(2px 0 0 #f1f1f1) drop-shadow(0 -2px 0 #f1f1f1) drop-shadow(-2px 0 0 #f1f1f1);
+}
+
+i.amor {
+	width: 18px;
+	height: 16px;
+	background-image: url('/images/mini-icons/amor.png');
+}
+
+i.alerta {
+	width: 16px;
+	height: 16px;
+	background-image: url('/images/mini-icons/alerta.png');
+}
+
+i.moderado {
+	width: 19px;
+	height: 25px;
+	background-image: url('/images/mini-icons/moderado.png');
+}
+
+i.curtida {
+	width: 13px;
+	height: 14px;
+	background-image: url('/images/mini-icons/curtida.gif');
+}
+
+i.menuinteracao {
+	width: 19px;
+	height: 19px;
+	background-image: url('/images/mini-icons/menuinteracao.png');
+}
+
+i.descurtida {
+	width: 13px;
+	height: 14px;
+	background-image: url('/images/mini-icons/curtida.gif');
+	transform: rotate(180deg);
+}
+
+i.calendario {
+	width: 16px;
+	height: 17px;
+	background-image: url('/images/mini-icons/calendario.gif');
+}
+
+i.emblemas {
+	width: 15px;
+	height: 15px;
+	background-image: url('/images/mini-icons/emblemas.png');
+}
+
+i.logout {
+	width: 31px;
+	height: 31px;
+	background-image: url('/images/mini-icons/logout.png');
+}
+
+i.artes-postadas {
+	width: 30px;
+	height: 30px;
+	background-image: url('/images/mini-icons/arte.png');
+}
+
+i.engrenagem {
+	width: 21px;
+	height: 21px;
+	background-image: url('/images/mini-icons/engrenagem.png');
+}
+
+i.frank {
+	width: 40px;
+	height: 40px;
+	background-image: url('/images/mini-icons/frank.gif');
+}
+
+i.essenciais {
+	width: 32px;
+	height: 30px;
+	background-image: url('/images/mini-icons/essenciais.png');
+}
+
+i.icone-registros {
+	width: 26px;
+	height: 29px;
+	background-image: url('/images/mini-icons/registros.png');
+	margin-top: -5px;
+	margin-right: 10px;
+}
+
+i.shop {
+	width: 37px;
+	height: 37px;
+	background-image: url('/images/mini-icons/feirao.png');
+}
+
+i.r-presenca {
+	width: 47px;
+	height: 51px;
+	background-image: url('/images/mini-icons/r-presenca.png');
+}
+
+i.r-emblemas {
+	width: 50px;
+	height: 50px;
+	background-image: url('/images/mini-icons/r-emblemas.gif');
+}
+
+i.r-curtidas {
+	width: 55px;
+	height: 34px;
+	background-image: url('/images/mini-icons/r-curtidas.png');
+}
+
+i.r-moedas {
+	width: 38px;
+	height: 42px;
+	background-image: url('/images/mini-icons/r-moedas.png');
+}
+
+i.cadeado {
+	width: 25px;
+	height: 30px;
+	background-image: url('/images/mini-icons/cadeado.png');
+}
+
+i.lupa {
+	width: 20px;
+	height: 22px;
+	background-image: url('/images/mini-icons/lupa.png');
+}
+
+i.destaque {
+	width: 25px;
+	height: 25px;
+	background-image: url('/images/mini-icons/destaque.png');
+}
+
+i.forums {
+	width: 26px;
+	height: 32px;
+	background-image: url('/images/mini-icons/forums.png');
+}
+
+i.diam {
+	width: 21px;
+	height: 21px;
+	background-image: url('/images/mini-icons/diamante.png');
+}
+
+i.camb {
+	width: 16px;
+	height: 16px;
+	background-image: url('/images/mini-icons/moeda.png');
+}
+
+i.cancelar {
+	width: 17px;
+	height: 18px;
+	background-image: url('/images/mini-icons/cancelar.png');
+}
+
+i.moedas {
+	width: 16px;
+	height: 16px;
+	background-image: url('/images/mini-icons/moedas.png');
+}
+
+i.icone-titulo {
+	width: 21px;
+	height: 21px;
+	background-image: url('/images/mini-icons/icone-titulo.png');
+}
+
+i.boia {
+	width: 23px;
+	height: 25px;
+	background-image: url('/images/mini-icons/boia.png');
+}
+
+i.topmusic {
+	background-image: url('/images/mini-icons/topmusic.gif');
+}
+
+i.topicos {
+	background-image: url('/images/mini-icons/topicos.png');
+}
+
+i.galeria {
+	background-image: url('/images/mini-icons/galeria.png');
+}
+
+i.ranking {
+	background-image: url('/images/mini-icons/ranking.png');
+}
+
+i.noticias {
+	background-image: url('/images/mini-icons/noticias.png');
+}
+
+i.carta {
+	width: 16px;
+	height: 11px;
+	background-image: url('/images/mini-icons/carta.gif');
+	float: left;
+	position: relative;
+}
+
+i.hotel {
+	width: 29px;
+	height: 33px;
+	background-image: url('/images/mini-icons/hotel.png');
+	float: left;
+	position: relative;
+}
+
+i.presente {
+	width: 27px;
+	height: 25px;
+	background-image: url('/images/mini-icons/presente.gif');
+	float: left;
+	position: relative;
+}
+
+i.som,
+i.somx {
+	width: 29px;
+	height: 22px;
+	background-image: url('/images/mini-icons/som.png');
+	float: left;
+	position: relative;
+}
+
+i.somx {
+	background-image: url('/images/mini-icons/somx.png');
+}
+
+i.topmusic,
+i.topicos,
+i.galeria,
+i.ranking,
+i.noticias {
+	width: 36px;
+	height: 25px;
+	background-position: center;
+	background-repeat: no-repeat;
+	float: left;
+	position: relative;
+}
