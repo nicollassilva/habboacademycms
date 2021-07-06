@@ -10847,6 +10847,9 @@ header .user-menu .picture {
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 header .user-menu .picture .head {
   width: 54px;
@@ -11503,6 +11506,9 @@ section .slider-news {
 .section-forum .box-topics .topics .topic.fixed .title a,
 .section-forum .box-topics .topics .topic.fixed .data a {
   color: #f1f1f1;
+}
+.section-forum .box-topics .topics .topic.fixed .background-user {
+  border: 1px solid #7158e2;
 }
 .section-forum .box-topics .pagination {
   width: 100%;

@@ -18,7 +18,7 @@ Route::group([
     'as' => 'habboacademy.'
 ], function() {
     Route::get('/', 'AcademyController@index')->name('index');
-    Route::get('/topic/{id}/{slug}', 'TopicController@show')->name('topics.show');
+    Route::get('/topic/{id}/{slug}', 'Topic\TopicController@show')->name('topics.show');
 });
 
 Route::group([
@@ -27,9 +27,9 @@ Route::group([
     'middleware' => ['auth'],
     'prefix' => 'user'
 ], function() {
-    Route::get('/topics/create', 'TopicController@create')->name('topics.create');
-    Route::post('/topics', 'TopicController@store')->name('topics.store');
-    Route::post('/topic/{id}/{slug}/comment', 'TopicController@storeComment')->name('topics.storeComment');
+    Route::get('/topics/create', 'Topic\TopicController@create')->name('topics.create');
+    Route::post('/topics', 'Topic\TopicController@store')->name('topics.store');
+    Route::post('/topic/{id}/{slug}/comment', 'Topic\CommentController@store')->name('topics.comments.store');
 });
 
 Auth::routes();

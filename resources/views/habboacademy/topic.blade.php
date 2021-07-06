@@ -5,10 +5,10 @@
 @endphp
 
 @section('content')
-<div class="topic-owner">
+<div class="topic-owner" style="margin-top: -20px">
     <div class="container">
         <div class="box-owner">
-            <div class="user-image">
+            <div class="user-image" style="background-image: url('{{ asset('storage/' . $topic->user->profile_image_path) }}')">
                 @if ($topic->fixed)
                 <div class="fixed-topic"><i class="fixo mr-1"></i>Tópico fixado</div>
                 @endif
@@ -80,7 +80,7 @@
     @include('habboacademy.utils.alerts')
     @if ($topic->moderated != 'closed')
         <h4 class="h4 font-weight-bold my-4 float-left w-100"><i class="forums mr-2"></i><span class="mt-1 float-left ml-2">Faça seu comentário</span></h4>
-        <form action="{{ route('habboacademy.topics.storeComment', [$topic->id, $topic->slug]) }}" method="post" class="form">
+        <form action="{{ route('habboacademy.topics.comments.store', [$topic->id, $topic->slug]) }}" method="post" class="form">
             @csrf
             <textarea name="content" id="content" cols="30" rows="10">{{ old('content') }}</textarea>
                 <div class="bbcode">

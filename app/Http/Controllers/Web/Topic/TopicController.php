@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Web\Topic;
 
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Models\TopicCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateTopic;
-use Illuminate\Support\Facades\Validator;
 
 class TopicController extends Controller
 {
@@ -57,26 +56,5 @@ class TopicController extends Controller
         return redirect()
                 ->back()
                 ->with('success', 'Tópico criado com sucesso!');
-    }
-
-    public function storeComment($id, $slug, Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'content' => ['required', 'min:6', 'max:5000']
-        ]);
-
-        if($validator->fails()) {
-            return redirect()
-                ->back()->withInput()->withErrors($validator);
-        }
-
-        if(!$topic = Topic::whereSlug($slug)->where('id', $id)->with(['user', 'category'])->first()) {
-            return redirect()->back();
-        }
-
-        $topic->comments()->create($request->all());
-
-        return redirect()
-            ->back()->with('success', 'Comentário criado com sucesso!');
     }
 }

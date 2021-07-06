@@ -60,7 +60,7 @@
                 <div class="topics">
                     @foreach ($topics as $topic)
                     <div class="topic{{ $topic->fixed ? ' fixed' : '' }}">
-                        <div class="background-user" style="background-image: url('uploads/slides/welcome.png')">
+                        <div class="background-user" style="background-image: url('{{ asset('storage/' . $topic->user->profile_image_path) }}')">
                             <div class="comments">
                                 <div class="chat-icon mr-1"></div>0
                             </div>
