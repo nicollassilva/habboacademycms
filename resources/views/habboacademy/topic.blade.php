@@ -52,7 +52,7 @@
 </div>
 <div class="container">
     <div class="display topico-ler">
-        {{ renderUserCode($topic->content, 2); }}
+        {!! renderUserCode($topic->content, 2); !!}
         <div class="assinatura">
             <span class="titleAss">
                 <i class="noticias"></i> Assinatura de <b class="ml-1"><?php echo $topic->user->username ?></b>
@@ -61,4 +61,44 @@
         </div>
     </div>
 </div>
+@if (!Auth::check())
+<div class="area-comentar">
+    <span>É necessário se cadastrar ou fazer login para comentar isso!</span>
+    <div class="frank">
+        <a href="{{ route('register') }}">
+            <button>Cadastre-se</button>
+        </a>
+        <i class="frank-comentarios"></i>
+        <a href="{{ route('login') }}">
+            <button>Faça login</button>
+        </a>
+    </div>
+</div>
+@else
+<div class="comentar-neg mt-5 mb-5">
+    <div class="container">
+    @if ($topic->moderated != 'closed')
+        <h4 class="h4 font-weight-bold my-4 float-left w-100"><i class="forums mr-2"></i><span class="mt-1 float-left ml-2">Faça seu comentário</span></h4>
+        <form action="/lib/comentar/topico" method="post" data-reset="true" class="form">
+            <textarea name="textComment" id="textComment" cols="30" rows="10"></textarea>
+                <div class="bbcode">
+                    @include('habboacademy.utils.bbcode', [
+                        'element' => '#textComment',
+                        'type' => 2
+                    ])
+                    <div class="btn">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+            <button type="button" class="prevComment">Prévia do comentário</button>
+        </form>
+        <div class="display topico-comentarios" style="display: none !important"></div>
+    @else
+        <h5 class="w-100 m-0 float-left text-center text-danger">
+            Esse tópico foi fechado pela moderação e não pode mais ser comentado.
+        </h5>
+    @endif
+    </div>
+</div>
+@endif
 @endsection

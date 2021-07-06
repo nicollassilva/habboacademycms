@@ -62,44 +62,44 @@
     </div>
     @endif
 <div class="moreButtons" id="emoji{{ explode('#', $element)[1] }}">
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=amei]" class="emoji" data-bbcode-after="" data-bbcode title="Amei">
-        <img src="/images/emojis/amei.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=iloved]" class="emoji" data-bbcode-after="" data-bbcode title="Amei">
+        <img src="/images/emojis/iloved.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=babando]" class="emoji" data-bbcode-after="" data-bbcode title="Babando">
-        <img src="/images/emojis/babando.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=drooling]" class="emoji" data-bbcode-after="" data-bbcode title="Babando">
+        <img src="/images/emojis/drooling.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=beijinho]" class="emoji" data-bbcode-after="" data-bbcode title="Beijinho">
-        <img src="/images/emojis/beijinho.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=kiss]" class="emoji" data-bbcode-after="" data-bbcode title="Beijinho">
+        <img src="/images/emojis/kiss.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=cansado]" class="emoji" data-bbcode-after="" data-bbcode title="Cansado">
-        <img src="/images/emojis/cansado.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=tired]" class="emoji" data-bbcode-after="" data-bbcode title="Cansado">
+        <img src="/images/emojis/tired.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=seachando]" class="emoji" data-bbcode-after="" data-bbcode title="Se achando">
-        <img src="/images/emojis/seachando.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=bold]" class="emoji" data-bbcode-after="" data-bbcode title="Se achando">
+        <img src="/images/emojis/bold.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=chorando]" class="emoji" data-bbcode-after="" data-bbcode title="Chorando">
-        <img src="/images/emojis/chorando.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=sleeping]" class="emoji" data-bbcode-after="" data-bbcode title="Chorando">
+        <img src="/images/emojis/sleeping.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=envergonhado]" class="emoji" data-bbcode-after="" data-bbcode title="Envergonhado">
-        <img src="/images/emojis/envergonhado.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=embarrassed]" class="emoji" data-bbcode-after="" data-bbcode title="Envergonhado">
+        <img src="/images/emojis/embarrassed.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=dormindo]" class="emoji" data-bbcode-after="" data-bbcode title="Dormindo">
-        <img src="/images/emojis/dormindo.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=sleeping]" class="emoji" data-bbcode-after="" data-bbcode title="Dormindo">
+        <img src="/images/emojis/sleeping.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=feliz]" class="emoji" data-bbcode-after="" data-bbcode title="Feliz">
-        <img src="/images/emojis/feliz.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=happy]" class="emoji" data-bbcode-after="" data-bbcode title="Feliz">
+        <img src="/images/emojis/happy.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=piscadinha]" class="emoji" data-bbcode-after="" data-bbcode title="Piscadinha">
-        <img src="/images/emojis/piscadinha.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=wink]" class="emoji" data-bbcode-after="" data-bbcode title="Piscadinha">
+        <img src="/images/emojis/wink.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=rindo]" class="emoji" data-bbcode-after="" data-bbcode title="Rindo">
-        <img src="/images/emojis/rindo.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=happy]" class="emoji" data-bbcode-after="" data-bbcode title="Rindo">
+        <img src="/images/emojis/happy.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=raiva]" class="emoji" data-bbcode-after="" data-bbcode title="Raiva">
-        <img src="/images/emojis/raiva.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=rage]" class="emoji" data-bbcode-after="" data-bbcode title="Raiva">
+        <img src="/images/emojis/rage.webp" />
     </button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[emoji=triste]" class="emoji" data-bbcode-after="" data-bbcode title="Triste">
-        <img src="/images/emojis/triste.webp" />
+    <button type="button" data-bbcode-el="{{ $element; }}" data-toggle="tooltip" data-bbcode-before="[emoji=sad]" class="emoji" data-bbcode-after="" data-bbcode title="Triste">
+        <img src="/images/emojis/sad.webp" />
     </button>
 </div>
 <div class="moreButtons cor" id="colors{{ explode('#', $element)[1] }}">

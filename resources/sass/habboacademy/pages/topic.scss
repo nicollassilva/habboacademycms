@@ -96,7 +96,7 @@
 			margin-top: 10px;
 			border-radius: 5px;
 			display: flex;
-			justify-content: start;
+			justify-content: flex-start;
 			align-items: center;
 			box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.2);
 
@@ -136,13 +136,13 @@
 				background-color: $cyan;
 				box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .3);
 				display: flex;
-				justify-content: start;
+				justify-content: flex-start;
 				align-items: center;
 				border-top-left-radius: 5px;
 				border-top-right-radius: 5px;
 				font-size: 12px;
 				padding-left: 20px;
-				border-bottom: 1px solid rgba(0, 0, 0, 1);
+				border-bottom: 1px solid rgb(0, 0, 1);
 				color: white;
 
 				i {
@@ -223,6 +223,7 @@
 			}
 		}
 	}
+	
 	.estatisticas {
 		width: calc(100% - 40px);
 		margin-left: 20px;
@@ -255,6 +256,7 @@
 				background-color: $success;
 				color: white;
 				text-shadow: 0 1px 0 black;
+
 				&:hover {
 					filter: brightness(110%);
 				}
@@ -265,6 +267,7 @@
 				color: white;
 				text-shadow: 0 1px 0 black;
 				cursor: pointer;
+				
 				&:hover {
 					filter: brightness(110%);
 				}
@@ -420,5 +423,183 @@
 				}
 			}
 		}
+	}
+}
+
+.area-comentar {
+	width: 100%;
+	position: relative;
+	float: left;
+	margin: 20px 0 0 0;
+	background-color: #f8f8f8;
+	border-top: 1px solid rgba(0, 0, 0, 0.4);
+	background: url('/images/room_background.webp'), linear-gradient(to bottom, #da9898, #ce7777);
+	border-top: 1px solid $theme5;
+	border-bottom: 1px solid $theme5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+	min-height: 300px;
+	flex-direction: column;
+	margin: 20px 0 10px 0;
+
+	.frank {
+		width: 100%;
+		height: 174px;
+		overflow: hidden;
+		float: left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		i.frank-comentarios {
+			background-position: top;
+			height: 174px;
+			margin: 0 20px;
+		}
+
+		a {
+			position: relative;
+
+			button {
+				float: left;
+				width: 140px;
+				height: 50px;
+				background-color: $theme5;
+				border-radius: 3px;
+				font-size: 14px;
+				font-weight: 600;
+				color: white;
+				box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .3), 0 3px 0 rgba(0, 0, 0, 0.15);
+				border: 1px solid $theme2;
+				position: relative;
+				text-shadow: 0 1px 0 #1e1e1e;
+	
+				&:hover {
+					animation: headShake 1s linear;
+				}
+			}
+
+			&:first-of-type {
+				button::before {
+					content: '';
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 7px 0 7px 7px;
+					border-color: transparent transparent transparent $theme5;
+					position: absolute;
+					right: -7px;
+					top: calc(50% - 7px);
+				}
+			}
+
+			&:last-of-type {
+				button::before {
+					content: '';
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 7px 7px 7px 0;
+					border-color: transparent $theme5 transparent transparent;
+					position: absolute;
+					left: -7px;
+					top: calc(50% - 7px);
+				}
+			}
+		}
+	}
+
+	span {
+		float: left;
+		padding: 7.5px 20px;
+		margin-bottom: 10px;
+		font-size: 16px;
+		font-weight: 600;
+		color: rgb(71, 31, 31);
+	}
+}
+
+.comentar-neg {
+	width: 100%;
+	float: left;
+	position: relative;
+	box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
+	background-color: #eee;
+	border-top: 1px solid #aaa;
+	padding: 20px 0;
+
+	form {
+		position: relative;
+		float: left;
+		width: 100%;
+
+		textarea {
+			float: left;
+			width: 100%;
+			border: 1px solid #aaa;
+			resize: none;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			height: 150px;
+			padding: 10px;
+			font-size: 14px;
+			color: #aaa;
+		}
+
+		.bbcode {
+			position: relative;
+			margin-top: -1px;
+
+			.btn {
+				float: right;
+				position: absolute;
+				top: 1px;
+				right: 5px;
+	
+				button {
+					width: 200px;
+					height: 35px;
+					padding: 0 10px;
+					margin: 0 5px 0;
+					background-color: $theme5;
+					box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .2);
+					border: 1px solid $red;
+					border-radius: 5px;
+					font-size: 12px;
+					font-weight: 700;
+					color: white;
+					float: left;
+					transition: all .3s;
+				}
+	
+				button[disabled] {
+					border: 1px solid #777;
+				}
+			}
+		}
+	}
+
+	button.prevComment {
+		width: 200px;
+		padding: 0 10px;
+		box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .2);
+		border-radius: 5px;
+		font-size: 12px;
+		font-weight: 700;
+		color: white;
+		float: left;
+		transition: all .3s;
+		width: 100%;
+		margin: 0;
+		margin-top: 25px;
+		background-color: $secondary;
+		border: 1px solid $dark;
+		height: 50px;
+	}
+
+	button.prevComment[disabled] {
+		border: 1px solid #777;
 	}
 }

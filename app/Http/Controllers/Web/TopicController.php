@@ -40,6 +40,7 @@ class TopicController extends Controller
         $data = $request->all();
 
         $data['category_id'] = $data['category'];
+        $data['content'] = nl2br(htmlspecialchars($data['content']));
 
         $user = auth()->user();
 

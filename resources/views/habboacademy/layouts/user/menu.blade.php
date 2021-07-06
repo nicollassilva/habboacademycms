@@ -6,5 +6,8 @@
         <div class="head" style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&user={{ auth()->user()->username }}&direction=3&head_direction=3&gesture=sml&headonly=1&size=m')"></div>
         <div class="body" style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&user={{ auth()->user()->username }}&direction=3&head_direction=3&gesture=sml&size=s')"></div>
     </div>
-    <a class="button" data-toggle="tooltip" data-placement="left" title="Sair"><i class="fas fa-sign-out-alt"></i></a>
+    <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <button class="button" data-toggle="tooltip" data-placement="left" title="Sair"><i class="fas fa-sign-out-alt"></i></button>
+    </form>
 </div>

@@ -67,5 +67,9 @@
 <script src="{{ asset('js/fontawesome.min.js') }}"></script>
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+@if (config('app.env') == 'local')
+<script src="http://localhost:35729/livereload.js"></script>
+@endif
 </body>
 </html>
