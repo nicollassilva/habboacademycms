@@ -17,11 +17,18 @@ class TopicController extends Controller
 
     public function show($id, $slug, Request $request)
     {
-        if(!$topic = Topic::whereSlug($slug)->where('id', $id)->with(['user', 'category'])->first()) {
+        if(!$topic = Topic::whereSlug($slug)
+            ->where('id', $id)
+            ->with(['user', 'category'])
+            ->withCount('comments')
+            ->first()) {
             return redirect()->back();
         }
 
-        $comments = $topic->comments()->with('user')->latest()->paginate(10);
+        $comments = $topic->comments()
+            ->with('user')
+            ->latest()
+            ->paginate(10);
 
         return view('habboacademy.topic', [
             'topic' => $topic,
@@ -45,7 +52,7 @@ class TopicController extends Controller
         $data['category_id'] = $data['category'];
         $data['content'] = nl2br(htmlspecialchars($data['content']));
 
-        $user = auth()->user();
+        $user = \Auth::user();
 
         if($user->checkLastTopicTime()) {
             return redirect()

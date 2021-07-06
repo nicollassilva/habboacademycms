@@ -32,13 +32,13 @@
                             <b class="customTransition">Últimos</b>Registrados
                         </div>
                         <div class="latests-box">
-                            <?php for($i = 0; $i < 10; $i++) { ?>
-                                <a href="/profile/iNicollas" class="latest-user"
-                                    style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user=Bromarks&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s')"
+                            @foreach (lastUsers() as $lastUser)
+                                <a href="/profile/{{ $lastUser->username }}" class="latest-user"
+                                    style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $lastUser->username }}&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s')"
                                     data-toggle="tooltip"
-                                    title="Olá pessoal"
+                                    title="<b>{{ $lastUser->username }}</b><br>Cadastrou {{ dateToString($lastUser->created_at) }}"
                                     data-placement="bottom"></a>
-                            <?php } ?>
+                            @endforeach
                         </div>
                     </div>
                     <div class="search-field">

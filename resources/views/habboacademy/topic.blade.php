@@ -35,7 +35,7 @@
         <div class="estatisticas">
             <div class="estatistica" data-toggle="tooltip" title="Gostei"><i class="curtida mr-1"></i><b class="ml-1">2</b></div>
             <div class="estatistica" data-toggle="tooltip" title="Não gostei"><i class="descurtida mr-1"></i><b class="ml-1">3</b></div>
-            <div class="estatistica" data-toggle="tooltip" title="Comentários"><i class="comentarios mr-1"></i><b class="ml-1">{{ $topic->comments()->count() }}</b></div>
+            <div class="estatistica" data-toggle="tooltip" title="Comentários"><i class="comentarios mr-1"></i><b class="ml-1">{{ $topic->comments_count }}</b></div>
             <div class="estatistica"><i class="calendario mr-1"></i>{{ dateToString($topic->created_at) }}</div>
             <div class="estatistica"><i class="noticias mr-1"></i>Categoria:<b class="ml-1">{{ $topic->category->name }}</b></div>
             @if ($topic->moderated == 'moderated')

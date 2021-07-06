@@ -5,6 +5,7 @@ use App\Services\{
     TimeService,
     UserCodeService
 };
+use App\Models\User;
 
 if (! function_exists('dateToString')) {
     /**
@@ -46,5 +47,20 @@ if (! function_exists('renderUserCode')) {
     function renderUserCode(String $userText, Int $renderType = 1): String
     {
         return UserCodeService::render($userText, $renderType);
+    }
+}
+
+if (! function_exists('lastUsers')) {
+    /**
+     * Returns the latest registered users.
+     * 
+     * @param string $userText
+     * @param int $renderType
+     * 
+     * @return string
+     */
+    function lastUsers()
+    {
+        return User::latest()->limit(10)->get();
     }
 }

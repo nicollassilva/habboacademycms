@@ -338,6 +338,13 @@ section {
 			padding: 10px;
             
 			.topic {
+				width: calc(50% - 10px);
+				height: 80px;
+				float: left;
+				margin: 5px;
+				border-radius: 5px;
+				border: 1px solid #eee;
+
 				.avatar {
 					width: 30px;
 					height: 30px;
@@ -350,13 +357,6 @@ section {
 					margin-top: 5px;
 					background-color: #ddd;
 				}
-
-				width: calc(50% - 10px);
-				height: 80px;
-				float: left;
-				margin: 5px;
-				border-radius: 5px;
-				border: 1px solid #eee;
 
 				.background-user {
 					width: 60px;
@@ -436,6 +436,10 @@ section {
 						color: #f1f1f1;
 
 						a { color: #f1f1f1; }
+					}
+
+					.avatar {
+						background-color: $purple;
 					}
 
 					.background-user {

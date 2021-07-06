@@ -120,7 +120,7 @@ header {
 				float: left;
 				margin-top: 5px;
 				display: flex;
-				justify-content: space-around;
+				justify-content: flex-start;
 				align-items: center;
 				position: relative;
 				margin-left: 8px;
@@ -132,6 +132,10 @@ header {
 					border-radius: 3px;
 					background-position: center;
 					background-repeat: no-repeat;
+
+					&:not(:first-of-type) {
+						margin-left: 10px;
+					}
 				}
 			}
 		}

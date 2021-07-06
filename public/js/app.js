@@ -1976,6 +1976,7 @@ HabboAcademy = {
     this.fixedMenuOnTop();
     this.selectTopicsCategories();
     this.initBBCode();
+    this.navigate();
   },
   sliders: function sliders() {
     var indexSlider = new Swiper(".indexSlider", {

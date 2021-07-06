@@ -17,6 +17,7 @@ HabboAcademy = {
         this.fixedMenuOnTop();
         this.selectTopicsCategories();
         this.initBBCode();
+        this.navigate();
     },
 
     sliders() {

@@ -6,6 +6,7 @@ use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Models\TopicCategory;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class AcademyController extends Controller
 {
@@ -16,7 +17,7 @@ class AcademyController extends Controller
 
         return view('habboacademy.index', [
             'topics' => $topics,
-            'topicsCategories' => $topicsCategories,
+            'topicsCategories' => $topicsCategories
         ]);
     }
 }

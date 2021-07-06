@@ -10742,7 +10742,7 @@ header .top-bar .last-registers .latests-box {
   float: left;
   margin-top: 5px;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   margin-left: 8px;
@@ -10754,6 +10754,9 @@ header .top-bar .last-registers .latests-box .latest-user {
   border-radius: 3px;
   background-position: center;
   background-repeat: no-repeat;
+}
+header .top-bar .last-registers .latests-box .latest-user:not(:first-of-type) {
+  margin-left: 10px;
 }
 header .top-bar .search-field {
   width: 50%;
@@ -11506,6 +11509,9 @@ section .slider-news {
 .section-forum .box-topics .topics .topic.fixed .title a,
 .section-forum .box-topics .topics .topic.fixed .data a {
   color: #f1f1f1;
+}
+.section-forum .box-topics .topics .topic.fixed .avatar {
+  background-color: #7158e2;
 }
 .section-forum .box-topics .topics .topic.fixed .background-user {
   border: 1px solid #7158e2;
