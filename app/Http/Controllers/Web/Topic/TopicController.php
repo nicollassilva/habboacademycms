@@ -40,7 +40,7 @@ class TopicController extends Controller
     {
         $categories = TopicCategory::all();
 
-        return view('habboacademy.layouts.user.topics.create', [
+        return view('habboacademy.users.topics.create', [
             'categories' => $categories
         ]);
     }

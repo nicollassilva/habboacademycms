@@ -13,23 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group([
-    'namespace' => 'App\Http\Controllers\Web',
-    'as' => 'habboacademy.'
-], function() {
-    Route::get('/', 'AcademyController@index')->name('index');
-    Route::get('/topic/{id}/{slug}', 'Topic\TopicController@show')->name('topics.show');
-});
+Route::namespace('Web') 
+    ->group(function() {
 
-Route::group([
-    'namespace' => 'App\Http\Controllers\Web',
-    'as' => 'habboacademy.',
-    'middleware' => ['auth'],
-    'prefix' => 'user'
-], function() {
-    Route::get('/topics/create', 'Topic\TopicController@create')->name('topics.create');
-    Route::post('/topics', 'Topic\TopicController@store')->name('topics.store');
-    Route::post('/topic/{id}/{slug}/comment', 'Topic\CommentController@store')->name('topics.comments.store');
+        Route::get('/', 'AcademyController@index')->name('index');
+        Route::get('/topic/{id}/{slug}', 'Topic\TopicController@show')->name('topics.show');
+        
+        Route::prefix('user')
+            ->middleware('auth')
+            ->group(function() {
+
+            Route::get('/topics/me', 'UserController@topics')->name('topics.me');
+            Route::get('/topics/create', 'Topic\TopicController@create')->name('topics.create');
+            Route::post('/topics', 'Topic\TopicController@store')->name('topics.store');
+            Route::post('/topic/{id}/{slug}/comment', 'Topic\CommentController@store')->name('topics.comments.store');
+
+        });
+
 });
 
 Auth::routes();

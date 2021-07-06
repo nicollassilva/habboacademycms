@@ -8,7 +8,7 @@
         </div>
         <div class="content">
             @include('habboacademy.utils.alerts')
-            <form action="{{ route('habboacademy.topics.store') }}" method="post" class="form">
+            <form action="{{ route('topics.store') }}" method="post" class="form">
                 @csrf
                 <div class="form-group">
                     <input type="text" name="title" placeholder="Digite um título para o tópico" class="form-control" value="{{ old('title') }}">

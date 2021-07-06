@@ -7,7 +7,7 @@
                     <div class="principal text-light">
                         Fórum de Discussões
                         @auth
-                            <a href="{{ route('habboacademy.topics.create') }}" class="btn btn-primary btn-sm ml-2 shadow text-white" style="height: 30px">Criar novo tópico</a>
+                            <a href="{{ route('topics.create') }}" class="btn btn-primary btn-sm ml-2 shadow text-white" style="height: 30px">Criar novo tópico</a>
                         @endauth
                     </div>
                     <div class="description text-light">Pode debater de tudo, mas claro, com respeito.</div>
@@ -65,7 +65,7 @@
                                 <div class="chat-icon mr-1"></div>{{ $topic->comments_count }}
                             </div>
                         </div>
-                        <a href="{{ route('habboacademy.topics.show', [$topic->id, $topic->slug]) }}"><div class="title text-truncate">{{ $topic->title }}</div></a>
+                        <a href="{{ route('topics.show', [$topic->id, $topic->slug]) }}"><div class="title text-truncate">{{ $topic->title }}</div></a>
                         <div class="avatar"
                                 style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $topic->user->username }}&action=&direction=2&head_direction=2&img_format=png&gesture=&size=s')"></div>
                         <div class="data">
