@@ -23,6 +23,8 @@ Route::namespace('Web')
             ->middleware('auth')
             ->group(function() {
 
+            Route::get('/edit', 'UserController@edit')->name('users.edit');
+
             Route::get('/topics/me', 'UserController@topics')->name('topics.me');
             Route::get('/topics/create', 'Topic\TopicController@create')->name('topics.create');
             Route::post('/topics', 'Topic\TopicController@store')->name('topics.store');

@@ -1976,7 +1976,7 @@ HabboAcademy = {
     this.fixedMenuOnTop();
     this.selectTopicsCategories();
     this.initBBCode();
-    this.navigate();
+    this.profileImage();
   },
   sliders: function sliders() {
     var indexSlider = new Swiper(".indexSlider", {
@@ -2052,6 +2052,19 @@ HabboAcademy = {
             c = n[0].selectionEnd,
             l = e + n.val().substring(r, c) + i;
         n.val(n.val().substring(0, r) + l + n.val().substring(c, s)).focus();
+      }
+    });
+  },
+  profileImage: function profileImage() {
+    $('input[type="file"][imageAvatar]').on('change', function () {
+      if (this.files && this.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('label[avatarImage]').css('background-image', 'url("' + e.target.result + '")').fadeIn();
+        };
+
+        reader.readAsDataURL(this.files[0]);
       }
     });
   }

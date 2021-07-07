@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Topic;
-use App\Models\TopicComment;
+use App\Models\Topic\Topic;
+use App\Models\Topic\TopicComment;
 use App\Observers\TopicObserver;
 use Illuminate\Pagination\Paginator;
 use App\Observers\TopicCommentObserver;

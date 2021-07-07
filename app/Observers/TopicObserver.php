@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Topic;
+use App\Models\Topic\Topic;
 use Illuminate\Support\Str;
 
 class TopicObserver
@@ -10,7 +10,7 @@ class TopicObserver
     /**
      * Handle the Topic "creating" event.
      *
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Topic\Topic  $topic
      * @return void
      */
     public function creating(Topic $topic)
@@ -21,7 +21,7 @@ class TopicObserver
     /**
      * Handle the Topic "updating" event.
      *
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Topic\Topic  $topic
      * @return void
      */
     public function updating(Topic $topic)

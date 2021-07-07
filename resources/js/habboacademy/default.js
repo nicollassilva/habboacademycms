@@ -17,7 +17,7 @@ HabboAcademy = {
         this.fixedMenuOnTop();
         this.selectTopicsCategories();
         this.initBBCode();
-        this.navigate();
+        this.profileImage();
     },
 
     sliders() {
@@ -106,7 +106,19 @@ HabboAcademy = {
                 n.val(n.val().substring(0, r) + l + n.val().substring(c, s)).focus()
             }
         });
-    }
+    },
+    
+    profileImage() {
+        $('input[type="file"][imageAvatar]').on('change', function() {
+            if(this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('label[avatarImage]').css('background-image', 'url("' + e.target.result + '")').fadeIn();
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        })
+    },
 }
 
 $(function() {

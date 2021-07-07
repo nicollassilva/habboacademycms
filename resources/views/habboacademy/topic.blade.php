@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div class="conteudo">
-                {{ renderUserCode($comment->content) }}
+                {!! renderUserCode($comment->content, 2) !!}
                 <div class="assinatura">
                     <span class="titleAss">
                         <i class="noticias"></i> Assinatura de <b class="ml-1">{{ $comment->user->username }}</b>

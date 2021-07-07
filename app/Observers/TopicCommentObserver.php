@@ -2,14 +2,14 @@
 
 namespace App\Observers;
 
-use App\Models\TopicComment;
+use App\Models\Topic\TopicComment;
 
 class TopicCommentObserver
 {
     /**
      * Handle the TopicComment "creating" event.
      *
-     * @param  \App\Models\TopicComment  $topicComment
+     * @param  \App\Models\Topic\TopicComment  $topicComment
      * @return void
      */
     public function creating(TopicComment $topicComment)
@@ -20,7 +20,7 @@ class TopicCommentObserver
     /**
      * Handle the TopicComment "updating" event.
      *
-     * @param  \App\Models\TopicComment  $topicComment
+     * @param  \App\Models\Topic\TopicComment  $topicComment
      * @return void
      */
     public function updating(TopicComment $topicComment)

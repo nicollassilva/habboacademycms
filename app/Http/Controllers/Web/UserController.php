@@ -15,4 +15,16 @@ class UserController extends Controller
             'topics' => $user->topics()->withCount('comments')->latest()->paginate()
         ]);
     }
+    
+    public function edit()
+    {
+        return view('habboacademy.users.account.edit', [
+            'user' => \Auth::user()
+        ]);
+    }
+
+    public function update()
+    {
+
+    }
 }

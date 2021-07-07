@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Web\Topic;
 
-use App\Models\Topic;
+use App\Models\Topic\Topic;
 use Illuminate\Http\Request;
-use App\Models\TopicCategory;
+use App\Models\Topic\TopicCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateTopic;
 
@@ -15,7 +15,7 @@ class TopicController extends Controller
 
     }
 
-    public function show($id, $slug, Request $request)
+    public function show($id, $slug)
     {
         if(!$topic = Topic::whereSlug($slug)
             ->where('id', $id)
