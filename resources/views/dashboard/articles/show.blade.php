@@ -46,6 +46,9 @@
                 <strong>Descrição:</strong> <br>{{ $article->description }}
             </li>
             <li class="list-group-item">
+                <strong>Categoria:</strong> <br>{{ $article->category->name }}
+            </li>
+            <li class="list-group-item">
                 <strong>URL:</strong> <br>{{ $article->slug }}
             </li>
             <li class="list-group-item">

@@ -255,18 +255,18 @@ return [
                 ],
                 [
                     'text'     => 'Categorias',
-                    'icon'     => '',
                     'classes'  => 'pl-4 h6',
+                    'icon'     => '',
                     'submenu'  => [
                         [
                             'text'    => 'Todas categorias',
-                            'url'     => 'dashboard/articles/categories',
+                            'route'     => 'articles.categories.index',
                             'icon'    => '',
                             'classes' => 'pl-4 h6'
                         ],
                         [
                             'text'    => 'Criar categoria',
-                            'url'     => 'dashboard/articles/categories/create',
+                            'route'     => 'articles.categories.create',
                             'icon'    => '',
                             'classes' => 'pl-4 h6'
                         ]

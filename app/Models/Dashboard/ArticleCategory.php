@@ -15,8 +15,10 @@ class ArticleCategory extends Model
         'name', 'icon'
     ];
 
+    public $timestamps = false;
+
     public function articles()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Article::class, 'category_id');
     }
 }
