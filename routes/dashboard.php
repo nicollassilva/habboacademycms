@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 /**
  * Slides Routes
  */
+Route::any('slides/search', 'SlideController@search')->name('slides.search');
 Route::resource('slides', 'SlideController');
 
 /**
@@ -21,8 +22,9 @@ Route::prefix('articles')
     ->name('articles.')
     ->group(function() {
         Route::resource('categories', 'ArticleCategoryController');
+        Route::any('/search', 'ArticleController@search')->name('search');
     });
-    
+
 Route::resource('articles', 'ArticleController');
 
 Route::get('/', 'DashboardController@index')->name('dashboard.index');

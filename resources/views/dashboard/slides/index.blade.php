@@ -25,7 +25,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <form action="" method="POST" class="form">
+        <form action="{{ route('slides.search') }}" method="POST" class="form">
             @csrf
             <div class="row">
                 <div class="col col-11">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success py-2" style="font-size: 13px"><i class="fas fa-search"></i></button>
+                        <button type="submit" class="btn btn-success py-2 w-100" style="font-size: 13px"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>

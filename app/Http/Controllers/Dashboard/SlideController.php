@@ -17,7 +17,7 @@ class SlideController extends Controller
      */
     public function index()
     {
-        $slides = Slide::latest()->paginate(15);
+        $slides = Slide::latest()->paginate();
 
         return view('dashboard.slides.index', [
             'slides' => $slides
@@ -149,5 +149,17 @@ class SlideController extends Controller
         return redirect()
             ->route('slides.index')
             ->with('success', 'Slide deletado com sucesso!');
+    }
+
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+
+        $filteredSlides = Slide::search($request->filter);
+
+        return view('dashboard.slides.index', [
+            'slides' => $filteredSlides,
+            'filters' => $filters
+        ]);
     }
 }

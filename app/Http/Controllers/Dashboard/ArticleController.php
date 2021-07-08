@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Illuminate\Http\Request;
 use App\Models\Dashboard\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -163,5 +164,17 @@ class ArticleController extends Controller
         return redirect()
             ->route('articles.index')
             ->with('success', 'Notícia deletada com sucesso!');
+    }
+
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+
+        $filteredArticles = Article::search($request->filter);
+
+        return view('dashboard.articles.index', [
+            'articles' => $filteredArticles,
+            'filters' => $filters
+        ]);
     }
 }

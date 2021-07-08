@@ -30,4 +30,13 @@ class Article extends Model
     {
         return $this->belongsTo(ArticleCategory::class);
     }
+
+    public static function search($filter = null)
+    {
+        return Article::query()
+            ->where(function($query) use ($filter) {
+                return $query->where('title', 'LIKE', "%{$filter}%")
+                             ->orWhere('description', 'LIKE', "%{$filter}%");
+            })->paginate(35);
+    }
 }

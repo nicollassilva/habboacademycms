@@ -41,4 +41,5 @@
 
 @section('js')
     @include('dashboard.includes.tiny_editor')
+    @include('dashboard.includes.button_loading')
 @endsection

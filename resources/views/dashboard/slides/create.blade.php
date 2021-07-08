@@ -38,3 +38,7 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    @include('dashboard.includes.button_loading')
+@endsection

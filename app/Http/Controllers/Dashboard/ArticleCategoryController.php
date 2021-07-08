@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Dashboard\ArticleCategory;
+use App\Http\Requests\StoreUpdateArticleCategory;
 
 class ArticleCategoryController extends Controller
 {
@@ -36,10 +37,10 @@ class ArticleCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUpdateArticleCategory  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateArticleCategory $request)
     {
         $data = $request->all();
 
@@ -95,11 +96,11 @@ class ArticleCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUpdateArticleCategory  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUpdateArticleCategory $request, $id)
     {
         if(! $category = ArticleCategory::find($id)) {
             return redirect()
