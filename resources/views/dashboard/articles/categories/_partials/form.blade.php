@@ -7,7 +7,7 @@
         <i class="fas fa-circle fa-xs text-primary"></i>
         Nome da Categoria:
     </label>
-    <input class="form-control" type="text" name="name" placeholder="Título..." value="{{ $category->name ?? old('name') }}">
+    <input class="form-control" type="text" name="name" placeholder="Nome..." value="{{ $category->name ?? old('name') }}">
 </div>
 
 <div class="form-group">

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Notícia: ' . $category->name)
+@section('title', 'Categoria: ' . $category->name)
 
 @section('content_header')
 <div class="card mt-3">

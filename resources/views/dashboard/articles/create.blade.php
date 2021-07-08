@@ -3,7 +3,27 @@
 @section('title', 'Cadastrar nova Notícia')
 
 @section('content_header')
-    <h1 class="mb-2">Nova Notícia</h1>
+<div class="card mt-3">
+    <div class="card-header">
+        <nav aria-label="HabboAcademy BreadCrumb">
+            <ol class="breadcrumb text-dark">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('articles.index') }}">Notícias</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a>Nova Notícia</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<a href="{{ route('articles.index') }}" class="btn btn-danger">
+    <i class="fas fa-chevron-left mr-1"></i> Voltar
+</a>
 @stop
 
 @section('content')
