@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Web') 
     ->group(function() {
 
-        Route::get('/', 'AcademyController@index')->name('index');
+        Route::get('/', 'AcademyController@index')->name('academy.index');
         Route::get('/topic/{id}/{slug}', 'Topic\TopicController@show')->name('topics.show');
         
         Route::prefix('user')
@@ -36,4 +36,8 @@ Route::namespace('Web')
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::namespace('Dashboard')
+    ->prefix('dashboard')
+    ->group(function() {
+        Route::get('/', 'DashboardController@index')->name('dashboard.index');
+    });
