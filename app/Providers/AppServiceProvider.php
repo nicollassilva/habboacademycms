@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Topic\Topic;
+use App\Models\Dashboard\Slide;
 use App\Observers\TopicObserver;
+use App\Observers\SlideObserver;
 use App\Models\Dashboard\Article;
 use App\Models\Topic\TopicComment;
 use App\Observers\ArticleObserver;
@@ -36,5 +38,7 @@ class AppServiceProvider extends ServiceProvider
         TopicComment::observe(TopicCommentObserver::class);
 
         Article::observe(ArticleObserver::class);
+
+        Slide::observe(SlideObserver::class);
     }
 }

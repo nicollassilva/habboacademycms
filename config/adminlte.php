@@ -281,11 +281,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Todos slides',
-                    'url' => 'dashboard/slides'
+                    'route' => 'slides.index'
                 ],
                 [
                     'text' => 'Criar slide',
-                    'url' => 'dashboard/slides/create'
+                    'route' => 'slides.create'
                 ]
             ]
         ]

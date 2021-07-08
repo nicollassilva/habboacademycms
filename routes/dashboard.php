@@ -9,8 +9,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index')->name('dashboard.index');
+/**
+ * Slides Routes
+ */
+Route::resource('slides', 'SlideController');
 
+/**
+ * Articles Routes
+ */
 Route::prefix('articles')
     ->name('articles.')
     ->group(function() {
@@ -18,3 +24,5 @@ Route::prefix('articles')
     });
     
 Route::resource('articles', 'ArticleController');
+
+Route::get('/', 'DashboardController@index')->name('dashboard.index');
