@@ -35,9 +35,3 @@ Route::namespace('Web')
 });
 
 Auth::routes();
-
-Route::namespace('Dashboard')
-    ->prefix('dashboard')
-    ->group(function() {
-        Route::get('/', 'DashboardController@index')->name('dashboard.index');
-    });

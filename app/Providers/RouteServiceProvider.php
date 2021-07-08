@@ -28,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $webNamespace = 'App\\Http\\Controllers';
     protected $apiNamespace = 'App\\Http\\Controllers\\Api';
+    protected $dashboardNamespace = 'App\\Http\\Controllers\\Dashboard';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -47,6 +48,11 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->webNamespace)
                 ->group(base_path('routes/web.php'));
+
+            Route::prefix('dashboard')
+                ->middleware(['web', 'auth'])
+                ->namespace($this->dashboardNamespace)
+                ->group(base_path('routes/dashboard.php'));
         });
     }
 
