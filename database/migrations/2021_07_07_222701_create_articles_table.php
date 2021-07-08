@@ -27,7 +27,7 @@ class CreateArticlesTable extends Migration
             $table->text('content');
 
             $table->boolean('reviewed')->default(false);
-            $table->string('reviewer');
+            $table->string('reviewer')->nullable();
 
             $table->boolean('status')->default(false);
             $table->boolean('fixed')->default(false);

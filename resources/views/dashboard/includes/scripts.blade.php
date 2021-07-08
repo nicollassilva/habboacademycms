@@ -6,7 +6,6 @@
             branding: false,
             relative_urls: true,
             valid_children: "+body[style]",
-            extended_valid_elements: "script[language|type|src]",
             document_base_url: '///dashboard/',
             plugins: [
                 'table advlist autolink lists link image charmap preview hr anchor pagebreak',

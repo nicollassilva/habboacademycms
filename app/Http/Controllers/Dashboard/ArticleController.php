@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use App\Models\Dashboard\Article;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateArticle;
 use App\Models\Dashboard\ArticleCategory;
 
 class ArticleController extends Controller
@@ -16,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::with(['user', 'category'])->paginate(30);
+        $articles = Article::with(['user', 'category'])->latest()->paginate(30);
 
         return view('dashboard.articles.index', [
             'articles' => $articles
@@ -40,12 +41,23 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUpdateArticle  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateArticle $request)
     {
-        dd($request);
+        $data = $request->all();
+        $data['category_id'] = $data['category'];
+
+        if($request->hasFile('image') && $request->image->isValid()) {
+            $data['image_path'] = $request->image->store("articles");
+        }
+
+        \Auth::user()->articles()->create($data);
+
+        return redirect()
+            ->route('articles.index')
+            ->with('success', 'Notícia criada com sucesso!');
     }
 
     /**
@@ -56,7 +68,15 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        if(! $article = Article::with(['user', 'category'])->find($id)) {
+            return redirect()
+                ->route('articles.index')
+                ->withErrors('Notícia não encontrada');
+        }
+
+        return view('dashboard.articles.show', [
+            'article' => $article
+        ]);
     }
 
     /**
@@ -67,7 +87,18 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = ArticleCategory::all();
+
+        if(! $article = Article::with('user')->find($id)) {
+            return redirect()
+                ->route('articles.index')
+                ->withErrors('Notícia não encontrada');
+        }
+
+        return view('dashboard.articles.edit', [
+            'categories' => $categories,
+            'article' => $article
+        ]);
     }
 
     /**
@@ -79,7 +110,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**

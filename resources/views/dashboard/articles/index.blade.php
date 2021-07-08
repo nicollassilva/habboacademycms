@@ -42,31 +42,31 @@
         </form>
     </div>
     <div class="card-body table-responsive">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover text-center table-sm">
             <thead>
                 <tr>
+                    <th>Ações</th>
                     <th>Título</th>
                     <th>Autor</th>
                     <th>Revisado</th>
                     <th>Revisador</th>
                     <th>Status</th>
                     <th>Fixo</th>
-                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($articles as $article)
                     <tr>
+                        <td width="150">
+                            <a href="{{ route('articles.show', $article->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('articles.edit', $article->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->user->username }}</td>
                         <td>{{ $article->reviewed ? 'Sim' : 'Não' }}</td>
                         <td>{{ $article->reviewer }}</td>
                         <td>{{ $article->status ? 'Sim' : 'Não' }}</td>
                         <td>{{ $article->fixed ? 'Sim' : 'Não' }}</td>
-                        <td width="150">
-                            <a href="{{ route('article.show', $article->id) }}" class="btn btn-sm btn-info"><i class="fas fa-eye mr-1"></i> Ver</a>
-                            <a href="{{ route('article.edit', $article->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt mr-1"></i> Editar</a>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>

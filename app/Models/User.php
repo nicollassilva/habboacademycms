@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use App\Models\Topic\Topic;
+use App\Models\Dashboard\Article;
 use App\Models\Topic\TopicComment;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -53,6 +54,11 @@ class User extends Authenticatable
     public function getCommentsCount()
     {
         return $this->topicComments()->count();
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
     }
 
     public function checkLastTopicTime()
