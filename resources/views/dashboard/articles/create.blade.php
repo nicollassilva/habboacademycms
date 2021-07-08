@@ -20,5 +20,5 @@
 @endsection
 
 @section('js')
-    @include('dashboard.includes.scripts')
+    @include('dashboard.includes.tiny_editor')
 @endsection

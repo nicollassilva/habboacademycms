@@ -24,6 +24,9 @@
 <a href="{{ route('articles.index') }}" class="btn btn-danger">
     <i class="fas fa-chevron-left mr-1"></i> Voltar
 </a>
+<a href="{{ route('articles.edit', $article->id) }}" class="btn btn-dark">
+    <i class="fas fa-pencil-alt mr-1"></i> Editar
+</a>
 @stop
 
 @section('content')
@@ -33,6 +36,9 @@
     </div>
     <div class="card-body">
         <ul class="list-group">
+            <li class="list-group-item">
+                <img width="500" src="{{ asset("storage/{$article->image_path}") }}" class="rounded mb-2 border shadow d-block mx-auto" alt="{{ $article->title }}">
+            </li>
             <li class="list-group-item">
                 <strong>Título:</strong> <br>{{ $article->title }}
             </li>
@@ -62,18 +68,24 @@
             </li>
             <li class="list-group-item">
                 <strong>Conteúdo:</strong>
+                <hr>
                 {!! $article->content !!}
             </li>
         </ul>
     </div>
     <div class="card-footer">
-        <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
+        <form action="{{ route('articles.destroy', $article->id) }}" method="POST" id="deleteForm">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger mb-1">
-                Deletar essa notícia (AÇÃO IRREVERSSÍVEL)
+                Deletar essa notícia (AÇÃO IRREVERSÍVEL)
             </button>
+            <p class="text-muted" style="font-size:12px">O conteúdo excluído não poderá ser recuperado, somente com backup do banco de dados.</p>
         </form>
     </div>
 </div>
+@endsection
+
+@section('js')
+    @include('dashboard.includes.confirm_delete')
 @endsection

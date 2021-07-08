@@ -66,9 +66,6 @@
         <option value="1"{{ $article->fixed === true ? ' selected' : '' }}>Sim</option>
     </select>
 </div>
-@endisset
-
-@isset($article)
 <div class="form-group">
     <label for="status">
         <i class="fas fa-circle fa-xs text-primary"></i>
@@ -77,6 +74,16 @@
     <select id="status" class="custom-select" name="status">
         <option value="0"{{ $article->status === false ? ' selected' : '' }}>Inativa</option>
         <option value="1"{{ $article->status === true ? ' selected' : '' }}>Ativa</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="reviewed">
+        <i class="fas fa-circle fa-xs text-primary"></i>
+        Revisada:
+    </label>
+    <select id="reviewed" class="custom-select" name="reviewed">
+        <option value="0"{{ $article->reviewed === false ? ' selected' : '' }}>Não</option>
+        <option value="1"{{ $article->reviewed === true ? ' selected' : '' }}>Sim</option>
     </select>
 </div>
 @endisset

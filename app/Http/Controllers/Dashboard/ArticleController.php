@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Illuminate\Http\Request;
 use App\Models\Dashboard\Article;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreUpdateArticle;
 use App\Models\Dashboard\ArticleCategory;
 
@@ -46,7 +46,8 @@ class ArticleController extends Controller
      */
     public function store(StoreUpdateArticle $request)
     {
-        $data = $request->all();
+        $data = $request->only(['title', 'description', 'content', 'category']);
+
         $data['category_id'] = $data['category'];
 
         if($request->hasFile('image') && $request->image->isValid()) {
@@ -104,13 +105,39 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUpdateArticle  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUpdateArticle $request, $id)
     {
-        dd($request);
+        if(! $article = Article::find($id)) {
+            return redirect()
+                ->route('articles.index')
+                ->withErrors('Notícia não encontrada');
+        }
+
+        $data = $request->all();
+        $data['category_id'] = $data['category'];
+
+        if($request->hasFile('image') && $request->image->isValid()) {
+
+            if(Storage::exists($article->image_path)) {
+                Storage::delete($article->image_path);
+            }
+
+            $data['image_path'] = $request->image->store('articles');
+        }
+
+        if(!$article->reviewed && !!$request->reviewed) {
+            $data['reviewer'] = \Auth::user()->username;
+        }
+
+        $article->update($data);
+
+        return redirect()
+            ->route('articles.index')
+            ->with('success', 'Notícia editada com sucesso!');
     }
 
     /**
@@ -121,6 +148,20 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(! $article = Article::find($id)) {
+            return redirect()
+                ->route('articles.index')
+                ->withErrors('Notícia não encontrada');
+        }
+
+        if(Storage::exists($article->image_path)) {
+            Storage::delete($article->image_path);
+        }
+
+        $article->delete();
+
+        return redirect()
+            ->route('articles.index')
+            ->with('success', 'Notícia deletada com sucesso!');
     }
 }

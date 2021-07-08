@@ -11,7 +11,7 @@
                     <a href="{{ route('dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="{{ route('articles.index') }}">Notícias</a>
+                    <a>Notícias</a>
                 </li>
             </ol>
         </nav>
@@ -42,6 +42,7 @@
         </form>
     </div>
     <div class="card-body table-responsive">
+        @include('habboacademy.utils.alerts')
         <table class="table table-striped table-hover text-center table-sm">
             <thead>
                 <tr>

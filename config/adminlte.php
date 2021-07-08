@@ -127,9 +127,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-secondary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'Pesquise por páginas...',
             'topnav_right' => true,
         ],
         [
@@ -237,19 +237,58 @@ return [
         ],
         ['header' => 'Coordenação'],
         [
-            'text' => 'Notícias',
-            'icon' => 'fas fa-newspaper',
+            'text'    => 'Notícias',
+            'icon'    => 'fas fa-newspaper mr-2',
+            'icon_color' => 'info',
             'submenu' => [
                 [
-                    'text' => 'Todas notícias',
-                    'url' => "dashboard/articles"
+                    'text'    => 'Todas notícias',
+                    'route'   => 'articles.index',
+                    'icon'    => '',
+                    'classes' => 'pl-4 h6'
                 ],
                 [
-                    'text' => 'Criar notícia',
-                    'url' => "dashboard/articles/create"
+                    'text'    => 'Criar notícia',
+                    'route'   => 'articles.create',
+                    'icon'    => '',
+                    'classes' => 'pl-4 h6'
+                ],
+                [
+                    'text'     => 'Categorias',
+                    'icon'     => '',
+                    'classes'  => 'pl-4 h6',
+                    'submenu'  => [
+                        [
+                            'text'    => 'Todas categorias',
+                            'url'     => 'dashboard/articles/categories',
+                            'icon'    => '',
+                            'classes' => 'pl-4 h6'
+                        ],
+                        [
+                            'text'    => 'Criar categoria',
+                            'url'     => 'dashboard/articles/categories/create',
+                            'icon'    => '',
+                            'classes' => 'pl-4 h6'
+                        ]
+                    ]
                 ]
             ]
         ],
+        [
+            'text' => 'Slides',
+            'icon' => 'fas fa-chalkboard mr-2',
+            'icon_color' => 'info',
+            'submenu' => [
+                [
+                    'text' => 'Todos slides',
+                    'url' => 'dashboard/slides'
+                ],
+                [
+                    'text' => 'Criar slide',
+                    'url' => 'dashboard/slides/create'
+                ]
+            ]
+        ]
     ],
 
     /*

@@ -23,13 +23,22 @@ class StoreUpdateArticle extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'title' => ['required', 'string', 'min:6', 'max:255'],
             'description' => ['required', 'string', 'min:6', 'max:255'],
             'category' => ['required', 'numeric', 'exists:articles_categories,id'],
             'image' => ['required', 'image'],
             'content' => ['required', 'min:10']
         ];
+
+        if($this->isMethod('PUT')) {
+            $rules['image'] = ['nullable', 'image'];
+            $rules['status'] = ['required', 'boolean'];
+            $rules['fixed'] = ['required', 'boolean'];
+            $rules['reviewed'] = ['required', 'boolean'];
+        }
+
+        return $rules;
     }
 
     public function messages()
@@ -47,7 +56,13 @@ class StoreUpdateArticle extends FormRequest
             'image.required' => 'Insira a imagem',
             'image.image' => 'Insira uma imagem válida',
             'content.required' => 'Digite sua notícia',
-            'content.min' => 'Digite seu notícia'
+            'content.min' => 'Digite seu notícia',
+            'status.required' => 'Informe o status da notícia',
+            'status.boolean' => 'Informe o status da notícia',
+            'fixed.required' => 'Informe o campo "fixa"',
+            'fixed.boolean' => 'Informe o campo "fixa"',
+            'reviewed.required' => 'Informe o campo "revisada"',
+            'reviewed.boolean' => 'Informe o campo "revisada"',
         ];
     }
 }
