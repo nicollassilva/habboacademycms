@@ -8,7 +8,7 @@
         <nav aria-label="HabboAcademy BreadCrumb">
             <ol class="breadcrumb text-dark">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a href="{{ route('adm.dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>Slides</a>
@@ -19,13 +19,13 @@
 </div>
 
 <h1 class="mb-2">Slides</h1>
-<a href="{{ route('slides.create') }}" class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i> Adicionar</a>
+<a href="{{ route('adm.slides.create') }}" class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i> Adicionar</a>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <form action="{{ route('slides.search') }}" method="POST" class="form">
+        <form action="{{ route('adm.slides.search') }}" method="POST" class="form">
             @csrf
             <div class="row">
                 <div class="col col-11">
@@ -57,8 +57,8 @@
                 @foreach ($slides as $slide)
                     <tr>
                         <td width="150">
-                            <a href="{{ route('slides.show', $slide->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                            <a href="{{ route('slides.edit', $slide->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('adm.slides.show', $slide->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('adm.slides.edit', $slide->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
                         </td>
                         <td>{{ $slide->title }}</td>
                         <td>{{ $slide->description }}</td>

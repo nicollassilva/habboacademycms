@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $tarja = getTarja($topic->user->getCommentsCount());
+    $tarja = getTarja($topic->user->topics_comment_count);
 @endphp
 
 @section('content')
@@ -65,11 +65,11 @@
 <div class="area-comentar">
     <span>É necessário se cadastrar ou fazer login para comentar isso!</span>
     <div class="frank">
-        <a href="{{ route('register') }}">
+        <a href="{{ route('web.register') }}">
             <button>Cadastre-se</button>
         </a>
         <i class="frank-comentarios"></i>
-        <a href="{{ route('login') }}">
+        <a href="{{ route('web.login') }}">
             <button>Faça login</button>
         </a>
     </div>
@@ -80,7 +80,7 @@
     @include('habboacademy.utils.alerts')
     @if ($topic->moderated != 'closed')
         <h4 class="h4 font-weight-bold my-4 float-left w-100"><i class="forums mr-2"></i><span class="mt-1 float-left ml-2">Faça seu comentário</span></h4>
-        <form action="{{ route('topics.comments.store', [$topic->id, $topic->slug]) }}" method="post" class="form">
+        <form action="{{ route('web.topics.comments.store', [$topic->id, $topic->slug]) }}" method="post" class="form">
             @csrf
             <textarea name="content" id="content" cols="30" rows="10">{{ old('content') }}</textarea>
                 <div class="bbcode">
@@ -128,7 +128,7 @@
                 <div class="box-tarja">
                     <div class="restantes" data-toggle="tooltip" data-placement="bottom" title="15 comentários no fórum">
                         @php
-                            $totalComments = $comment->user->getCommentsCount();
+                            $totalComments = $comment->user->topics_comment_count;
 
                             $tarja = getTarja($totalComments);
 
@@ -153,4 +153,5 @@
     </div>
     {!! $comments->links('habboacademy.utils.custom_paginator') !!}
 </div>
+
 @endsection

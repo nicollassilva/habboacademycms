@@ -58,7 +58,7 @@ class ArticleController extends Controller
         \Auth::user()->articles()->create($data);
 
         return redirect()
-            ->route('articles.index')
+            ->route('adm.articles.index')
             ->with('success', 'Notícia criada com sucesso!');
     }
 
@@ -72,7 +72,7 @@ class ArticleController extends Controller
     {
         if(! $article = Article::with(['user', 'category'])->find($id)) {
             return redirect()
-                ->route('articles.index')
+                ->route('adm.articles.index')
                 ->withErrors('Notícia não encontrada');
         }
 
@@ -93,7 +93,7 @@ class ArticleController extends Controller
 
         if(! $article = Article::with('user')->find($id)) {
             return redirect()
-                ->route('articles.index')
+                ->route('adm.articles.index')
                 ->withErrors('Notícia não encontrada');
         }
 
@@ -114,7 +114,7 @@ class ArticleController extends Controller
     {
         if(! $article = Article::find($id)) {
             return redirect()
-                ->route('articles.index')
+                ->route('adm.articles.index')
                 ->withErrors('Notícia não encontrada');
         }
 
@@ -137,7 +137,7 @@ class ArticleController extends Controller
         $article->update($data);
 
         return redirect()
-            ->route('articles.index')
+            ->route('adm.articles.index')
             ->with('success', 'Notícia editada com sucesso!');
     }
 
@@ -151,7 +151,7 @@ class ArticleController extends Controller
     {
         if(! $article = Article::find($id)) {
             return redirect()
-                ->route('articles.index')
+                ->route('adm.articles.index')
                 ->withErrors('Notícia não encontrada');
         }
 
@@ -162,7 +162,7 @@ class ArticleController extends Controller
         $article->delete();
 
         return redirect()
-            ->route('articles.index')
+            ->route('adm.articles.index')
             ->with('success', 'Notícia deletada com sucesso!');
     }
 

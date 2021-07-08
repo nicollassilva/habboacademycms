@@ -21,7 +21,7 @@
                     @foreach ($topics as $topic)
                         <tr>
                             <th scope="row" width="30">
-                                <a href="{{ route('topics.show', [$topic->id, $topic->slug]) }}" class="btn btn-dark btn-sm">Visualizar</a>
+                                <a href="{{ route('web.topics.show', [$topic->id, $topic->slug]) }}" class="btn btn-dark btn-sm">Visualizar</a>
                             </th>
                             <td>{{ mb_strimwidth($topic->title, 0, 50, '...') }}</td>
                             <td>{{ $topic->created_at->format('d-m-Y H:i') }}</td>
@@ -45,7 +45,7 @@
                         <tr>
                             <th colspan="5">
                                 <span class="w-100 text-secondary text-center float-left">
-                                    <i class="fas fa-battery-empty mr-2"></i>Nenhum tópico encontrado! Crie um novo clicando <a href="{{ route('topics.create') }}">aqui</a> e faça novos amigos!
+                                    <i class="fas fa-battery-empty mr-2"></i>Nenhum tópico encontrado! Crie um novo clicando <a href="{{ route('web.topics.create') }}">aqui</a> e faça novos amigos!
                                 </span>
                             </th>
                         </tr>

@@ -8,13 +8,13 @@
         <nav aria-label="HabboAcademy BreadCrumb">
             <ol class="breadcrumb text-dark">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a href="{{ route('adm.dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('articles.index') }}">Notícias</a>
+                    <a href="{{ route('adm.articles.index') }}">Notícias</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('articles.categories.index') }}">Categorias</a>
+                    <a href="{{ route('adm.articles.categories.index') }}">Categorias</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>{{ $category->name }}</a>
@@ -24,10 +24,10 @@
     </div>
 </div>
 
-<a href="{{ route('articles.categories.index') }}" class="btn btn-danger">
+<a href="{{ route('adm.articles.categories.index') }}" class="btn btn-danger">
     <i class="fas fa-chevron-left mr-1"></i> Voltar
 </a>
-<a href="{{ route('articles.categories.edit', $category->id) }}" class="btn btn-dark">
+<a href="{{ route('adm.articles.categories.edit', $category->id) }}" class="btn btn-dark">
     <i class="fas fa-pencil-alt mr-1"></i> Editar
 </a>
 @stop
@@ -51,7 +51,7 @@
     </div>
     <div class="card-footer">
         @include('habboacademy.utils.alerts')
-        <form action="{{ route('articles.categories.destroy', $category->id) }}" method="POST" id="deleteForm">
+        <form action="{{ route('adm.articles.categories.destroy', $category->id) }}" method="POST" id="deleteForm">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger mb-1">

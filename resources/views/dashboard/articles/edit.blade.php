@@ -8,13 +8,13 @@
         <nav aria-label="HabboAcademy BreadCrumb">
             <ol class="breadcrumb text-dark">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a href="{{ route('adm.dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('articles.index') }}">Notícias</a>
+                    <a href="{{ route('adm.articles.index') }}">Notícias</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('articles.show', $article->id) }}">{{ $article->title }}</a>
+                    <a href="{{ route('adm.articles.show', $article->id) }}">{{ $article->title }}</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>Editar</a>
@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<a href="{{ route('articles.show', $article->id) }}" class="btn btn-danger">
+<a href="{{ route('adm.articles.show', $article->id) }}" class="btn btn-danger">
     <i class="fas fa-chevron-left mr-1"></i> Voltar
 </a>
 @stop
@@ -32,7 +32,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('articles.update', $article->id) }}" class="form" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('adm.articles.update', $article->id) }}" class="form" method="POST" enctype="multipart/form-data">
                 @include('dashboard.articles._partials.form')
                 @method('PUT')
                 <div class="form-group">

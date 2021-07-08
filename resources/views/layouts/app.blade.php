@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @yield('css')
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -67,6 +68,7 @@
 <script src="{{ asset('js/fontawesome.min.js') }}"></script>
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+@yield('js')
 
 @if (config('app.env') == 'local')
 <script src="http://localhost:35729/livereload.js"></script>

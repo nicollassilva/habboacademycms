@@ -8,7 +8,7 @@
         <nav aria-label="HabboAcademy BreadCrumb">
             <ol class="breadcrumb text-dark">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a href="{{ route('adm.dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>Notícias</a>
@@ -19,13 +19,13 @@
 </div>
 
 <h1 class="mb-2">Notícias</h1>
-<a href="{{ route('articles.create') }}" class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i> Adicionar</a>
+<a href="{{ route('adm.articles.create') }}" class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i> Adicionar</a>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <form action="{{ route('articles.search') }}" method="POST" class="form">
+        <form action="{{ route('adm.articles.search') }}" method="POST" class="form">
             @csrf
             <div class="row">
                 <div class="col col-11">
@@ -59,8 +59,8 @@
                 @foreach ($articles as $article)
                     <tr>
                         <td width="150">
-                            <a href="{{ route('articles.show', $article->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                            <a href="{{ route('articles.edit', $article->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('adm.articles.show', $article->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('adm.articles.edit', $article->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
                         </td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->user->username }}</td>

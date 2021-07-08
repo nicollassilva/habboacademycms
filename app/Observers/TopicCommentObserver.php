@@ -18,6 +18,17 @@ class TopicCommentObserver
     }
 
     /**
+     * Handle the TopicComment "created" event.
+     *
+     * @param  \App\Models\Topic\TopicComment  $topicComment
+     * @return void
+     */
+    public function created(TopicComment $topicComment)
+    {
+        $topicComment->user->increment('topics_comment_count');
+    }
+
+    /**
      * Handle the TopicComment "updating" event.
      *
      * @param  \App\Models\Topic\TopicComment  $topicComment

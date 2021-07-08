@@ -3,25 +3,17 @@
 namespace App\Http\Controllers\Web\Topic;
 
 use App\Models\Topic\Topic;
-use Illuminate\Http\Request;
 use App\Models\Topic\TopicCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateTopic;
 
 class TopicController extends Controller
 {
-    public function index()
-    {
-
-    }
-
     public function show($id, $slug)
     {
-        if(!$topic = Topic::whereSlug($slug)
-            ->where('id', $id)
-            ->with(['user', 'category'])
-            ->withCount('comments')
-            ->first()) {
+        if(
+            ! $topic = Topic::whereSlug($slug)->where('id', $id)->with(['user', 'category'])->withCount('comments')->first()
+        ) {
             return redirect()->back();
         }
 
@@ -61,7 +53,7 @@ class TopicController extends Controller
                 ->with('error', 'Espere 5 minutos para postar um novo tópico!');
         }
 
-        $topic = $user->topics()->create($data);
+        $user->topics()->create($data);
 
         return redirect()
                 ->back()

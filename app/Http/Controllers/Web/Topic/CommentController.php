@@ -21,12 +21,15 @@ class CommentController extends Controller
 
         if($validator->fails()) {
             return redirect()
-                ->back()->withInput()->withErrors($validator);
+                ->back()
+                ->withInput()
+                ->withErrors($validator);
         }
 
         $topic->comments()->create($request->all());
 
         return redirect()
-            ->back()->with('success', 'Comentário criado com sucesso!');
+            ->back()
+            ->with('success', 'Comentário criado com sucesso!');
     }
 }

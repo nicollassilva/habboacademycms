@@ -51,7 +51,7 @@ class SlideController extends Controller
         Slide::create($data);
 
         return redirect()
-            ->route('slides.index')
+            ->route('adm.slides.index')
             ->with('success', 'Slide criado com sucesso!');
     }
 
@@ -65,7 +65,7 @@ class SlideController extends Controller
     {
         if(! $slide = Slide::find($id)) {
             return redirect()
-                ->route('slides.index')
+                ->route('adm.slides.index')
                 ->withErrors('Slide não encontrado');
         }
 
@@ -84,7 +84,7 @@ class SlideController extends Controller
     {
         if(! $slide = Slide::find($id)) {
             return redirect()
-                ->route('slides.index')
+                ->route('adm.slides.index')
                 ->withErrors('Slide não encontrado');
         }
 
@@ -104,7 +104,7 @@ class SlideController extends Controller
     {
         if(! $slide = Slide::find($id)) {
             return redirect()
-                ->route('slides.index')
+                ->route('adm.slides.index')
                 ->withErrors('Slide não encontrado');
         }
 
@@ -122,7 +122,7 @@ class SlideController extends Controller
         $slide->update($data);
 
         return redirect()
-            ->route('slides.index')
+            ->route('adm.slides.index')
             ->with('success', 'Slide editado com sucesso!');
     }
 
@@ -136,7 +136,7 @@ class SlideController extends Controller
     {
         if(! $slide = Slide::find($id)) {
             return redirect()
-                ->route('slides.index')
+                ->route('adm.slides.index')
                 ->withErrors('Slide não encontrado');
         }
 
@@ -147,7 +147,7 @@ class SlideController extends Controller
         $slide->delete();
 
         return redirect()
-            ->route('slides.index')
+            ->route('adm.slides.index')
             ->with('success', 'Slide deletado com sucesso!');
     }
 

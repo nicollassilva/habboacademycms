@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
+ * Topics Routes
+ */
+Route::resource('topics', 'TopicController');
+
+/**
  * Slides Routes
  */
 Route::any('slides/search', 'SlideController@search')->name('slides.search');

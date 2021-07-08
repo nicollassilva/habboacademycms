@@ -51,7 +51,7 @@ class ArticleCategoryController extends Controller
         ArticleCategory::create($data);
 
         return redirect()
-            ->route('articles.categories.index')
+            ->route('adm.articles.categories.index')
             ->with('success', 'Categoria criada com sucesso!');
     }
 
@@ -65,7 +65,7 @@ class ArticleCategoryController extends Controller
     {
         if(! $category = ArticleCategory::find($id)) {
             return redirect()
-                ->route('articles.categories.index')
+                ->route('adm.articles.categories.index')
                 ->withErrors('Categoria não encontrada');
         }
 
@@ -84,7 +84,7 @@ class ArticleCategoryController extends Controller
     {
         if(! $category = ArticleCategory::find($id)) {
             return redirect()
-                ->route('articles.categories.index')
+                ->route('adm.articles.categories.index')
                 ->withErrors('Categoria não encontrada');
         }
 
@@ -104,7 +104,7 @@ class ArticleCategoryController extends Controller
     {
         if(! $category = ArticleCategory::find($id)) {
             return redirect()
-                ->route('articles.categories.index')
+                ->route('adm.articles.categories.index')
                 ->withErrors('Categoria não encontrada');
         }
 
@@ -122,7 +122,7 @@ class ArticleCategoryController extends Controller
         $category->update($data);
 
         return redirect()
-            ->route('articles.categories.index')
+            ->route('adm.articles.categories.index')
             ->with('success', 'Categoria editada com sucesso!');
     }
 
@@ -136,13 +136,13 @@ class ArticleCategoryController extends Controller
     {
         if(! $category = ArticleCategory::find($id)) {
             return redirect()
-                ->route('articles.index')
+                ->route('adm.articles.index')
                 ->withErrors('Categoria não encontrada');
         }
 
         if($category->articles->count() > 0) {
             return redirect()
-                ->route('articles.categories.show', $category->id)
+                ->route('adm.articles.categories.show', $category->id)
                 ->withErrors('Categoria não pôde ser excluída pois existem notícias que dependem dela.');
         }
 
@@ -153,7 +153,7 @@ class ArticleCategoryController extends Controller
         $category->delete();
 
         return redirect()
-            ->route('articles.categories.index')
+            ->route('adm.articles.categories.index')
             ->with('success', 'Categoria deletada com sucesso!');
     }
 }

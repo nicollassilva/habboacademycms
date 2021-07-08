@@ -243,13 +243,13 @@ return [
             'submenu' => [
                 [
                     'text'    => 'Todas notícias',
-                    'route'   => 'articles.index',
+                    'route'   => 'adm.articles.index',
                     'icon'    => '',
                     'classes' => 'pl-4 h6'
                 ],
                 [
                     'text'    => 'Criar notícia',
-                    'route'   => 'articles.create',
+                    'route'   => 'adm.articles.create',
                     'icon'    => '',
                     'classes' => 'pl-4 h6'
                 ],
@@ -260,13 +260,13 @@ return [
                     'submenu'  => [
                         [
                             'text'    => 'Todas categorias',
-                            'route'     => 'articles.categories.index',
+                            'route'   => 'adm.articles.categories.index',
                             'icon'    => '',
                             'classes' => 'pl-4 h6'
                         ],
                         [
                             'text'    => 'Criar categoria',
-                            'route'     => 'articles.categories.create',
+                            'route'   => 'adm.articles.categories.create',
                             'icon'    => '',
                             'classes' => 'pl-4 h6'
                         ]
@@ -275,17 +275,57 @@ return [
             ]
         ],
         [
-            'text' => 'Slides',
-            'icon' => 'fas fa-chalkboard mr-2',
+            'text'       => 'Slides',
+            'icon'       => 'fas fa-chalkboard mr-2',
             'icon_color' => 'info',
-            'submenu' => [
+            'submenu'    => [
                 [
-                    'text' => 'Todos slides',
-                    'route' => 'slides.index'
+                    'text'  => 'Todos slides',
+                    'route' => 'adm.slides.index'
                 ],
                 [
-                    'text' => 'Criar slide',
-                    'route' => 'slides.create'
+                    'text'  => 'Criar slide',
+                    'route' => 'adm.slides.create'
+                ]
+            ],
+        ],
+        ['header' => 'Moderação'],
+        [
+            'text'       => 'Tópicos',
+            'icon'       => 'fas fa-pencil-alt mr-2',
+            'icon_color' => 'info',
+            'submenu'    => [
+                [
+                    'text'    => 'Todos tópicos',
+                    'icon'    => '',
+                    'classes' => 'pl-4 h6',
+                    'route'   => 'adm.topics.index'
+                ],
+            ]
+        ],
+        [
+            'text'       => 'Notícias',
+            'icon'       => 'fas fa-newspaper mr-2',
+            'icon_color' => 'info',
+            'submenu'    => [
+                [
+                    'text'    => 'Comentários',
+                    'icon'    => '',
+                    'classes' => 'pl-4 h6',
+                    'submenu' => [
+                        [
+                            'text'    => 'Pesquisar por Usuário',
+                            'icon'    => '',
+                            'classes' => 'pl-4 h6',
+                            'url'     => ''
+                        ],
+                        [
+                            'text'    => 'Pesquisar por Tópico',
+                            'icon'    => '',
+                            'classes' => 'pl-4 h6',
+                            'url'     => ''
+                        ],
+                    ]
                 ]
             ]
         ]

@@ -8,10 +8,10 @@
         <nav aria-label="HabboAcademy BreadCrumb">
             <ol class="breadcrumb text-dark">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a href="{{ route('adm.dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('articles.index') }}">Notícias</a>
+                    <a href="{{ route('adm.articles.index') }}">Notícias</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a >Categorias</a>
@@ -22,7 +22,7 @@
 </div>
 
 <h1 class="mb-2">Categorias de Notícias</h1>
-<a href="{{ route('articles.categories.create') }}" class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i> Adicionar</a>
+<a href="{{ route('adm.articles.categories.create') }}" class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i> Adicionar</a>
 @stop
 
 @section('content')
@@ -58,8 +58,8 @@
                 @foreach ($categories as $category)
                     <tr>
                         <td width="150">
-                            <a href="{{ route('articles.categories.show', $category->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                            <a href="{{ route('articles.categories.edit', $category->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('adm.articles.categories.show', $category->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('adm.articles.categories.edit', $category->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
                         </td>
                         <td>{{ $category->name }}</td>
                         <td>

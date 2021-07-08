@@ -8,10 +8,10 @@
         <nav aria-label="HabboAcademy BreadCrumb">
             <ol class="breadcrumb text-dark">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a href="{{ route('adm.dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('slides.index') }}">Slides</a>
+                    <a href="{{ route('adm.slides.index') }}">Slides</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>{{ $slide->title }}</a>
@@ -21,10 +21,10 @@
     </div>
 </div>
 
-<a href="{{ route('slides.index') }}" class="btn btn-danger">
+<a href="{{ route('adm.slides.index') }}" class="btn btn-danger">
     <i class="fas fa-chevron-left mr-1"></i> Voltar
 </a>
-<a href="{{ route('slides.edit', $slide->id) }}" class="btn btn-dark">
+<a href="{{ route('adm.slides.edit', $slide->id) }}" class="btn btn-dark">
     <i class="fas fa-pencil-alt mr-1"></i> Editar
 </a>
 @stop
@@ -64,7 +64,7 @@
         </ul>
     </div>
     <div class="card-footer">
-        <form action="{{ route('slides.destroy', $slide->id) }}" method="POST" id="deleteForm">
+        <form action="{{ route('adm.slides.destroy', $slide->id) }}" method="POST" id="deleteForm">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger mb-1">
