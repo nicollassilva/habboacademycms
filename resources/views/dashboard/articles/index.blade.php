@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col col-11">
                     <div class="form-group">
-                        <input type="text" name="filter" placeholder="Pesquise aqui..." class="form-control" value="{{ $filters["filter"] ?? "" }}">
+                        <input type="text" name="filter" placeholder="Pesquise pelo título ou descrição..." class="form-control" value="{{ $filters["filter"] ?? "" }}">
                     </div>
                 </div>
                 <div class="col">
@@ -82,3 +82,7 @@
     </div>
 </div>
 @stop
+
+@section('js')
+    @include('dashboard.includes.bootstrap_tooltip')
+@endsection

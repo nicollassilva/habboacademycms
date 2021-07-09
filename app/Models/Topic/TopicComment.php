@@ -13,7 +13,12 @@ class TopicComment extends Model
     protected $table = "topics_comments";
 
     protected $fillable = [
-        'content'
+        'content', 'active',
+        'moderated', 'moderator'
+    ];
+
+    protected $casts = [
+        'active' => 'boolean'
     ];
 
     public function topic()
@@ -24,5 +29,16 @@ class TopicComment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public static function search($filter = null, $id)
+    {
+        return TopicComment::query()
+            ->where('topic_id', $id)
+            ->with('user')
+            ->whereHas('user', function($query) use ($filter) {
+                return $query->where('username', 'LIKE', "%{$filter}%");
+            })
+            ->get();
     }
 }

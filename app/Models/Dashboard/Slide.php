@@ -26,6 +26,8 @@ class Slide extends Model
             ->where(function($query) use ($filter) {
                 return $query->where('title', 'LIKE', "%{$filter}%")
                              ->orWhere('description', 'LIKE', "%{$filter}%");
-            })->paginate();
+            })
+            ->latest()
+            ->paginate();
     }
 }

@@ -166,6 +166,12 @@ class ArticleController extends Controller
             ->with('success', 'Notícia deletada com sucesso!');
     }
 
+    /**
+     * Display a listing of the filtered resource.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function search(Request $request)
     {
         $filters = $request->except('_token');

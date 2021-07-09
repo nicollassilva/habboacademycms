@@ -106,7 +106,26 @@ class TopicController extends Controller
         }
 
         return view('dashboard.topics.comments.index', [
-            'topic' => $topic
+            'topic' => $topic,
+            'comments' => $topic->comments
+        ]);
+    }
+
+    /**
+     * Display a listing of the filtered resource.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+
+        $filteredTopics = Topic::search($request->filter);
+
+        return view('dashboard.topics.index', [
+            'topics' => $filteredTopics,
+            'filters' => $filters
         ]);
     }
 }

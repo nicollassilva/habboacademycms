@@ -30,12 +30,12 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <form action="{{ route('adm.topics.search') }}" method="POST" class="form">
+        <form action="{{ route('adm.topic.comments.search', $topic->id) }}" method="POST" class="form">
             @csrf
             <div class="row">
                 <div class="col col-11">
                     <div class="form-group">
-                        <input type="text" name="filter" placeholder="Pesquise aqui..." class="form-control" value="{{ $filters["filter"] ?? "" }}">
+                        <input type="text" name="filter" placeholder="Pesquise pelo nome do usuário..." class="form-control" value="{{ $filters["filter"] ?? "" }}">
                     </div>
                 </div>
                 <div class="col">
@@ -57,7 +57,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($topic->comments as $comment)
+                @foreach ($comments as $comment)
                     <tr>
                         <td width="150">
                             <a href="{{ route('adm.topic.comments.show', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
@@ -72,3 +72,7 @@
     </div>
 </div>
 @stop
+
+@section('js')
+    @include('dashboard.includes.bootstrap_tooltip')
+@endsection

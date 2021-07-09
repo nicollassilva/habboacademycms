@@ -32,12 +32,13 @@ class Topic extends Model
 
     public function comments()
     {
-        return $this->hasMany(TopicComment::class);
+        return $this->hasMany(TopicComment::class)->latest();
     }
 
-    public static function getListForIndex()
+    public static function getResourcesForIndexPage()
     {
-        return Topic::whereStatus(true)
+        return Topic::query()
+            ->whereStatus(true)
             ->with('user')
             ->withCount('comments')
             ->orderBy('fixed', 'desc')
@@ -55,5 +56,13 @@ class Topic extends Model
             ->with(['user', 'category'])
             ->withCount('comments')
             ->first();
+    }
+
+    public static function search($filter = null)
+    {
+        return Topic::query()
+            ->where('title', 'LIKE', "%{$filter}%")
+            ->latest()
+            ->paginate(30);
     }
 }

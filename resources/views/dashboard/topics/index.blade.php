@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col col-11">
                     <div class="form-group">
-                        <input type="text" name="filter" placeholder="Pesquise aqui..." class="form-control" value="{{ $filters["filter"] ?? "" }}">
+                        <input type="text" name="filter" placeholder="Pesquise pelo título..." class="form-control" value="{{ $filters["filter"] ?? "" }}">
                     </div>
                 </div>
                 <div class="col">
@@ -59,6 +59,7 @@
                         <td width="150">
                             <a href="{{ route('adm.topics.show', $topic->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
                             <a href="{{ route('adm.topics.edit', $topic->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('adm.topic.comments', $topic->id) }}" data-toggle="tooltip" title="Comentários" class="btn btn-sm btn-dark"><i class="fas fa-comments"></i></a>
                         </td>
                         <td>{{ $topic->title }}</td>
                         <td>{{ $topic->user->username }}</td>
@@ -79,3 +80,7 @@
     </div>
 </div>
 @stop
+
+@section('js')
+    @include('dashboard.includes.bootstrap_tooltip')
+@endsection

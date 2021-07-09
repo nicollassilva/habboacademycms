@@ -103,14 +103,14 @@
     </button>
 </div>
 <div class="moreButtons cor" id="colors{{ explode('#', $element)[1] }}">
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=cinzento]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=azul]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=verde]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=amarelo]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=laranja]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=vermelho]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=azulEscuro]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=rosa]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=marinho]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
-    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=preto]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=gray]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=blue]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=green]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=yellow]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=orange]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=red]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=darkblue]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=pink]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=marine]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
+    <button type="button" data-bbcode-el="{{ $element; }}" data-bbcode-before="[color=black]" data-bbcode-after="[/color]" data-bbcode><span></span></button>
 </div>

@@ -37,6 +37,8 @@ class Article extends Model
             ->where(function($query) use ($filter) {
                 return $query->where('title', 'LIKE', "%{$filter}%")
                              ->orWhere('description', 'LIKE', "%{$filter}%");
-            })->paginate(35);
+            })
+            ->latest()
+            ->paginate(35);
     }
 }

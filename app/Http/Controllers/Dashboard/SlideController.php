@@ -151,6 +151,12 @@ class SlideController extends Controller
             ->with('success', 'Slide deletado com sucesso!');
     }
 
+    /**
+     * Display a listing of the filtered resource.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function search(Request $request)
     {
         $filters = $request->except('_token');

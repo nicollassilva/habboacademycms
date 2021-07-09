@@ -156,4 +156,22 @@ class ArticleCategoryController extends Controller
             ->route('adm.articles.categories.index')
             ->with('success', 'Categoria deletada com sucesso!');
     }
+
+    /**
+     * Display a listing of the filtered resource.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+
+        $filteredCategories = ArticleCategory::search($request->filter);
+
+        return view('dashboard.articles.categories.index', [
+            'categories' => $filteredCategories,
+            'filters' => $filters
+        ]);
+    }
 }

@@ -12,7 +12,7 @@ class AcademyController extends Controller
 {
     public function index()
     {
-        $topics = Topic::getListForIndex();
+        $topics = Topic::getResourcesForIndexPage();
         $topicsCategories = TopicCategory::all();
 
         return view('habboacademy.index', [

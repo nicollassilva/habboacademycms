@@ -7,11 +7,16 @@ use Illuminate\Support\Facades\Route;
 | Dashboard Routes
 |--------------------------------------------------------------------------
 |
+| This routes have a prefix name adm.
+|
+| Example: ->name('topics.search') is 'adm.topics.search'
+|
 */
 
 /**
  * Topics Comments
  */
+Route::any('/topic/{id}/comments/search', 'TopicCommentController@search')->name('topic.comments.search');
 Route::put('/topic/{id}/comment/{idComment}', 'TopicCommentController@updated')->name('topic.comments.updated');
 Route::get('/topic/{id}/comment/{idComment}/edit', 'TopicCommentController@edit')->name('topic.comments.edit');
 Route::get('/topic/{id}/comment/{idComment}/show', 'TopicCommentController@show')->name('topic.comments.show');
@@ -36,6 +41,7 @@ Route::resource('slides', 'SlideController');
 Route::prefix('articles')
     ->name('articles.')
     ->group(function() {
+        Route::any('/articles/categories/search', 'ArticleCategoryController@search')->name('categories.search');
         Route::resource('categories', 'ArticleCategoryController');
         Route::any('/search', 'ArticleController@search')->name('search');
     });

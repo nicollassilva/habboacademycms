@@ -21,4 +21,10 @@ class ArticleCategory extends Model
     {
         return $this->hasMany(Article::class, 'category_id');
     }
+
+    public static function search($filter = null)
+    {
+        return ArticleCategory::query()
+            ->where('name', 'LIKE', "%{$filter}%")->latest('id')->paginate(30);
+    }
 }
