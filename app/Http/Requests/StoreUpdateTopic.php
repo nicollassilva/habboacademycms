@@ -23,10 +23,25 @@ class StoreUpdateTopic extends FormRequest
      */
     public function rules()
     {
+        if($this->segment(1) === 'dashboard') {
+            return $this->dashboardRules();
+        }
+        
         return [
             'title' => ['required', 'min:6', 'max:80'],
             'content' => ['required', 'min:10', 'max:5000'],
             'category' => ['required', 'numeric', 'exists:topics_categories,id']
+        ];
+    }
+
+    protected function dashboardRules()
+    {
+        return [
+            'title' => ['required', 'min:6', 'max:80'],
+            'category' => ['required', 'numeric', 'exists:topics_categories,id'],
+            'status' => ['required', 'boolean'],
+            'fixed' => ['required', 'boolean'],
+            'moderated' => ['required', 'in:moderated,pending,closed'],
         ];
     }
 

@@ -11,10 +11,8 @@ class TopicController extends Controller
 {
     public function show($id, $slug)
     {
-        if(
-            ! $topic = Topic::whereSlug($slug)->where('id', $id)->with(['user', 'category'])->withCount('comments')->first()
-        ) {
-            return redirect()->back();
+        if(! $topic = Topic::getTopic($id, $slug)) {
+            return redirect()->route('web.academy.index');
         }
 
         $comments = $topic->comments()
@@ -39,7 +37,7 @@ class TopicController extends Controller
 
     public function store(StoreUpdateTopic $request)
     {
-        $data = $request->all();
+        $data = $request->only(['title', 'content', 'slug', 'category']);
 
         $data['category_id'] = $data['category'];
         $data['content'] = nl2br(htmlspecialchars($data['content']));

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Notícias')
+@section('title', 'Tópicos')
 
 @section('content_header')
 <div class="card mt-3">
@@ -11,21 +11,20 @@
                     <a href="{{ route('adm.dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a>Notícias</a>
+                    <a>Tópicos</a>
                 </li>
             </ol>
         </nav>
     </div>
 </div>
 
-<h1 class="mb-2">Notícias</h1>
-<a href="{{ route('adm.articles.create') }}" class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i> Adicionar</a>
+<h1 class="mb-2">Tópicos</h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <form action="{{ route('adm.articles.search') }}" method="POST" class="form">
+        <form action="{{ route('adm.topics.search') }}" method="POST" class="form">
             @csrf
             <div class="row">
                 <div class="col col-11">
@@ -35,7 +34,7 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success w-100 py-2" style="font-size: 13px"><i class="fas fa-search"></i></button>
+                        <button type="submit" class="btn btn-success py-2 w-100" style="font-size: 13px"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -49,25 +48,23 @@
                     <th>Ações</th>
                     <th>Título</th>
                     <th>Autor</th>
-                    <th>Revisado</th>
-                    <th>Revisador</th>
+                    <th>Moderado</th>
                     <th>Status</th>
                     <th>Fixo</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($articles as $article)
+                @foreach ($topics as $topic)
                     <tr>
                         <td width="150">
-                            <a href="{{ route('adm.articles.show', $article->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                            <a href="{{ route('adm.articles.edit', $article->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('adm.topics.show', $topic->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('adm.topics.edit', $topic->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
                         </td>
-                        <td>{{ $article->title }}</td>
-                        <td>{{ $article->user->username }}</td>
-                        <td>{{ $article->reviewed ? 'Sim' : 'Não' }}</td>
-                        <td>{{ $article->reviewer }}</td>
-                        <td>{{ $article->status ? 'Ativo' : 'Inativo' }}</td>
-                        <td>{{ $article->fixed ? 'Fixo' : 'Não' }}</td>
+                        <td>{{ $topic->title }}</td>
+                        <td>{{ $topic->user->username }}</td>
+                        <td>{{ $topic->moderated == 'moderated' ? "Moderado por: {$topic->moderator}" : 'Não foi moderado' }}</td>
+                        <td>{{ $topic->status ? 'Ativo' : 'Inativo' }}</td>
+                        <td>{{ $topic->fixed ? 'Fixo' : 'Não' }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -75,9 +72,9 @@
     </div>
     <div class="card-footer">
         @if (isset($filters))
-        {!! $articles->appends($filters)->links() !!}
+        {!! $topics->appends($filters)->links() !!}
         @else
-        {!! $articles->links() !!}
+        {!! $topics->links() !!}
         @endif
     </div>
 </div>

@@ -11,7 +11,8 @@ class Topic extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'content', 'slug', 'category_id'
+        'title', 'content', 'slug', 'category_id',
+        'moderated', 'moderator', 'fixed', 'status'
     ];
 
     protected $casts = [
@@ -43,5 +44,16 @@ class Topic extends Model
             ->latest()
             ->limit(8)
             ->get();
+    }
+
+    public static function getTopic($id, $slug)
+    {
+        return Topic::query()
+            ->where('id', $id)
+            ->whereSlug($slug)
+            ->whereStatus(true)
+            ->with(['user', 'category'])
+            ->withCount('comments')
+            ->first();
     }
 }
