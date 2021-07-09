@@ -54,7 +54,7 @@
             <li class="list-group-item">
                 <strong>Moderado:</strong>
                 <i class="fas fa-circle {{ $topic->moderated == 'moderated' ? 'text-success' : 'text-danger' }}"></i>
-                <br>{{ $topic->moderated == 'moderated' ? "Moderado por {$topic->moderated}" : 'Não foi moderado' }}
+                <br>{{ $topic->moderated == 'moderated' ? "Moderado por {$topic->moderator}" : 'Não foi moderado' }}
             </li>
             <li class="list-group-item">
                 <strong>Ativo:</strong>

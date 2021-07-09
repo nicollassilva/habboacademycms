@@ -39,6 +39,15 @@ class TopicComment extends Model
             ->whereHas('user', function($query) use ($filter) {
                 return $query->where('username', 'LIKE', "%{$filter}%");
             })
+            ->latest()
             ->get();
+    }
+
+    public static function getCommentFromTopic($idTopic, $idComment)
+    {
+        return TopicComment::query()
+            ->with(['topic', 'user'])
+            ->where('topic_id', $idTopic)
+            ->find($idComment);
     }
 }

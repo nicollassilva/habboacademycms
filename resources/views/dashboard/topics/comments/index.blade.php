@@ -60,8 +60,8 @@
                 @foreach ($comments as $comment)
                     <tr>
                         <td width="150">
-                            <a href="{{ route('adm.topic.comments.show', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                            <a href="{{ route('adm.topic.comments.edit', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('adm.topic.comment.show', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('adm.topic.comment.edit', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
                         </td>
                         <td>{{ $comment->user->username }}</td>
                         <td>{{ $comment->created_at->format('d-m-Y H:i') }}</td>

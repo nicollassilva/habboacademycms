@@ -6,6 +6,7 @@ use App\Models\Topic\Topic;
 use Illuminate\Http\Request;
 use App\Models\Topic\TopicComment;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateTopicComment;
 
 class TopicCommentController extends Controller
 {
@@ -15,9 +16,9 @@ class TopicCommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idTopic, $idComment)
     {
-        if(! $comment = TopicComment::with(['topic', 'user'])->find($id)) {
+        if(! $comment = TopicComment::getCommentFromTopic($idTopic, $idComment)) {
             return redirect()
                 ->back()
                 ->withErrors('Comentário não encontrado.');
@@ -34,9 +35,9 @@ class TopicCommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idTopic, $idComment)
     {
-        if(! $comment = TopicComment::find($id)) {
+        if(! $comment = TopicComment::getCommentFromTopic($idTopic, $idComment)) {
             return redirect()
                 ->back()
                 ->withErrors('Comentário não encontrado.');
@@ -50,13 +51,29 @@ class TopicCommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUpdateTopicComment  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($idTopic, $idComment, StoreUpdateTopicComment $request)
     {
-        dd($id);
+        if(! $comment = TopicComment::getCommentFromTopic($idTopic, $idComment)) {
+            return redirect()
+                ->back()
+                ->withErrors('Comentário não encontrado.');
+        }
+
+        $data = $request->only(['active', 'moderated']);
+
+        if($request->moderated == 'moderated' && $comment->moderated == 'pending') {
+            $data['moderator'] = \Auth::user()->username;
+        }
+
+        $comment->update($data);
+
+        return redirect()
+            ->route('adm.topic.comment.show', [$comment->topic->id, $comment->id])
+            ->with('success', "Comentário editado com sucesso!");
     }
 
     /**

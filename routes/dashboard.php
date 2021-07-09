@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
  * Topics Comments
  */
 Route::any('/topic/{id}/comments/search', 'TopicCommentController@search')->name('topic.comments.search');
-Route::put('/topic/{id}/comment/{idComment}', 'TopicCommentController@updated')->name('topic.comments.updated');
-Route::get('/topic/{id}/comment/{idComment}/edit', 'TopicCommentController@edit')->name('topic.comments.edit');
-Route::get('/topic/{id}/comment/{idComment}/show', 'TopicCommentController@show')->name('topic.comments.show');
+Route::put('/topic/{id}/comment/{idComment}', 'TopicCommentController@update')->name('topic.comment.update');
+Route::get('/topic/{id}/comment/{idComment}/edit', 'TopicCommentController@edit')->name('topic.comment.edit');
+Route::get('/topic/{id}/comment/{idComment}/show', 'TopicCommentController@show')->name('topic.comment.show');
 Route::get('/topic/{id}/comments', 'TopicController@comments')->name('topic.comments');
 
 /**

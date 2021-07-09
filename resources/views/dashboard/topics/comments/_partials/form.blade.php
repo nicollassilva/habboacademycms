@@ -2,56 +2,59 @@
 
 @csrf
 
-<div class="form-group">
-    <label for="title">
-        <i class="fas fa-circle fa-xs text-primary"></i>
-        Título do Tópico:
-    </label>
-    <input class="form-control" type="text" name="title" placeholder="Título..." value="{{ $topic->title ?? old('title') }}">
+<div class="row d-flex">
+    <div class="col">
+        <div class="form-group">
+            <label>
+                <i class="fas fa-circle fa-xs text-primary"></i>
+                Título do Tópico:
+            </label>
+            <input class="form-control" type="text" value="{{ $comment->topic->title }}" readonly>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label>
+                <i class="fas fa-circle fa-xs text-primary"></i>
+                Autor do Tópico:
+            </label>
+            <input class="form-control" type="text" value="{{ $comment->topic->user->username }}" readonly>
+        </div>
+    </div>
 </div>
 
-<div class="form-group">
-    <label>
-        <i class="fas fa-circle fa-xs text-primary"></i>
-        Autor do Tópico:
-    </label>
-    <input class="form-control" type="text" value="{{ $topic->user->username }}" readonly>
+<hr>
+<div class="row d-flex">
+    <div class="col">
+        <div class="form-group">
+            <label>
+                <i class="fas fa-circle fa-xs text-primary"></i>
+                ID do Comentário:
+            </label>
+            <input class="form-control" type="number" value="{{ $comment->id }}" readonly>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label>
+                <i class="fas fa-circle fa-xs text-primary"></i>
+                Autor do Comentário:
+            </label>
+            <input class="form-control" type="text" value="{{ $comment->user->username }}" readonly>
+        </div>        
+    </div>
 </div>
 
+<hr>
+@isset($comment)
 <div class="form-group">
-    <label for="category">
-        <i class="fas fa-circle fa-xs text-primary"></i>
-        Categoria:
-    </label>
-    <select id="category" class="custom-select" name="category">
-        @foreach ($categories as $category)
-        <option value="{{ $category->id }}"
-                @isset($topic) {{ $category->id === $topic->category_id ? ' selected' : '' }} @endisset>
-            {{ $category->name }}
-        </option>
-        @endforeach
-    </select>
-</div>
-
-@isset($topic)
-<div class="form-group">
-    <label for="status">
+    <label for="active">
         <i class="fas fa-circle fa-xs text-primary"></i>
         Ativo:
     </label>
-    <select id="status" class="custom-select" name="status">
-        <option value="0"{{ $topic->status === false ? ' selected' : '' }}>Não</option>
-        <option value="1"{{ $topic->status === true ? ' selected' : '' }}>Sim</option>
-    </select>
-</div>
-<div class="form-group">
-    <label for="fixed">
-        <i class="fas fa-circle fa-xs text-primary"></i>
-        Fixo:
-    </label>
-    <select id="fixed" class="custom-select" name="fixed">
-        <option value="0"{{ $topic->fixed === false ? ' selected' : '' }}>Não</option>
-        <option value="1"{{ $topic->fixed === true ? ' selected' : '' }}>Sim</option>
+    <select id="active" class="custom-select" name="active">
+        <option value="0"{{ $comment->active === false ? ' selected' : '' }}>Comentário oculto</option>
+        <option value="1"{{ $comment->active === true ? ' selected' : '' }}>Comentário ativo</option>
     </select>
 </div>
 <div class="form-group">
@@ -60,9 +63,8 @@
         Moderado:
     </label>
     <select id="moderated" class="custom-select" name="moderated">
-        <option value="moderated"{{ $topic->moderated == 'moderated' ? ' selected' : '' }}>Moderado</option>
-        <option value="pending"{{ $topic->moderated == 'pending' ? ' selected' : '' }}>Pendente</option>
-        <option value="closed"{{ $topic->moderated == 'closed' ? ' selected' : '' }}>Fechado</option>
+        <option value="moderated"{{ $comment->moderated == 'moderated' ? ' selected' : '' }}>Moderado</option>
+        <option value="pending"{{ $comment->moderated == 'pending' ? ' selected' : '' }}>Pendente</option>
     </select>
 </div>
 @endisset

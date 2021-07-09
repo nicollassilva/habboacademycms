@@ -30,7 +30,7 @@
 <a href="{{ route('adm.topic.comments', $comment->topic->id) }}" class="btn btn-danger">
     <i class="fas fa-chevron-left mr-1"></i> Voltar
 </a>
-<a href="{{ route('adm.topic.comments.edit', [$comment->topic->id, $comment->id]) }}" class="btn btn-dark">
+<a href="{{ route('adm.topic.comment.edit', [$comment->topic->id, $comment->id]) }}" class="btn btn-dark">
     <i class="fas fa-pencil-alt mr-1"></i> Editar
 </a>
 
@@ -45,12 +45,23 @@
         Informações do comentário
     </div>
     <div class="card-body">
+        @include('habboacademy.utils.alerts')
         <ul class="list-group">
             <li class="list-group-item">
                 <strong>Autor:</strong> <br>{{ $comment->user->username }}
             </li>
             <li class="list-group-item">
                 <strong>Comentado em:</strong> <br>{{ $comment->created_at->format('d-m-Y H:i') }}
+            </li>
+            <li class="list-group-item">
+                <strong>Moderado:</strong>
+                <i class="fas fa-circle {{ $comment->moderated == 'moderated' ? 'text-success' : 'text-danger' }}"></i>
+                <br>{{ $comment->moderated == 'moderated' ? "Moderado por: {$comment->moderator}" : 'Não foi moderado' }}
+            </li>
+            <li class="list-group-item">
+                <strong>Ativo:</strong>
+                <i class="fas fa-circle {{ $comment->active ? 'text-success' : 'text-danger' }}"></i>
+                <br>{{ $comment->active ? 'Esse comentário está ativo' : 'Comentário oculto' }}
             </li>
             <li class="list-group-item">
                 <strong>Conteúdo:</strong>

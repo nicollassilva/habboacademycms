@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Editando Tópico: {$topic->title}")
+@section('title', "Editando comentário: {$comment->id}")
 
 @section('content_header')
 <div class="card mt-3">
@@ -14,7 +14,13 @@
                     <a href="{{ route('adm.topics.index') }}">Tópico</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('adm.topics.show', $topic->id) }}">{{ $topic->title }}</a>
+                    <a href="{{ route('adm.topics.show', $comment->topic->id) }}">{{ $comment->topic->title }}</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('adm.topic.comments', $comment->topic->id) }}">Comentários</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('adm.topic.comment.show', [$comment->topic->id, $comment->id]) }}">{{ $comment->id }}</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>Editar</a>
@@ -24,7 +30,7 @@
     </div>
 </div>
 
-<a href="{{ route('adm.topics.show', $topic->id) }}" class="btn btn-danger">
+<a href="{{ route('adm.topic.comment.show', [$comment->topic->id, $comment->id]) }}" class="btn btn-danger">
     <i class="fas fa-chevron-left mr-1"></i> Voltar
 </a>
 @stop
@@ -32,11 +38,11 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('adm.topics.update', $topic->id) }}" class="form" method="POST" enctype="multipart/form-data">
-                @include('dashboard.topics._partials.form')
+            <form action="{{ route('adm.topic.comment.update', [$comment->topic->id, $comment->id]) }}" class="form" method="POST" enctype="multipart/form-data">
+                @include('dashboard.topics.comments._partials.form')
                 @method('PUT')
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Salvar slide</button>
+                    <button type="submit" class="btn btn-success">Salvar comentário</button>
                 </div>
             </form>
         </div>
