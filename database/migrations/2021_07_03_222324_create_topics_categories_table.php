@@ -20,22 +20,6 @@ class CreateTopicsCategoriesTable extends Migration
             $table->string('name')->unique();
             $table->string('icon')->nullable();
         });
-
-        DB::table('topics_categories')->insert([
-            ['name' => 'HabboAcademy'],
-            ['name' => 'Apresentação'],
-            ['name' => 'Dúvidas'],
-            ['name' => 'Novidades'],
-            ['name' => 'Eventos/Promoções'],
-            ['name' => 'Vídeos/Músicas'],
-            ['name' => 'Habbo'],
-            ['name' => 'Jogos'],
-            ['name' => 'Sugestões'],
-            ['name' => 'Humor'],
-            ['name' => 'Outros'],
-            ['name' => 'Trocas e Negócios'],
-            ['name' => 'Curiosidades'],
-        ]);
     }
 
     /**

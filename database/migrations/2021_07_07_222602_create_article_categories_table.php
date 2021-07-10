@@ -19,17 +19,6 @@ class CreateArticleCategoriesTable extends Migration
             $table->string('name');
             $table->string('icon')->nullable();
         });
-
-        DB::table('articles_categories')->insert([
-            ['name' => 'HabboAcademy'],
-            ['name' => 'Novidades'],
-            ['name' => 'Promoções/Eventos'],
-            ['name' => 'Vídeos/Músicas'],
-            ['name' => 'Habbo'],
-            ['name' => 'Jogos'],
-            ['name' => 'Assuntos Externos'],
-            ['name' => 'Outros']
-        ]);
     }
 
     /**

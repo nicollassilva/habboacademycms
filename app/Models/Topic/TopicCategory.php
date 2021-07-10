@@ -10,4 +10,6 @@ class TopicCategory extends Model
     use HasFactory;
 
     protected $table = 'topics_categories';
+    
+    public $timestamps = false;
 }
