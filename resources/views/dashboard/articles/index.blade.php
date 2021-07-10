@@ -64,10 +64,16 @@
                         </td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->user->username }}</td>
-                        <td>{{ $article->reviewed ? 'Sim' : 'Não' }}</td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $article->reviewed ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
                         <td>{{ $article->reviewer }}</td>
-                        <td>{{ $article->status ? 'Ativo' : 'Inativo' }}</td>
-                        <td>{{ $article->fixed ? 'Fixo' : 'Não' }}</td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $article->status ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $article->fixed ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

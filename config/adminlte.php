@@ -281,10 +281,12 @@ return [
             'submenu'    => [
                 [
                     'text'  => 'Todos slides',
+                    'icon'    => '',
                     'route' => 'adm.slides.index'
                 ],
                 [
                     'text'  => 'Criar slide',
+                    'icon'    => '',
                     'route' => 'adm.slides.create'
                 ]
             ],

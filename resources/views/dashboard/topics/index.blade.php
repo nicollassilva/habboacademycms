@@ -63,12 +63,28 @@
                         </td>
                         <td>{{ $topic->title }}</td>
                         <td>{{ $topic->user->username }}</td>
-                        <td>{{ $topic->moderated == 'moderated' ? "Moderado por: {$topic->moderator}" : 'Não foi moderado' }}</td>
-                        <td>{{ $topic->status ? 'Ativo' : 'Inativo' }}</td>
-                        <td>{{ $topic->fixed ? 'Fixo' : 'Não' }}</td>
+                        <td>
+                            @if ($topic->moderated == 'moderated')
+                                <span class="text-success">Moderado por: <em>{{ $topic->moderator }}</em></span>
+                            @endif
+
+                            @if ($topic->moderated == 'pending')
+                                <span class="text-secondary">Não moderado</span>
+                            @endif
+
+                            @if ($topic->moderated == 'closed')
+                                <span class="text-danger">Tópico fechado</span>
+                            @endif
+                        </td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $topic->status ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $topic->fixed ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
                     </tr>
                 @endforeach
-            </tbody>
+            </temody>
         </table>
     </div>
     <div class="card-footer">

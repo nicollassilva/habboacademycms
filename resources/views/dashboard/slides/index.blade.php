@@ -62,8 +62,12 @@
                         </td>
                         <td>{{ $slide->title }}</td>
                         <td>{{ $slide->description }}</td>
-                        <td>{{ $slide->active ? 'Ativo' : 'Inativo' }}</td>
-                        <td>{{ $slide->fixed ? 'Sim' : 'Não' }}</td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $slide->active ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $slide->fixed ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

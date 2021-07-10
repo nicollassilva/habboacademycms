@@ -53,6 +53,8 @@
                 <tr>
                     <th>Ações</th>
                     <th>Autor</th>
+                    <th>Moderado</th>
+                    <th>Ativo</th>
                     <th>Postado em</th>
                 </tr>
             </thead>
@@ -64,6 +66,18 @@
                             <a href="{{ route('adm.topic.comment.edit', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
                         </td>
                         <td>{{ $comment->user->username }}</td>
+                        <td>
+                            @if ($comment->moderated == 'moderated')
+                                <span class="text-success">Moderado por: <em>{{ $comment->moderator }}</em></span>
+                            @endif
+
+                            @if ($comment->moderated == 'pending')
+                                <span class="text-secondary">Não moderado</span>
+                            @endif
+                        </td>
+                        <td>
+                            <i class="fas fa-circle fa-xs ml-2 {{ $comment->active ? 'text-success' : 'text-danger' }}"></i>
+                        </td>
                         <td>{{ $comment->created_at->format('d-m-Y H:i') }}</td>
                     </tr>
                 @endforeach
