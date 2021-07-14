@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', "Tópico: {$topic->title}")
+
 @php
     $tarja = getTarja($topic->user->topics_comment_count);
 @endphp

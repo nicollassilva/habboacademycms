@@ -11738,6 +11738,47 @@ section.section-forum {
   margin-top: -20px;
 }
 
+main .capa {
+  width: 100%;
+  height: 350px;
+  box-shadow: inset 0 6px 3px rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 10px;
+}
+main .capa .obscure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+}
+main .capa h2.title {
+  width: 600px;
+  font-size: 40px;
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 2px 2.5px black;
+  z-index: 1;
+}
+main .capa span {
+  color: white;
+  font-weight: 400;
+  z-index: 1;
+  margin-top: 10px;
+}
+
 .box-content.box-postar {
   width: 100%;
   background: #fff;
@@ -13016,4 +13057,213 @@ label[avatarImage]::before {
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 5px;
+}
+
+.container.article .dados {
+  width: 100%;
+  height: 70px;
+  float: left;
+  display: flex;
+  padding: 0 20px;
+  justify-content: center;
+  margin: 10px 0;
+  align-items: center;
+}
+.container.article .dados button {
+  width: 70px;
+  height: 40px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 0 black;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+.container.article .dados button:first-of-type {
+  background-color: #38c172;
+}
+.container.article .dados button:nth-child(3) {
+  background-color: #e3342f;
+}
+.container.article .dados button:nth-child(2) {
+  background-color: #c23616;
+}
+.container.article .dados .button {
+  width: 70px;
+  height: 40px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 0 black;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  background-color: #f5f5f5;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.09);
+  color: black;
+  text-shadow: none;
+  min-width: 60px;
+  width: auto;
+  font-size: 10px;
+  padding: 0 10px;
+  position: relative;
+}
+.container.article .dados .button:nth-child(6) {
+  padding-left: 50px;
+}
+.container.article .dados .button .avatar.normal {
+  height: 90px;
+  position: absolute;
+  bottom: 0;
+  left: -5px;
+}
+
+.box-nc {
+  width: 100%;
+  float: left;
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  margin-top: -10px;
+  padding: 20px 0 40px 0;
+  overflow: hidden;
+}
+
+.display.noticia-comentarios .comentario {
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  min-height: 120px;
+  float: left;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin: 10px 0;
+  z-index: 8;
+}
+.display.noticia-comentarios .comentario .user {
+  width: 100%;
+  height: 50px;
+  float: left;
+  position: relative;
+  background: url("/images/room_background.webp"), linear-gradient(to right, #4a69bd, rgba(0, 0, 0, 0.1));
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 5px;
+  border-bottom: 1px solid #1e1e1e;
+  border-top-right-radius: 5px;
+}
+.display.noticia-comentarios .comentario .user .perfil {
+  width: 70px;
+  height: 70px;
+  margin: -7px 10px;
+  border: 2px solid #4a69bd;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  float: left;
+}
+.display.noticia-comentarios .comentario .user .perfil .avatar-medio {
+  height: 70px;
+  position: absolute;
+  right: -55px;
+  bottom: 12px;
+}
+.display.noticia-comentarios .comentario .user span {
+  width: 50%;
+  float: left;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 0 black;
+  margin-left: 45px;
+}
+.display.noticia-comentarios .comentario .user span:last-of-type {
+  font-size: 10px;
+  font-weight: 300;
+}
+.display.noticia-comentarios .comentario .user span.name {
+  margin-top: 5px;
+}
+.display.noticia-comentarios .comentario .user .direita {
+  width: 200px;
+  height: 50px;
+  float: right;
+  padding: 0 10px;
+  margin-top: -30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.display.noticia-comentarios .comentario .user .direita .responder {
+  background-color: #4a69bd;
+}
+.display.noticia-comentarios .comentario .conteudo {
+  width: 100%;
+  padding: 20px 10px 10px 10px;
+  float: left;
+  text-align: justify;
+  font-size: 13px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.display.noticia-ler {
+  padding: 30px 20px;
+  text-align: justify;
+  min-height: 300px;
+  float: left;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #333;
+}
+.display.noticia-ler h1, .display.noticia-ler h2, .display.noticia-ler h3, .display.noticia-ler h4, .display.noticia-ler h5, .display.noticia-ler h6 {
+  min-width: 346px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 2px;
+  border-radius: 6px;
+  text-indent: 15px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.2), inset 2px 2px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+}
+.display.noticia-ler h1 {
+  background-color: #4a69bd;
+  border-color: #192a56;
+}
+.display.noticia-ler h2 {
+  background-color: #ffed4a;
+  border-color: #e1b12c;
+}
+.display.noticia-ler h3 {
+  background-color: #8c7ae6;
+  border-color: #7158e2;
+}
+.display.noticia-ler h4 {
+  background-color: #eb3b5a;
+  border-color: #e3342f;
+}
+.display.noticia-ler h5 {
+  background-color: #44bd32;
+  border-color: #38c172;
+}
+.display.noticia-ler h6 {
+  background-color: #18191C;
+  border-color: #1e1e1e;
 }

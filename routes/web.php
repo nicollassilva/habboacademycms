@@ -18,6 +18,7 @@ Route::namespace('Web')
 
         Route::get('/', 'AcademyController@index')->name('academy.index');
         Route::get('/topic/{id}/{slug}', 'Topic\TopicController@show')->name('topics.show');
+        Route::get('/article/{id}/{slug}', 'Article\ArticleController@show')->name('articles.show');
         
         Route::prefix('user')
             ->middleware('auth')

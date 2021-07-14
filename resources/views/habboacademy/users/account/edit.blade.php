@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', "Configurações da minha conta")
+
 @section('content')
 <div class="container">
     <div class="box-content bg-white box-postar">

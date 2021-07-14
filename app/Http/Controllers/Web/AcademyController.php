@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Topic\Topic;
-use Illuminate\Http\Request;
+use App\Models\Dashboard\Article;
 use App\Models\Topic\TopicCategory;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Dashboard\ArticleCategory;
 
 class AcademyController extends Controller
 {
@@ -15,9 +15,14 @@ class AcademyController extends Controller
         $topics = Topic::getResourcesForIndexPage();
         $topicsCategories = TopicCategory::all();
 
+        $articles = Article::getResourcesForIndexPage();
+        $articlesCategories = ArticleCategory::all();
+
         return view('habboacademy.index', [
             'topics' => $topics,
-            'topicsCategories' => $topicsCategories
+            'topicsCategories' => $topicsCategories,
+            'articles' => $articles,
+            'articlesCategories' => $articlesCategories,
         ]);
     }
 }

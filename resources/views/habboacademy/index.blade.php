@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', "Página Principal")
+
 @section('content')
 <div class="container mt-4">
     <div class="slider">
@@ -21,7 +23,7 @@
         </div>
     </div>
     @include('habboacademy.layouts.lastdata')
-    @include('habboacademy.layouts.news')
+    @include('habboacademy.layouts.articles')
 </div>
 @include('habboacademy.layouts.forum')
 @endsection

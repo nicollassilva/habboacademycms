@@ -715,3 +715,47 @@ section.section-forum {
 	float: left;
 	margin-top: -20px;
 }
+
+main {
+	.capa {
+		width: 100%;
+		height: 350px;
+		box-shadow: inset 0 6px 3px rgba(0, 0, 0, 0.5);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-attachment: fixed;
+		image-rendering: pixelated;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		margin-bottom: 10px;
+
+		.obscure {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 350px;
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+		}
+
+		h2.title {
+			width: 600px;
+			font-size: 40px;
+			color: white;
+			font-weight: 700;
+			text-shadow: 0 2px 2.5px rgba(0, 0, 0, 1);
+			z-index: 1;
+		}
+
+		span {
+			color: white;
+			font-weight: 400;
+			z-index: 1;
+			margin-top: 10px;
+		}
+	}
+}
