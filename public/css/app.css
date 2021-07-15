@@ -11380,6 +11380,7 @@ section .slider-news {
   height: 100px;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #4a69bd;
 }
 .section-news .box-content .box-new .title {
   width: 100%;

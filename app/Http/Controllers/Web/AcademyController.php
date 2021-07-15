@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Topic\Topic;
+use App\Models\Dashboard\Slide;
 use App\Models\Dashboard\Article;
 use App\Models\Topic\TopicCategory;
 use App\Http\Controllers\Controller;
@@ -19,10 +20,12 @@ class AcademyController extends Controller
         $articlesCategories = ArticleCategory::all();
 
         $fixedArticles = Article::getFixedResources();
+        $slides = Slide::latest()->limit(10)->get();
 
         return view('habboacademy.index', compact([
             'topics', 'topicsCategories', 
-            'articles', 'articlesCategories', 'fixedArticles'
+            'articles', 'articlesCategories', 'fixedArticles',
+            'slides'
         ]));
     }
 }

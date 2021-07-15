@@ -7,17 +7,22 @@
     <div class="slider">
         <div class="swiper-container customTransition indexSlider">
             <div class="swiper-wrapper">
-                @for ($i = 0; $i < 10; $i++)
+                @foreach ($slides as $slide)
                 <div class="swiper-slide">
                     <div class="swiper-image"
-                         style="background-color: red">
+                         style="background-image: url('{{ asset("storage/{$slide->image_path}") }}')">
+                         @if (!empty($slide->slug) || $slide->slug != '#')
+                            <div class="d-block w-100 h-100 d-flex justify-content-center align-items-center">
+                                <a type="button" href="{{ $slide->slug }}" @if ($slide->new_tab) target="_blank" @endif class="btn btn-success btn-lg text-white shadow-lg">Acessar</a>
+                            </div>
+                         @endif
                     </div>
                     <div class="swiper-data">
-                        <div class="title text-truncate">Slide {{ $i }}</div>
-                        <div class="description text-truncate">Descrição do slide {{ $i }}</div>
+                        <div class="title text-truncate">{{ $slide->title }}</div>
+                        <div class="description text-truncate">{{ $slide->description }}</div>
                     </div>
                 </div>
-                @endfor
+                @endforeach
             </div>
             <div class="swiper-pagination"></div>
         </div>
