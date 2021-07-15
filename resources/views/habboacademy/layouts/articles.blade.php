@@ -36,21 +36,21 @@
     <div class="slider-news">
         <div class="swiper-container customTransition newsSlider">
             <div class="swiper-wrapper">
-                <?php if(false) { foreach(slides() as $slide) { ?>
-                    <div class="swiper-slide" style="background-image: url('uploads/slides/<?= $slide['image'] ?>')">
+                @foreach ($fixedArticles as $fixedArticle)
+                    <div class="swiper-slide" style="background-image: url('{{ asset("storage/{$fixedArticle->image_path}") }}')">
                         <div class="swiper-mirror">
-                            <a href="">
-                                <div class="title"><?= $slide['title'] ?></div>
+                            <a href="{{ route('web.articles.show', [$fixedArticle->id, $fixedArticle->slug]) }}">
+                                <div class="title">{{ $fixedArticle->title }}</div>
                             </a>
                             <div class="data text-truncate">
                                 <div class="avatar" 
-                                        style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&user=Bubu259&action=wlk&direction=3&head_direction=3&gesture=sml&size=s')"></div>
-                                <a href="">Bubu259</a>
-                                <span>• <i class="fas fa-clock mr-1"></i>há 3 horas atrás</span>
+                                        style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&user={{ $fixedArticle->user->username }}&action=wlk&direction=3&head_direction=3&gesture=sml&size=s')"></div>
+                                <a href="">{{ $fixedArticle->user->username }}</a>
+                                <span>• <i class="fas fa-clock mr-1"></i>{{ dateToString($fixedArticle->created_at) }}</span>
                             </div>
                         </div>
                     </div>
-                <?php }} ?>
+                @endforeach
             </div>
         </div>
     </div>

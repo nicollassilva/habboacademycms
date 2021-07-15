@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Topic;
 
 use App\Models\Topic\Topic;
 use Illuminate\Http\Request;

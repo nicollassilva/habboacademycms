@@ -35,7 +35,7 @@ class Topic extends Model
         return $this->hasMany(TopicComment::class)->latest();
     }
 
-    public static function getResourcesForIndexPage()
+    public static function getDefaultResources()
     {
         return Topic::query()
             ->whereStatus(true)

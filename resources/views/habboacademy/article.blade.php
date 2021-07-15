@@ -37,17 +37,11 @@
             </div>
         </div>
         <div class="display noticia-ler rounded-sm">
-            <h1>Oi</h1>
-            <h2>Oi</h2>
-            <h3>Oi</h3>
-            <h4>Oi</h4>
-            <h5>Oi</h5>
-            <h6>Oi</h6>
             {!! $article->content !!}
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container my-3">
     @include('habboacademy.layouts.articles', ['asWidget' => true])
 </div>
 @endsection

@@ -12,17 +12,17 @@ class AcademyController extends Controller
 {
     public function index()
     {
-        $topics = Topic::getResourcesForIndexPage();
+        $topics = Topic::getDefaultResources();
         $topicsCategories = TopicCategory::all();
 
-        $articles = Article::getResourcesForIndexPage();
+        $articles = Article::getDefaultResources();
         $articlesCategories = ArticleCategory::all();
 
-        return view('habboacademy.index', [
-            'topics' => $topics,
-            'topicsCategories' => $topicsCategories,
-            'articles' => $articles,
-            'articlesCategories' => $articlesCategories,
-        ]);
+        $fixedArticles = Article::getFixedResources();
+
+        return view('habboacademy.index', compact([
+            'topics', 'topicsCategories', 
+            'articles', 'articlesCategories', 'fixedArticles'
+        ]));
     }
 }

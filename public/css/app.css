@@ -11217,6 +11217,7 @@ section .slider-news {
   box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.02);
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #4a69bd;
 }
 .slider-news .swiper-slide .swiper-mirror {
   width: 100%;
@@ -11229,7 +11230,7 @@ section .slider-news {
 }
 .slider-news .swiper-slide .swiper-mirror .title {
   width: 100%;
-  color: #f1f1f1;
+  color: #fff;
   font-weight: 600;
   padding: 20px;
   max-height: 95px;

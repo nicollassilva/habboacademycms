@@ -22,6 +22,8 @@ class Article extends Model
         'fixed' => 'boolean'
     ];
 
+    protected const INDEX_PAGINATION_LIMIT = 8;
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -48,7 +50,7 @@ class Article extends Model
             ->paginate(35);
     }
 
-    public static function getResourcesForIndexPage()
+    public static function getDefaultResources()
     {
         return Article::query()
             ->with(['user', 'category'])
@@ -56,6 +58,19 @@ class Article extends Model
             ->whereStatus(true)
             ->whereFixed(false)
             ->latest()
+            ->limit(self::INDEX_PAGINATION_LIMIT)
+            ->get();
+    }
+
+    public static function getFixedResources()
+    {
+        return Article::query()
+            ->with(['user', 'category'])
+            ->whereReviewed(true)
+            ->whereStatus(true)
+            ->whereFixed(true)
+            ->latest()
+            ->limit(self::INDEX_PAGINATION_LIMIT)
             ->get();
     }
 
