@@ -13,7 +13,7 @@
                          style="background-image: url('{{ asset("storage/{$slide->image_path}") }}')">
                          @if (!empty($slide->slug) || $slide->slug != '#')
                             <div class="d-block w-100 h-100 d-flex justify-content-center align-items-center">
-                                <a type="button" href="{{ $slide->slug }}" @if ($slide->new_tab) target="_blank" @endif class="btn btn-success btn-lg text-white shadow-lg">Acessar</a>
+                                <a type="button" href="{{ $slide->slug }}" @if ($slide->new_tab) target="_blank" @endif class="btn btn-dark btn-lg shadow-lg">Acessar</a>
                             </div>
                          @endif
                     </div>
