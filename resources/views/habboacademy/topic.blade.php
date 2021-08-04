@@ -117,7 +117,9 @@
                 <div class="topico text-truncate">RE: {{ $topic->title }}</div>
                 <div class="acoes">
                     {{-- <div class="reacao <?php echo $autorReaction['reacao'] ?>" data-toggle="tooltip" title="<?php echo $comment['autor'] .' '. $autorReaction['reacao'] ?> esse tópico"><i class="<?php echo $autorReaction['reacao'] == 'curtiu' ? 'curtida' : 'descurtida' ?>"></i></div> --}}
-                    <button class="reportar" data-toggle="tooltip" title="Reportar comentário"><i class="alerta"></i></button>
+                    @auth
+                        <button class="reportar" data-toggle="tooltip" title="Reportar comentário"><i class="alerta"></i></button>
+                    @endauth
                     <div class="data"><i class="relogio mr-2"></i>{{ dateToString($comment->created_at) }}</div>
                 </div>
             </div>
