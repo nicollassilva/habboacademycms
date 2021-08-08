@@ -304,7 +304,7 @@ return [
                     'route'   => 'adm.topics.index'
                 ],
                 [
-                    'text'    => 'Comentários',
+                    'text'    => 'Todos comentários',
                     'icon'    => '',
                     'classes' => 'pl-4 h6',
                     'route'   => 'adm.topics.comments.index'

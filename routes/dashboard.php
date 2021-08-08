@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | Example: ->name('topics.search') is 'adm.topics.search'
 |
 */
-
 Route::namespace('Topic')
     ->group(function() {
         /**
@@ -41,7 +40,6 @@ Route::namespace('Topic')
         Route::resource('topics', 'TopicController');
     });
 
-
 /**
  * Slides Routes
  */
@@ -64,4 +62,7 @@ Route::namespace('Article')
         Route::resource('articles', 'ArticleController');
     });
 
+/**
+ * Dashboard Index
+ */
 Route::get('/', 'DashboardController@index')->name('dashboard.index');

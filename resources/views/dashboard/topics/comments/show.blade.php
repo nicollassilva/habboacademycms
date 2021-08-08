@@ -48,7 +48,7 @@
                 <div class="col col-6">
                     <li class="list-group-item">
                         <strong>Comentário pertence ao tópico:</strong> <br>
-                        <a title="Clique para ver o tópico" target="_blank" href="{{ route('web.topics.show', [$comment->topic->id, $comment->topic->slug]) }}">{{ $comment->topic->title }}</a>
+                        <a data-toggle="tooltip" title="Clique para ver o tópico" target="_blank" href="{{ route('web.topics.show', [$comment->topic->id, $comment->topic->slug]) }}">{{ $comment->topic->title }}</a>
                     </li>
                 </div>
                 <div class="col col-6">
@@ -88,4 +88,5 @@
 
 @section('js')
     @include('dashboard.includes.confirm_delete')
+    @include('dashboard.includes.bootstrap_tooltip')
 @endsection
