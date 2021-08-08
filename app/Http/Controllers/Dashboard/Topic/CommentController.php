@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Topic;
 
 use Illuminate\Http\Request;
+use App\Models\Topic\TopicComment;
 use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
@@ -14,28 +15,12 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $comments = TopicComment::with(['user', 'topic'])
+            ->latest()->paginate(30);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('dashboard.topics.comments.index', [
+            'comments' => $comments
+        ]);
     }
 
     /**
@@ -46,7 +31,15 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        if(! $comment = TopicComment::with(['user', 'topic'])->find($id)) {
+            return redirect()
+                ->back()
+                ->withErrors('Comentário não encontrado.');
+        }
+
+        return view('dashboard.topics.comments.show', [
+            'comment' => $comment
+        ]);
     }
 
     /**
@@ -57,7 +50,15 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(! $comment = TopicComment::with(['user', 'topic'])->find($id)) {
+            return redirect()
+                ->back()
+                ->withErrors('Comentário não encontrado.');
+        }
+
+        return view('dashboard.topics.comments.edit', [
+            'comment' => $comment
+        ]);
     }
 
     /**
@@ -67,9 +68,25 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        if(! $comment = TopicComment::find($id)) {
+            return redirect()
+                ->back()
+                ->withErrors('Comentário não encontrado.');
+        }
+
+        $data = $request->only(['active', 'moderated']);
+
+        if($request->moderated == 'moderated' && $comment->moderated == 'pending') {
+            $data['moderator'] = \Auth::user()->username;
+        }
+
+        $comment->update($data);
+
+        return redirect()
+            ->route('adm.topics.comments.show', $comment->id)
+            ->with('success', "Comentário editado com sucesso!");
     }
 
     /**
@@ -81,5 +98,23 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    /**
+     * Display a listing of the filtered resource.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+
+        $filteredComments = TopicComment::search($request->filter);
+
+        return view('dashboard.topics.comments.index', [
+            'comments' => $filteredComments,
+            'filters' => $filters
+        ]);
     }
 }

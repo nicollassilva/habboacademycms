@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Comentários dos Tópicos")
+@section('title', "Comentários do Tópico: {$topic->title}")
 
 @section('content_header')
 <div class="card mt-3">
@@ -12,6 +12,9 @@
                 </li>
                 <li class="breadcrumb-item">
                     <a href="{{ route('adm.topics.index') }}">Tópicos</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('adm.topics.show', $topic->id) }}">{{ $topic->title }}</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>Comentários</a>
@@ -27,7 +30,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <form action="{{ route('adm.topics.comments.search') }}" method="POST" class="form">
+        <form action="{{ route('adm.topic.comments.search', $topic->id) }}" method="POST" class="form">
             @csrf
             <div class="row">
                 <div class="col col-11">
@@ -59,8 +62,8 @@
                 @foreach ($comments as $comment)
                     <tr>
                         <td width="150">
-                            <a href="{{ route('adm.topics.comments.show', $comment->id) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
-                            <a href="{{ route('adm.topics.comments.edit', $comment->id) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('adm.topic.comment.show', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Visualizar" class="btn btn-sm btn-dark"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('adm.topic.comment.edit', [$topic->id, $comment->id]) }}" data-toggle="tooltip" title="Editar" class="btn btn-sm btn-dark"><i class="fas fa-pencil-alt"></i></a>
                         </td>
                         <td>{{ $comment->user->username }}</td>
                         <td>

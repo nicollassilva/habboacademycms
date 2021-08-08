@@ -18,10 +18,11 @@ Route::namespace('Topic')
         /**
          * Topics Comments
          */
-        Route::delete('/topics/comments/{id}', 'CommentController@destroy')->name('topics.comments.destroy');
-        Route::put('/topics/comments/{id}', 'CommentController@update')->name('topics.comments.update');
-        Route::get('/topics/comments/{id}/edit', 'CommentController@edit')->name('topics.comments.edit');
-        Route::get('/topics/comments/{id}/show', 'CommentController@show')->name('topics.comments.show');
+        Route::any('/topics/comments/search', 'CommentController@search')->name('topics.comments.search');
+        Route::delete('/topics/comment/{id}', 'CommentController@destroy')->name('topics.comments.destroy');
+        Route::put('/topics/comment/{id}', 'CommentController@update')->name('topics.comments.update');
+        Route::get('/topics/comment/{id}/edit', 'CommentController@edit')->name('topics.comments.edit');
+        Route::get('/topics/comment/{id}/show', 'CommentController@show')->name('topics.comments.show');
         Route::get('/topics/comments', 'CommentController@index')->name('topics.comments.index');
          
         /**

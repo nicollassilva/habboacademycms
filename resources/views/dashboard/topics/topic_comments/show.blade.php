@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Comentário de ' . $comment->user->username)
+@section('title', 'Comentário do tópico: ' . $comment->topic->title)
 
 @section('content_header')
 <div class="card mt-3">
@@ -14,7 +14,10 @@
                     <a href="{{ route('adm.topics.index') }}">Tópicos</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('adm.topics.comments.index') }}">Comentários</a>
+                    <a href="{{ route('adm.topics.show', $comment->topic->id) }}">{{ $comment->topic->title }}</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('adm.topic.comments', $comment->topic->id) }}">Comentários</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>Comentário ID {{ $comment->id }}</a>
@@ -24,10 +27,10 @@
     </div>
 </div>
 
-<a href="{{ route('adm.topics.comments.index') }}" class="btn btn-danger">
+<a href="{{ route('adm.topic.comments', $comment->topic->id) }}" class="btn btn-danger">
     <i class="fas fa-chevron-left mr-1"></i> Voltar
 </a>
-<a href="{{ route('adm.topics.comments.edit', $comment->id) }}" class="btn btn-dark">
+<a href="{{ route('adm.topic.comment.edit', [$comment->topic->id, $comment->id]) }}" class="btn btn-dark">
     <i class="fas fa-pencil-alt mr-1"></i> Editar
 </a>
 
@@ -39,26 +42,10 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Informações
+        Informações do comentário
     </div>
     <div class="card-body">
         @include('habboacademy.utils.alerts')
-        <ul class="list-group mb-2">
-            <div class="row d-flex">
-                <div class="col col-6">
-                    <li class="list-group-item">
-                        <strong>Comentário pertence ao tópico:</strong> <br>
-                        <a title="Clique para ver o tópico" target="_blank" href="{{ route('web.topics.show', [$comment->topic->id, $comment->topic->slug]) }}">{{ $comment->topic->title }}</a>
-                    </li>
-                </div>
-                <div class="col col-6">
-                    <li class="list-group-item">
-                        <strong>Autor:</strong> <br>{{ $comment->topic->user->username }}
-                    </li>
-                </div>
-            </div>
-        </ul>
-        <hr>
         <ul class="list-group">
             <li class="list-group-item">
                 <strong>Autor:</strong> <br>{{ $comment->user->username }}

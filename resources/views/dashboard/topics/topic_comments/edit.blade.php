@@ -14,10 +14,13 @@
                     <a href="{{ route('adm.topics.index') }}">Tópicos</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('adm.topics.comments.index') }}">Comentários</a>
+                    <a href="{{ route('adm.topics.show', $comment->topic->id) }}">{{ $comment->topic->title }}</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('adm.topics.comments.show', $comment->id) }}">{{ $comment->id }}</a>
+                    <a href="{{ route('adm.topic.comments', $comment->topic->id) }}">Comentários</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('adm.topic.comment.show', [$comment->topic->id, $comment->id]) }}">{{ $comment->id }}</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a>Editar</a>
@@ -35,7 +38,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('adm.topics.comments.update', $comment->id) }}" class="form" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('adm.topic.comment.update', [$comment->topic->id, $comment->id]) }}" class="form" method="POST" enctype="multipart/form-data">
                 @include('dashboard.topics.topic_comments._partials.form')
                 @method('PUT')
                 <div class="form-group">

@@ -105,7 +105,7 @@ class TopicController extends Controller
                 ->withErrors('Tópico não encontrado');
         }
 
-        return view('dashboard.topics.comments.index', [
+        return view('dashboard.topics.topic_comments.index', [
             'topic' => $topic,
             'comments' => $topic->comments
         ]);

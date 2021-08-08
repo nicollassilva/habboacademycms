@@ -303,6 +303,12 @@ return [
                     'classes' => 'pl-4 h6',
                     'route'   => 'adm.topics.index'
                 ],
+                [
+                    'text'    => 'Comentários',
+                    'icon'    => '',
+                    'classes' => 'pl-4 h6',
+                    'route'   => 'adm.topics.comments.index'
+                ],
             ]
         ],
         [

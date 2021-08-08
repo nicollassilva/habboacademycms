@@ -24,7 +24,7 @@ class TopicCommentController extends Controller
                 ->withErrors('Comentário não encontrado.');
         }
 
-        return view('dashboard.topics.comments.show', [
+        return view('dashboard.topics.topic_comments.show', [
             'comment' => $comment
         ]);
     }
@@ -43,7 +43,7 @@ class TopicCommentController extends Controller
                 ->withErrors('Comentário não encontrado.');
         }
 
-        return view('dashboard.topics.comments.edit', [
+        return view('dashboard.topics.topic_comments.edit', [
             'comment' => $comment
         ]);
     }
@@ -92,9 +92,9 @@ class TopicCommentController extends Controller
 
         $filters = $request->except('_token');
 
-        $filteredComments = TopicComment::search($request->filter, $id);
+        $filteredComments = TopicComment::searchByTopic($request->filter, $id);
 
-        return view('dashboard.topics.comments.index', [
+        return view('dashboard.topics.topic_comments.index', [
             'topic' => $topic,
             'comments' => $filteredComments,
             'filters' => $filters

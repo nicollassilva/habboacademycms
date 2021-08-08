@@ -31,16 +31,26 @@ class TopicComment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function search($filter = null, $id)
+    public static function searchByTopic($filter = null, $id)
+    {
+        return TopicComment::defaultSearch($filter)
+            ->where('topic_id', $id)
+            ->get();
+    }
+
+    public static function search($filter = null)
+    {
+        return TopicComment::defaultSearch($filter)->get();
+    }
+
+    public static function defaultSearch($filter = null)
     {
         return TopicComment::query()
-            ->where('topic_id', $id)
             ->with('user')
             ->whereHas('user', function($query) use ($filter) {
                 return $query->where('username', 'LIKE', "%{$filter}%");
             })
-            ->latest()
-            ->get();
+            ->latest();
     }
 
     public static function getCommentFromTopic($idTopic, $idComment)
