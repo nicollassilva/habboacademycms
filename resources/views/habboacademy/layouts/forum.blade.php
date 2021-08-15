@@ -1,6 +1,6 @@
 <div class="background-forum my-3">
     <div class="container">
-        <section class="section-forum" id="vue-academy">
+        <section class="section-forum">
             <section class="section-forum">
                 <div class="content-title mb-2">
                     <div class="icon" style="background-image: url('images/content-icons/forum.png')"></div>
