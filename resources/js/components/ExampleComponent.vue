@@ -1,12 +1,13 @@
 <template lang="">
     <div>
-        <forum-header />
-        <forum-ranking />
-        <forum />
+        Hi, i'm Vue 2.
     </div>
 </template>
 <script>
 export default {
-
+    
 }
 </script>
+<style lang="">
+    
+</style>
