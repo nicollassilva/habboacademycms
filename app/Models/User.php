@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use App\Models\Topic\Topic;
-use App\Models\Dashboard\Article;
 use App\Models\Topic\TopicComment;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -69,10 +66,5 @@ class User extends Authenticatable
             ->latest()
             ->limit(1)
             ->exists();
-    }
-
-    public function adminlte_image()
-    {
-        return Storage::url($this->profile_image_path);
     }
 }

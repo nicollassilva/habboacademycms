@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -28,7 +28,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $webNamespace = 'App\\Http\\Controllers';
     protected $apiNamespace = 'App\\Http\\Controllers\\Api';
-    protected $dashboardNamespace = 'App\\Http\\Controllers\\Dashboard';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -50,12 +49,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->webNamespace)
                 ->name('web.')
                 ->group(base_path('routes/web.php'));
-
-            Route::prefix('dashboard')
-                ->middleware(['web', 'auth'])
-                ->name('adm.')
-                ->namespace($this->dashboardNamespace)
-                ->group(base_path('routes/dashboard.php'));
         });
     }
 

@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Models\Dashboard;
+namespace App\Models;
 
-use App\Models\User;
-use App\Models\ArticleComment;
+use App\Models\Article\{
+    ArticleComment,
+    ArticleCategory
+};
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

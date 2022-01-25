@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers;
 
-use App\Models\Topic\Topic;
-use App\Models\Dashboard\Slide;
-use App\Models\Dashboard\Article;
-use App\Models\Topic\TopicCategory;
+use App\Models\{
+    Topic, Slide, Article,
+    Topic\TopicCategory,
+    Article\ArticleCategory
+};
 use App\Http\Controllers\Controller;
-use App\Models\Dashboard\ArticleCategory;
 
 class AcademyController extends Controller
 {
@@ -22,10 +22,15 @@ class AcademyController extends Controller
         $fixedArticles = Article::getFixedResources();
         $slides = Slide::latest()->limit(10)->get();
 
-        return view('habboacademy.index', compact([
-            'topics', 'topicsCategories', 
-            'articles', 'articlesCategories', 'fixedArticles',
-            'slides'
-        ]));
+        return view('habboacademy.index',
+            compact([
+                'topics',
+                'topicsCategories', 
+                'articles',
+                'articlesCategories',
+                'fixedArticles',
+                'slides'
+            ])
+        );
     }
 }

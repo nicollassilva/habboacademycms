@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Web\Topic;
+namespace App\Http\Controllers\Topic;
 
-use App\Models\Topic\Topic;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class CommentController extends Controller
+class TopicCommentController extends Controller
 {
     public function store($id, $slug, Request $request)
     {

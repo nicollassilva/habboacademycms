@@ -2,15 +2,15 @@
 
 namespace App\Observers;
 
+use App\Models\Article;
 use Illuminate\Support\Str;
-use App\Models\Dashboard\Article;
 
 class ArticleObserver
 {
     /**
      * Handle the Article "creating" event.
      *
-     * @param  \App\Models\Dashboard\Article  $article
+     * @param  \App\Models\Article  $article
      * @return void
      */
     public function creating(Article $article)
@@ -21,7 +21,7 @@ class ArticleObserver
     /**
      * Handle the Article "updating" event.
      *
-     * @param  \App\Models\Dashboard\Article  $article
+     * @param  \App\Models\Article  $article
      * @return void
      */
     public function updating(Article $article)

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Web\Article;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dashboard\Article;
-use Illuminate\Http\Request;
+use App\Models\Article;
 
 class ArticleController extends Controller
 {

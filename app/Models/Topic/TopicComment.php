@@ -2,7 +2,10 @@
 
 namespace App\Models\Topic;
 
-use App\Models\User;
+use App\Models\{
+    User,
+    Topic
+};
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

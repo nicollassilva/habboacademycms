@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Article;
 
-use App\Models\Dashboard\Article;
+use App\Models\{
+    User,
+    Article
+};
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

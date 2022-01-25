@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Web\Topic;
+namespace App\Http\Controllers;
 
-use App\Models\Topic\Topic;
+use App\Models\Topic;
 use App\Models\Topic\TopicCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateTopic;

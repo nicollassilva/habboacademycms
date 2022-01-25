@@ -56,7 +56,7 @@ class StoreUpdateArticle extends FormRequest
             'image.required' => 'Insira a imagem',
             'image.image' => 'Insira uma imagem válida',
             'content.required' => 'Digite sua notícia',
-            'content.min' => 'Digite seu notícia',
+            'content.min' => 'Digite sua notícia',
             'status.required' => 'Informe o status da notícia',
             'status.boolean' => 'Informe o status da notícia',
             'fixed.required' => 'Informe o campo "fixa"',
