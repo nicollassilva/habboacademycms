@@ -9,7 +9,10 @@
             <span>Configurações da Conta</span>
         </div>
         <div class="content p-4 table-responsive" style="min-height: auto; max-height: auto;">
-            <form action="/lib/conta/preferencias" method="post" class="form">
+            @include('habboacademy.utils.alerts')
+            <form action="{{ route('web.users.update') }}" method="post" class="form" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <input type="file" imageAvatar accept="image/*" class="sr-only" id="avatar" name="avatar">
                 <label for="avatar" avatarImage style="background-image: url('{{ asset('storage/' . $user->profile_image_path) }}')"></label>
                 <div class="form-group">
@@ -19,7 +22,7 @@
                     <input type="password" name="password" class="form-control" placeholder="Nova senha (Só preencha se realmente quiser alterar)">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="confirm-password" class="form-control" placeholder="Confirme sua nova senha (Só preencha se realmente quiser alterar)">
+                    <input type="password" name="password_confirmation" class="form-control" placeholder="Confirme sua nova senha (Só preencha se realmente quiser alterar)">
                 </div>
                     <div class="form-group">
                         <button type="submit">Salvar novos dados</button>

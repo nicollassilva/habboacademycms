@@ -15,7 +15,9 @@ class AddProfileImageToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('profile_image_path')
-                ->default('profiles/default.png');
+                ->default(
+                    config('academy.defaultProfileImagePath', 'profiles/default.png')
+                );
         });
     }
 

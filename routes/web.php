@@ -25,6 +25,7 @@ Route::namespace('Web')
             ->group(function() {
 
             Route::get('/edit', 'UserController@edit')->name('users.edit');
+            Route::put('/update', 'UserController@update')->name('users.update');
 
             Route::get('/topics/me', 'UserController@topics')->name('topics.me');
             Route::get('/topics/create', 'Topic\TopicController@create')->name('topics.create');

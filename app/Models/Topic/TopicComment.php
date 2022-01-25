@@ -31,7 +31,7 @@ class TopicComment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function searchByTopic($filter = null, $id)
+    public static function searchByTopic($id, $filter = null)
     {
         return TopicComment::defaultSearch($filter)
             ->where('topic_id', $id)

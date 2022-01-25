@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">

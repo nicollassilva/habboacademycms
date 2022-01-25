@@ -92,7 +92,7 @@ class TopicCommentController extends Controller
 
         $filters = $request->except('_token');
 
-        $filteredComments = TopicComment::searchByTopic($request->filter, $id);
+        $filteredComments = TopicComment::searchByTopic($id, $request->filter);
 
         return view('dashboard.topics.topic_comments.index', [
             'topic' => $topic,
