@@ -2,11 +2,17 @@
 
 namespace App\Providers;
 
-use App\Models\Topic;
-use App\Observers\TopicObserver;
+use App\Models\{
+    Topic,
+    Article
+};
+use App\Observers\{
+    TopicObserver,
+    TopicCommentObserver,
+    ArticleObserver
+};
 use App\Models\Topic\TopicComment;
 use Illuminate\Pagination\Paginator;
-use App\Observers\TopicCommentObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         
+        Article::observe(ArticleObserver::class);
         Topic::observe(TopicObserver::class);
         TopicComment::observe(TopicCommentObserver::class);
     }

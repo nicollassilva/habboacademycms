@@ -16,6 +16,7 @@ class ArticleObserver
     public function creating(Article $article)
     {
         $article->slug = Str::kebab($article->title);
+        $article->user_id = \Auth::id();
     }
 
     /**
@@ -27,5 +28,6 @@ class ArticleObserver
     public function updating(Article $article)
     {
         $article->slug = Str::kebab($article->title);
+        $article->user_id = \Auth::id();
     }
 }
