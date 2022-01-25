@@ -14,13 +14,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" data-turbolinks-track="true">
     @yield('css')
+
+    <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+    <script src="{{ asset('js/fontawesome.min.js') }}"></script>
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" data-turbolinks-track="false" defer></script>
+    @yield('js')
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -66,11 +72,6 @@
         </main>
     </main>
 </div>
-<script src="{{ asset('js/fontawesome.min.js') }}"></script>
-<script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
-@yield('js')
-
 @if (config('app.env') == 'local')
 <script src="http://localhost:35729/livereload.js"></script>
 @endif

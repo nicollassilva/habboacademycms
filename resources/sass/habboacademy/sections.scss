@@ -70,6 +70,8 @@ section {
 					transition: transform .4s ease-in-out;
 					transform: rotateY(90deg);
 					transform-origin: right;
+					height: 35px;
+					margin-top: 2px;
 				}
 
 				input.opened {

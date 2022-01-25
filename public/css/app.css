@@ -11195,6 +11195,8 @@ section .content-title .action-buttons .search input {
   transition: transform 0.4s ease-in-out;
   transform: rotateY(90deg);
   transform-origin: right;
+  height: 35px;
+  margin-top: 2px;
 }
 section .content-title .action-buttons .search input.opened {
   transform: rotateY(0deg);

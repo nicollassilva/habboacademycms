@@ -5,7 +5,7 @@
  */
 
 require('./bootstrap');
-require('./habboacademy/default');
+const { default: HabboAcademy } = require('./habboacademy/default');
 
 window.Vue = require('vue').default;
 
@@ -26,6 +26,6 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+document.addEventListener('turbolinks:load', () => {
+    HabboAcademy.init()
+})

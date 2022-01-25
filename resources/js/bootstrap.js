@@ -11,6 +11,9 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+
+    var Turbolinks = require("turbolinks");
+    Turbolinks.start();
 } catch (e) {}
 
 /**

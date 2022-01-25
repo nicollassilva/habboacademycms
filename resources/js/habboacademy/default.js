@@ -1,5 +1,3 @@
-import pagination from './pagination';
-
 const HabboAcademy = {
     init() {
         this.initEssentials();
@@ -23,10 +21,7 @@ const HabboAcademy = {
     },
 
     paginations() {
-        pagination({
-            section: ".section-forum",
-            box: ".topic"
-        });
+        
     },
 
     sliders() {
@@ -130,6 +125,4 @@ const HabboAcademy = {
     },
 }
 
-$(function() {
-    HabboAcademy.init();
-});
+export default HabboAcademy
