@@ -4,29 +4,30 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Article;
-use Filament\Tables\Filters;
+use App\Models\Topic;
 use Filament\Resources\Form;
+use Filament\Tables\Filters;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use App\Models\Topic\TopicCategory;
 use Filament\Forms\Components\Grid;
-use App\Models\Article\ArticleCategory;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\ArticleResource\Pages;
+use App\Filament\Resources\TopicResource\Pages;
+use App\Filament\Resources\TopicResource\RelationManagers;
 
-class ArticleResource extends Resource
+class TopicResource extends Resource
 {
-    protected static ?string $model = Article::class;
+    protected static ?string $model = Topic::class;
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    protected static ?string $navigationGroup = 'Notícias';
+    protected static ?string $navigationGroup = 'Fórum';
 
-    protected static ?string $navigationLabel = 'Gerenciar Notícias';
+    protected static ?string $navigationLabel = 'Gerenciar Tópicos';
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-alt-2';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -35,34 +36,28 @@ class ArticleResource extends Resource
                 Grid::make(['default' => 0])->schema([
                     Forms\Components\TextInput::make('title')
                         ->label('Título')
-                        ->placeholder("Título da notícia")
-                        ->required(),
-
-                    Forms\Components\TextInput::make('description')
-                        ->label('Descrição')
-                        ->placeholder("Descrição da notícia")
+                        ->placeholder("Título do tópico")
                         ->required(),
 
                     Forms\Components\BelongsToSelect::make('category_id')
-                            ->label('Categoria')
-                            ->relationship('category', 'name')
-                            ->options(ArticleCategory::pluck('name', 'id'))
-                            ->searchable(),
+                        ->label('Categoria')
+                        ->relationship('category', 'name')
+                        ->options(TopicCategory::pluck('name', 'id'))
+                        ->searchable(),
 
-                    Forms\Components\FileUpload::make('image_path')
-                        ->label('Imagem')
-                        ->directory('articles')
-                        ->required()
-                        ->helperText('PS: Espere carregar a imagem para salvar a notícia.')
-                        ->image(),
-
-                    Forms\Components\RichEditor::make('content')
-                        ->label('Conteúdo da Notícia')
-                        ->required()
-                        ->fileAttachmentsDirectory('articles'),
+                    Forms\Components\Select::make('moderated')
+                        ->label('Situação do Tópico')
+                        ->options([
+                            'closed' => 'Fechado',
+                            'moderated' => 'Moderado',
+                            'pending' => 'Pendente',
+                        ]),
 
                     Forms\Components\Toggle::make('fixed')
-                        ->label('Fixar notícia')
+                        ->label('Fixar tópico'),
+
+                    Forms\Components\Toggle::make('status')
+                        ->label('Tópico ativo'),
                 ])
             ]);
     }
@@ -82,43 +77,47 @@ class ArticleResource extends Resource
                     ->limit(20),
 
                 Tables\Columns\BooleanColumn::make('fixed')
-                    ->label('Fixada')
+                    ->label('Fixado')
                     ->trueIcon('heroicon-o-badge-check')
                     ->falseIcon('heroicon-o-x-circle'),
 
-                Tables\Columns\BooleanColumn::make('reviewed')
-                    ->label('Revisada')
+                Tables\Columns\BooleanColumn::make('status')
+                    ->label('Ativo')
                     ->trueIcon('heroicon-o-badge-check')
                     ->falseIcon('heroicon-o-x-circle'),
 
-                Tables\Columns\TextColumn::make('status')->enum([
-                    '0' => 'Rascunho',
-                    '1' => 'Publicada'
-                ])
+                Tables\Columns\TextColumn::make('moderated')
+                    ->label('Situação')
+                    ->enum([
+                        'moderated' => 'Moderado',
+                        'pending' => 'Pendente',
+                        'closed' => 'Fechado'
+                    ])
             ])
             ->filters([
-                Filters\SelectFilter::make('reviewed')
-                    ->label('Revisadas')
+                Filters\SelectFilter::make('moderated')
+                    ->label('Situação')
                     ->placeholder('Todas')
                     ->options([
-                        '0' => 'Rascunho',
-                        '1' => 'Publicada'
+                        'moderated' => 'Moderado',
+                        'pending' => 'Pendente',
+                        'closed' => 'Fechado'
                     ]),
 
                 Filters\SelectFilter::make('fixed')
-                    ->label('Fixadas')
-                    ->placeholder('Todas')
+                    ->label('Fixados')
+                    ->placeholder('Todos')
                     ->options([
-                        '0' => 'Não fixadas',
-                        '1' => 'Fixadas'
+                        '0' => 'Não fixados',
+                        '1' => 'Fixados',
                     ]),
 
                 Filters\SelectFilter::make('status')
                     ->label('Status')
-                    ->placeholder('Todas')
+                    ->placeholder('Todos')
                     ->options([
-                        '0' => 'Rascunho',
-                        '1' => 'Publicada'
+                        '0' => 'Ocultos',
+                        '1' => 'Ativos'
                     ]),
 
                 Filters\Filter::make('created_at')
@@ -152,10 +151,9 @@ class ArticleResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListArticles::route('/'),
-            'create' => Pages\CreateArticle::route('/create'),
-            'view' => Pages\ViewArticle::route('/{record}'),
-            'edit' => Pages\EditArticle::route('/{record}/edit'),
+            'index' => Pages\ListTopics::route('/'),
+            'view' => Pages\ViewTopic::route('/{record}'),
+            'edit' => Pages\EditTopic::route('/{record}/edit'),
         ];
     }
 }

@@ -5,24 +5,22 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Resources\Form;
+use App\Models\Topic\TopicCategory;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
-use App\Models\Article\ArticleCategory;
-use App\Filament\Resources\ArticleCategoryResource\Pages;
-use App\Filament\Resources\ArticleCategoryResource\RelationManagers;
+use App\Filament\Resources\TopicCategoryResource\Pages;
+use App\Filament\Resources\TopicCategoryResource\RelationManagers;
 
-class ArticleCategoryResource extends Resource
+class TopicCategoryResource extends Resource
 {
-    protected static ?string $model = ArticleCategory::class;
+    protected static ?string $model = TopicCategory::class;
 
-    protected static ?string $recordTitleAttribute = 'name';
-
-    protected static ?string $navigationGroup = 'Notícias';
+    protected static ?string $navigationGroup = 'Fórum';
 
     protected static ?string $navigationLabel = 'Gerenciar Categorias';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
@@ -36,7 +34,7 @@ class ArticleCategoryResource extends Resource
 
                     Forms\Components\FileUpload::make('icon')
                         ->label('Imagem')
-                        ->directory('articles/categories')
+                        ->directory('topics_categories')
                         ->required()
                         ->helperText('PS: Espere carregar a imagem para salvar a categoria.')
                         ->image(),
@@ -64,17 +62,17 @@ class ArticleCategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            ArticleCategoryResource\RelationManagers\ArticlesRelationManager::class
+            TopicCategoryResource\RelationManagers\TopicsRelationManager::class
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListArticleCategories::route('/'),
-            'create' => Pages\CreateArticleCategory::route('/create'),
-            'view' => Pages\ViewArticleCategory::route('/{record}'),
-            'edit' => Pages\EditArticleCategory::route('/{record}/edit'),
+            'index' => Pages\ListTopicCategories::route('/'),
+            'create' => Pages\CreateTopicCategory::route('/create'),
+            'view' => Pages\ViewTopicCategory::route('/{record}'),
+            'edit' => Pages\EditTopicCategory::route('/{record}/edit'),
         ];
     }
 }

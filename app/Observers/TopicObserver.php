@@ -26,6 +26,12 @@ class TopicObserver
      */
     public function updating(Topic $topic)
     {
+        $topicModerated = ['closed', 'moderated'];
+
         $topic->slug = Str::kebab($topic->title);
+
+        if(empty($topic->moderator) && in_array($topic->moderated, $topicModerated)) {
+            $topic->moderator = \Auth::user()->username;
+        }
     }
 }
