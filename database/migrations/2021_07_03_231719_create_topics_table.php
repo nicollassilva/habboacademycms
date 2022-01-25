@@ -31,6 +31,8 @@ class CreateTopicsTable extends Migration
 
             $table->boolean('status')->default(true);
 
+            $table->integer('comments_count')->default(0);
+
             $table->timestamps();
 
             $table->foreign('category_id')

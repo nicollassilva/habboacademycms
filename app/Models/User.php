@@ -3,14 +3,19 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use App\Models\Topic\TopicComment;
+use App\Models\Traits\FilamentTrait;
+use Filament\Models\Contracts\HasName;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, FilamentTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -66,5 +71,15 @@ class User extends Authenticatable
             ->latest()
             ->limit(1)
             ->exists();
+    }
+
+    public function isAdmin()
+    {
+        return true;
+    }
+
+    public function getFilamentName(): string
+    {
+        return Str::length($this->name, 'utf-8') > 3 ? $this->name : $this->username;
     }
 }

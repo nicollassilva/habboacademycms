@@ -43,7 +43,6 @@ class Topic extends Model
         return Topic::query()
             ->whereStatus(true)
             ->with('user')
-            ->withCount('comments')
             ->orderBy('fixed', 'desc')
             ->latest()
             ->limit(8)
@@ -57,7 +56,6 @@ class Topic extends Model
             ->whereSlug($slug)
             ->whereStatus(true)
             ->with(['user', 'category'])
-            ->withCount('comments')
             ->first();
     }
 
