@@ -68,10 +68,12 @@ class Login extends Component implements HasForms
                 ->label('Usuário')
                 ->required()
                 ->autocomplete(),
+                
             TextInput::make('password')
                 ->label('Senha')
                 ->password()
                 ->required(),
+
             Checkbox::make('remember')
                 ->label('Manter conectado'),
         ];

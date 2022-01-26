@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\TopicCategorySeeder;
-use Database\Seeders\ArticleCategorySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,7 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ArticleCategorySeeder::class,
-            TopicCategorySeeder::class
+            TopicCategorySeeder::class,
+            UserSeeder::class,
+            PermissionSeeder::class
         ]);
     }
 }

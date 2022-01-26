@@ -9,6 +9,7 @@ use App\Models\User\UserLog;
 use App\Models\Topic\TopicComment;
 use App\Models\Traits\FilamentTrait;
 use Filament\Models\Contracts\HasName;
+use Spatie\Permission\Traits\HasRoles;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;

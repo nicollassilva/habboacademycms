@@ -14,10 +14,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Traits\ShowLatestResources;
 use App\Filament\Resources\Users\UserResource\Pages;
+use App\Filament\Traits\HasRoleOrPermission;
 
 class UserResource extends Resource
 {
-    use ShowLatestResources;
+    use ShowLatestResources, HasRoleOrPermission;
 
     protected static ?string $model = User::class;
 

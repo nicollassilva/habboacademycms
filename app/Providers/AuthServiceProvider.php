@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        //'App\Models\User' => 'App\Policies\UserPolicy',
     ];
 
     /**
@@ -25,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::policy('Spatie\Permission\Models\Role', 'App\Policies\RolePolicy');
         //
     }
 }
