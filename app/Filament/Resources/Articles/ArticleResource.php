@@ -13,9 +13,12 @@ use Filament\Forms\Components\Grid;
 use App\Models\Article\ArticleCategory;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\Articles\ArticleResource\Pages;
+use App\Filament\Traits\ShowLatestResources;
 
 class ArticleResource extends Resource
 {
+    use ShowLatestResources;
+    
     protected static ?string $model = Article::class;
 
     protected static ?string $recordTitleAttribute = 'title';
@@ -71,6 +74,10 @@ class ArticleResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->label('Título')

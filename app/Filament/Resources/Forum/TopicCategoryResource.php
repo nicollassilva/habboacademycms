@@ -28,7 +28,6 @@ class TopicCategoryResource extends Resource
                 Grid::make(['default' => 0])->schema([
                     Forms\Components\TextInput::make('name')
                         ->label('Nome')
-                        ->placeholder("Nome da categoria")
                         ->required(),
 
                     Forms\Components\FileUpload::make('icon')

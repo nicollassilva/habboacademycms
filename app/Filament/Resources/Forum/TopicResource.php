@@ -39,7 +39,6 @@ class TopicResource extends Resource
                 Grid::make(['default' => 0])->schema([
                     Forms\Components\TextInput::make('title')
                         ->label('Título')
-                        ->placeholder("Título do tópico")
                         ->required(),
 
                     Forms\Components\BelongsToSelect::make('category_id')

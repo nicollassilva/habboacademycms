@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use App\Models\User\UserBan;
+use App\Models\User\UserLog;
 use App\Models\Topic\TopicComment;
 use App\Models\Traits\FilamentTrait;
 use Filament\Models\Contracts\HasName;
@@ -23,7 +25,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'name', 'profile_image_path'
+        'username', 'email', 'password', 'name', 'profile_image_path', 'disabled'
     ];
 
     /**
@@ -41,12 +43,23 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime'
+        'email_verified_at' => 'datetime',
+        'disabled' => 'boolean'
     ];
 
     public function topics()
     {
         return $this->hasMany(Topic::class);
+    }
+
+    public function logs()
+    {
+        return $this->hasMany(UserLog::class);
+    }
+
+    public function bans()
+    {
+        return $this->hasMany(UserBan::class);
     }
     
     public function topicComments()
