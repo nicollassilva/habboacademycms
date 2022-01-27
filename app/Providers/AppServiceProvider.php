@@ -10,8 +10,7 @@ use App\Models\{
 use App\Observers\{
     TopicObserver,
     TopicCommentObserver,
-    ArticleObserver,
-    UserObserver
+    ArticleObserver
 };
 use App\Models\Topic\TopicComment;
 use Illuminate\Pagination\Paginator;
@@ -41,7 +40,5 @@ class AppServiceProvider extends ServiceProvider
         Article::observe(ArticleObserver::class);
         Topic::observe(TopicObserver::class);
         TopicComment::observe(TopicCommentObserver::class);
-
-        User::observe(UserObserver::class);
     }
 }

@@ -873,16 +873,16 @@
         },
         {
             "name": "filament/filament",
-            "version": "v2.9.10",
+            "version": "v2.9.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/admin.git",
-                "reference": "09bd2661ccefc9af8a8023c8eb8d0a4c7a913177"
+                "reference": "3af9a730f7d3bbd1ad09d6c380c29bd42e74b983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/admin/zipball/09bd2661ccefc9af8a8023c8eb8d0a4c7a913177",
-                "reference": "09bd2661ccefc9af8a8023c8eb8d0a4c7a913177",
+                "url": "https://api.github.com/repos/laravel-filament/admin/zipball/3af9a730f7d3bbd1ad09d6c380c29bd42e74b983",
+                "reference": "3af9a730f7d3bbd1ad09d6c380c29bd42e74b983",
                 "shasum": ""
             },
             "require": {
@@ -929,20 +929,20 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament"
             },
-            "time": "2022-01-25T10:02:34+00:00"
+            "time": "2022-01-26T09:06:04+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v2.9.10",
+            "version": "v2.9.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/forms.git",
-                "reference": "66348e6543abde1ad9832878a8e5da808ce74266"
+                "reference": "3f5b1277656c35c1e0e74e3f9b5d94d0852d0508"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/forms/zipball/66348e6543abde1ad9832878a8e5da808ce74266",
-                "reference": "66348e6543abde1ad9832878a8e5da808ce74266",
+                "url": "https://api.github.com/repos/laravel-filament/forms/zipball/3f5b1277656c35c1e0e74e3f9b5d94d0852d0508",
+                "reference": "3f5b1277656c35c1e0e74e3f9b5d94d0852d0508",
                 "shasum": ""
             },
             "require": {
@@ -985,20 +985,20 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament"
             },
-            "time": "2022-01-25T10:02:29+00:00"
+            "time": "2022-01-25T22:29:59+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v2.9.10",
+            "version": "v2.9.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/tables.git",
-                "reference": "d56986602f31054548a28ba483d7953dc4f76d4d"
+                "reference": "0d4d8acbf7c4380fa97f5bf03b4ebdfa80f10887"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/tables/zipball/d56986602f31054548a28ba483d7953dc4f76d4d",
-                "reference": "d56986602f31054548a28ba483d7953dc4f76d4d",
+                "url": "https://api.github.com/repos/laravel-filament/tables/zipball/0d4d8acbf7c4380fa97f5bf03b4ebdfa80f10887",
+                "reference": "0d4d8acbf7c4380fa97f5bf03b4ebdfa80f10887",
                 "shasum": ""
             },
             "require": {
@@ -1038,7 +1038,7 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament"
             },
-            "time": "2022-01-25T10:02:25+00:00"
+            "time": "2022-01-25T23:27:18+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -1508,16 +1508,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.80.0",
+            "version": "v8.81.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "8949a2e46b0f274f39c61eee8d5de1dc6a1f686b"
+                "reference": "9cc0efd724ce67a190b1695ba31a27bbb1ae9177"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/8949a2e46b0f274f39c61eee8d5de1dc6a1f686b",
-                "reference": "8949a2e46b0f274f39c61eee8d5de1dc6a1f686b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9cc0efd724ce67a190b1695ba31a27bbb1ae9177",
+                "reference": "9cc0efd724ce67a190b1695ba31a27bbb1ae9177",
                 "shasum": ""
             },
             "require": {
@@ -1550,7 +1550,7 @@
                 "symfony/var-dumper": "^5.4",
                 "tijsverkoyen/css-to-inline-styles": "^2.2.2",
                 "vlucas/phpdotenv": "^5.4.1",
-                "voku/portable-ascii": "^1.4.8"
+                "voku/portable-ascii": "^1.6.1"
             },
             "conflict": {
                 "tightenco/collect": "<5.5.33"
@@ -1677,7 +1677,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-01-18T15:51:42+00:00"
+            "time": "2022-01-25T16:41:46+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -1808,16 +1808,16 @@
         },
         {
             "name": "laravel/ui",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ui.git",
-                "reference": "9a1e52442dd238647905b98d773d59e438eb9f9d"
+                "reference": "e01198123f7f4369d13c1f83a897c3f5e97fc9f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/9a1e52442dd238647905b98d773d59e438eb9f9d",
-                "reference": "9a1e52442dd238647905b98d773d59e438eb9f9d",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/e01198123f7f4369d13c1f83a897c3f5e97fc9f4",
+                "reference": "e01198123f7f4369d13c1f83a897c3f5e97fc9f4",
                 "shasum": ""
             },
             "require": {
@@ -1863,22 +1863,22 @@
                 "ui"
             ],
             "support": {
-                "source": "https://github.com/laravel/ui/tree/v3.4.1"
+                "source": "https://github.com/laravel/ui/tree/v3.4.2"
             },
-            "time": "2021-12-22T10:40:50+00:00"
+            "time": "2022-01-25T20:15:56+00:00"
         },
         {
             "name": "league/commonmark",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "c5aadcc15548629787d02b86a7afef03b46271b5"
+                "reference": "f8afb78f087777b040e0ab8a6b6ca93f6fc3f18a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c5aadcc15548629787d02b86a7afef03b46271b5",
-                "reference": "c5aadcc15548629787d02b86a7afef03b46271b5",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/f8afb78f087777b040e0ab8a6b6ca93f6fc3f18a",
+                "reference": "f8afb78f087777b040e0ab8a6b6ca93f6fc3f18a",
                 "shasum": ""
             },
             "require": {
@@ -1886,7 +1886,7 @@
                 "league/config": "^1.1.1",
                 "php": "^7.4 || ^8.0",
                 "psr/event-dispatcher": "^1.0",
-                "symfony/deprecation-contracts": "^v2.1 || ^3.0",
+                "symfony/deprecation-contracts": "^2.1 || ^3.0",
                 "symfony/polyfill-php80": "^1.15"
             },
             "require-dev": {
@@ -1969,7 +1969,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-22T14:06:22+00:00"
+            "time": "2022-01-25T14:37:33+00:00"
         },
         {
             "name": "league/config",
