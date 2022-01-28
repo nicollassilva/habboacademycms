@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\Academy;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +14,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        // Academy Commands
+        Academy\Optimize::class,
+        Academy\Commands::class,
+        Academy\Database::class
     ];
 
     /**

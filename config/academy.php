@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Para colocar as alterações do arquivo em evidência, acesse a pasta principal e execute o comando:
+ * 
+ * > php artisan academy:config
+ */
+
 return [
     'defaultProfileImagePath' => 'profiles/default.png',
 
