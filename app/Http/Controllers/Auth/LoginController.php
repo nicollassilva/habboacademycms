@@ -64,6 +64,11 @@ class LoginController extends Controller
             });
         }
 
+        $user->update([
+            'last_login' => \Carbon\Carbon::now(),
+            'ip_last_login' => $request->ip()
+        ]);
+
         $user->logs()->create([
             'ip' => $request->ip(),
             'content' => "Fez login no site",

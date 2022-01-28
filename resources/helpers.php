@@ -1,7 +1,7 @@
 <?php
 
 use App\Services\{
-    TarjaService,
+    ForumLevelService,
     TimeService,
     UserCodeService
 };
@@ -21,17 +21,17 @@ if (! function_exists('dateToString')) {
     }
 }
 
-if (! function_exists('getTarja')) {
+if (! function_exists('getForumLevel')) {
     /**
-     * Get the user forum tarja.
+     * Get the user forum level.
      * 
      * @param int $messageCount
      * 
      * @return array
      */
-    function getTarja(Int $messageCount): Array
+    function getForumLevel(Int $messageCount): Array
     {
-        return TarjaService::make($messageCount);
+        return ForumLevelService::make($messageCount);
     }
 }
 
@@ -62,5 +62,22 @@ if (! function_exists('lastUsers')) {
     function lastUsers()
     {
         return User::latest()->limit(10)->get();
+    }
+}
+
+if (! function_exists('getAvatar')) {
+    /**
+     * Returns the avatar image
+     * 
+     * @param string $userText
+     * @param int $renderType
+     * 
+     * @return string
+     */
+    function getAvatar(string $username, string $queryParams)
+    {
+        $defaultImagerUrl = config('academy.site.defaultImagerUrl');
+
+        return "{$defaultImagerUrl}{$username}{$queryParams}";
     }
 }

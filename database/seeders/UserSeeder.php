@@ -19,6 +19,9 @@ class UserSeeder extends Seeder
             'username' => 'Admin',
             'name' => 'Administrator',
             'email' => 'admin@admin.com',
+            'ip_register' => 'localhost',
+            'ip_last_login' => 'localhost',
+            'last_login' => \Carbon\Carbon::now(),
             'password' => Hash::make('admin')
         ]);
     }

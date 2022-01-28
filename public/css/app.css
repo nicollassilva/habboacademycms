@@ -10624,11 +10624,16 @@ i.noticias {
       image-rendering: pixelated;
 }
 
+.no-pixelated {
+  image-rendering: optimizeQuality;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Exo 2", sans-serif;
-  background-color: #dcdde1;
+  background: url("/images/background.webp"), #dcdde1;
+  background-attachment: fixed;
   overflow: hidden auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11045,7 +11050,7 @@ section .content-title .action-buttons .search i:not(.mirror) {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: #dcdde1;
+  background-color: white;
 }
 .slider .swiper-slide {
   border: 5px solid white;

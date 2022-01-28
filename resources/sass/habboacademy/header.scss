@@ -3,11 +3,16 @@
 	image-rendering: pixelated;
 }
 
+.no-pixelated {
+	image-rendering: optimizeQuality;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Exo 2', sans-serif;
-	background-color: $background;
+	background: url('/images/background.webp'), $background;
+	background-attachment: fixed;
 	overflow: hidden auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

@@ -27,7 +27,7 @@
             <div class="button"><i class="noticias mr-1"></i> <b class="mr-1">Categoria:</b>{{ $article->category->name }}</div>
             <div class="button">
                 <div class="avatar normal" 
-                    style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $article->user->username }}&action=std&direction=2&head_direction=2&img_format=png&gesture=std&frame=1&headonly=0&size=m')"></div>
+                    style="background-image: url('{{ getAvatar($article->user->username, '&action=std&direction=2&head_direction=2&img_format=png&gesture=std&frame=1&headonly=0&size=m') }}')"></div>
                 Postado por 
                 <b class="ml-1">
                     <a class="text-dark" href="">

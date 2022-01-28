@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-abstract class TarjaService
+abstract class ForumLevelService
 {
     public static function make(Int $count): Array
 	{

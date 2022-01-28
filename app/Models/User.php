@@ -26,7 +26,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'name', 'profile_image_path', 'disabled'
+        'username',
+        'email',
+        'ip_register',
+        'ip_last_login',
+        'last_login',
+        'password',
+        'name',
+        'profile_image_path',
+        'disabled'
     ];
 
     /**
@@ -45,7 +53,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'disabled' => 'boolean'
+        'last_login' => 'datetime',
+        'disabled' => 'boolean',
     ];
 
     public function topics()

@@ -42,7 +42,7 @@
                         <div class="latests-box">
                             @foreach (lastUsers() as $lastUser)
                                 <a href="/profile/{{ $lastUser->username }}" class="latest-user"
-                                    style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $lastUser->username }}&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s')"
+                                    style="background-image: url('{{ getAvatar($lastUser->username, '&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s') }}')"
                                     data-toggle="tooltip"
                                     title="<b>{{ $lastUser->username }}</b><br>Cadastrou {{ dateToString($lastUser->created_at) }}"
                                     data-placement="bottom"></a>

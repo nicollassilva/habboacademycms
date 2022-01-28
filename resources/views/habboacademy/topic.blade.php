@@ -3,7 +3,7 @@
 @section('title', "Tópico: {$topic->title}")
 
 @php
-    $tarja = getTarja($topic->user->topics_comment_count);
+    $tarja = getForumLevel($topic->user->topics_comment_count);
 @endphp
 
 @section('content')
@@ -17,7 +17,7 @@
                 <div class="tarja" style="background-image: url('{{ asset('/images/tarjas/' . $tarja["level"]) }}.png')"></div>
                 <div class="stage-user"></div>
                 <a href="/home/{{ $topic->user->username }}">
-                    <div class="avatar normal" style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $topic->user->username }}&headonly=0&direction=2&head_direction=3&action=wav&gesture=sit&size=m')"></div>
+                    <div class="avatar normal" style="background-image: url('{{ getAvatar($topic->user->username, '&headonly=0&direction=2&head_direction=3&action=wav&gesture=sit&size=m') }}')"></div>
                 </a>
             </div>
             <div class="nome-topico">
@@ -112,7 +112,7 @@
         <div class="comentario">
             <div class="titulo bg-primary">
                 <div class="user">
-                    <div class="cabeca" style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $comment->user->username }}&headonly=1&direction=2&head_direction=3&action=&gesture=&size=m')"></div>
+                    <div class="cabeca" style="background-image: url('{{ getAvatar($comment->user->username, '&headonly=1&direction=2&head_direction=3&action=&gesture=&size=m') }}')"></div>
                 </div>
                 <div class="topico text-truncate">RE: {{ $topic->title }}</div>
                 <div class="acoes">
@@ -127,14 +127,14 @@
                 <div class="foto" style="background-image: url('{{ asset('storage/' . $comment->user->profile_image_path) }}')">
                     <div class="stage-user"></div>
                     <div class="user bg-primary"><span class="text-truncate"><a href="/home/{{ $comment->user->username }}" class="text-white" style="text-decoration: none !important">{{ $comment->user->username }}</a></span></div>
-                    <div class="avatar normal" style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $comment->user->username }}&headonly=0&direction=2&head_direction=3&action=wav&gesture=sit&size=m')"></div>
+                    <div class="avatar normal" style="background-image: url('{{ getAvatar($comment->user->username, '&headonly=0&direction=2&head_direction=3&action=wav&gesture=sit&size=m') }}')"></div>
                 </div>
                 <div class="box-tarja">
                     <div class="restantes" data-toggle="tooltip" data-placement="bottom" title="15 comentários no fórum">
                         @php
                             $totalComments = $comment->user->topics_comment_count;
 
-                            $tarja = getTarja($totalComments);
+                            $tarja = getForumLevel($totalComments);
 
                             $final = $totalComments / $tarja["next"] * 100;
                         @endphp

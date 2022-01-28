@@ -29,4 +29,17 @@ class UserBan extends Model
     {
         return $this->belongsTo(User::class, 'admin_id');
     }
+
+    public static function userHasBeenIpBanned()
+    {
+        return User::where('ip_register', \Request::ip())
+            ->limit(1)
+            ->whereHas('bans', function ($query) {
+                return $query->whereType('ip')
+                    ->where(function ($query) {
+                        return $query->whereNull('expires_at')
+                            ->orWhereDate('expires_at', '>', \Carbon\Carbon::now());
+                    });
+            })->exists();
+    }
 }

@@ -68,7 +68,7 @@
                             </div>
                             <a href="{{ route('web.topics.show', [$topic->id, $topic->slug]) }}"><div class="title text-truncate">{{ $topic->title }}</div></a>
                             <div class="avatar"
-                                    style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?&user={{ $topic->user->username }}&action=&direction=2&head_direction=2&img_format=png&gesture=&size=s')"></div>
+                                    style="background-image: url('{{ getAvatar($topic->user->username, '&action=&direction=2&head_direction=2&img_format=png&gesture=&size=s') }}')"></div>
                             <div class="data">
                                 <a href="">{{ $topic->user->username }}</a> • <i class="fas fa-clock mr-1"></i> {{ dateToString($topic->created_at) }}
                             </div>
