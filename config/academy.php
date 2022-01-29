@@ -15,8 +15,18 @@ return [
 
         'register' => [
             'activated' => true,
-            'accountsPerIp' => 4,
+            'accountsPerIp' => 2,
             'captchaActivated' => false,
+        ]
+    ],
+
+    'panel' => [
+        /**
+         * Coloque o nome de pessoas confiáveis e que fazem parte da equipe do seu site,
+         * as funções em que são habilitadas para esses usuários podem ser críticas em mãos erradas.
+         **/ 
+        'superAdmins' => [
+            'Admin'
         ]
     ]
 ];

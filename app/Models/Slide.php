@@ -20,14 +20,13 @@ class Slide extends Model
         'new_tab' => 'boolean'
     ];
 
-    public static function search($filter = null)
+    public static function getDefaultResources()
     {
         return Slide::query()
-            ->where(function($query) use ($filter) {
-                return $query->where('title', 'LIKE', "%{$filter}%")
-                             ->orWhere('description', 'LIKE', "%{$filter}%");
-            })
-            ->latest()
-            ->paginate();
+            ->whereActive(true)
+            ->orderByDesc('fixed')
+            ->orderByDesc('id')
+            ->limit(10)
+            ->get();
     }
 }

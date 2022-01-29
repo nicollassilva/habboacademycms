@@ -20,7 +20,7 @@ class AcademyController extends Controller
         $articlesCategories = ArticleCategory::all();
 
         $fixedArticles = Article::getFixedResources();
-        $slides = Slide::latest()->limit(10)->get();
+        $slides = Slide::getDefaultResources();
 
         return view('habboacademy.index',
             compact([

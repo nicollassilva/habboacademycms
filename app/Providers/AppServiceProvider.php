@@ -4,8 +4,7 @@ namespace App\Providers;
 
 use App\Models\{
     Topic,
-    Article,
-    User
+    Article
 };
 use App\Observers\{
     TopicObserver,
