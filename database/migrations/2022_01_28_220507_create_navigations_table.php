@@ -23,6 +23,7 @@ class CreateNavigationsTable extends Migration
             $table->string('slug')->nullable();
 
             $table->smallInteger('order')->default(0);
+            $table->boolean('visible')->default(true);
         });
 
         Schema::create('sub_navigations', function (Blueprint $table) {
@@ -34,6 +35,7 @@ class CreateNavigationsTable extends Migration
             $table->boolean('new_tab')->default(false);
 
             $table->smallInteger('order')->default(0);
+            $table->boolean('visible')->default(true);
 
             $table->foreign('navigation_id')
                 ->references('id')

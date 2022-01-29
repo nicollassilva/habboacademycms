@@ -39,6 +39,7 @@ class Optimize extends Command
     public function handle()
     {
         Artisan::call('optimize:clear');
+        Artisan::call('config:cache');
 
         $this->info('Cache da aplicação excluídos e arquivos de configurações recarregados.');
     }

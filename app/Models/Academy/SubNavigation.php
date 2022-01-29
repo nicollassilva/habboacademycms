@@ -18,6 +18,11 @@ class SubNavigation extends Model
         'order'
     ];
 
+    protected $casts = [
+        'visible' => 'boolean',
+        'new_tab' => 'boolean'
+    ];
+
     public function navigation()
     {
         return $this->belongsTo(Navigation::class);

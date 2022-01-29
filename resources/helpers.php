@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Academy\Navigation;
 use App\Services\{
     ForumLevelService,
     TimeService,
@@ -79,5 +80,19 @@ if (! function_exists('getAvatar')) {
         $defaultImagerUrl = config('academy.site.defaultImagerUrl');
 
         return "{$defaultImagerUrl}{$username}{$queryParams}";
+    }
+}
+
+if (! function_exists('getNavigations')) {
+    /**
+     * Returns the website navigations
+     * 
+     * @param bool $subNavigations
+     * 
+     * @return \App\Models\Academy\Navigation|array
+     */
+    function getNavigations(bool $subNavigations = true)
+    {
+        return Navigation::getAcademyNavigation($subNavigations);
     }
 }

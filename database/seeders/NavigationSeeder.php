@@ -46,7 +46,7 @@ class NavigationSeeder extends Seeder
         if ($navigationLabel == 'Início') {
             return [
                 'order' => 0,
-                'small_icon' => 'fa-house-user',
+                'small_icon' => 'fas fa-house-user',
                 'hover_icon' => '/images/menu/inicio.png'
             ];
         }
@@ -54,7 +54,7 @@ class NavigationSeeder extends Seeder
         if ($navigationLabel == 'HabboAcademy') {
             return [
                 'order' => 1,
-                'small_icon' => 'fa-hackerrank',
+                'small_icon' => 'fab fa-hackerrank',
                 'hover_icon' => '/images/menu/habboacademy.png'
             ];
         }
@@ -62,7 +62,7 @@ class NavigationSeeder extends Seeder
         if ($navigationLabel == 'Habbo') {
             return [
                 'order' => 2,
-                'small_icon' => 'fa-hire-a-helper',
+                'small_icon' => 'fab fa-hire-a-helper',
                 'hover_icon' => '/images/menu/habbo.png'
             ];
         }
@@ -70,7 +70,7 @@ class NavigationSeeder extends Seeder
         if ($navigationLabel == 'Conteúdos') {
             return [
                 'order' => 3,
-                'small_icon' => 'fa-neos',
+                'small_icon' => 'fab fa-neos',
                 'hover_icon' => '/images/menu/conteudos.png'
             ];
         }
@@ -78,7 +78,7 @@ class NavigationSeeder extends Seeder
         if ($navigationLabel == 'Fã-Center') {
             return [
                 'order' => 4,
-                'small_icon' => 'fa-magic',
+                'small_icon' => 'fas fa-magic',
                 'hover_icon' => '/images/menu/facenter.png'
             ];
         }
@@ -86,7 +86,7 @@ class NavigationSeeder extends Seeder
         if ($navigationLabel == 'Rádio') {
             return [
                 'order' => 5,
-                'small_icon' => 'fa-music',
+                'small_icon' => 'fas fa-music',
                 'hover_icon' => '/images/menu/radio.png'
             ];
         }

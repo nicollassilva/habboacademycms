@@ -2,6 +2,7 @@
 
 namespace App\Models\Academy;
 
+use App\Services\AcademyService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -19,8 +20,37 @@ class Navigation extends Model
         'order'
     ];
 
+    protected $casts = [
+        'visible' => 'boolean'
+    ];
+
+    public static function defaultQuery()
+    {
+        return Navigation::whereVisible(true)
+            ->orderBy('order')
+            ->orderByDesc('id');
+    }
+
     public function subNavigations()
     {
-        return $this->hasMany(SubNavigation::class);
+        return $this->hasMany(SubNavigation::class)
+            ->whereVisible(true)
+            ->orderBy('order')
+            ->orderByDesc('id');
+    }
+
+    public static function getAcademyNavigation(bool $subNavigations = true)
+    {
+        $cacheableTime = AcademyService::isDevEnvironment() ? 0 : 300;
+
+        return \Cache::remember('navigations', $cacheableTime, function() use ($subNavigations) {
+            $navigation = Navigation::defaultQuery();
+
+            if($subNavigations) {
+                $navigation->with('subNavigations');
+            }
+
+            return $navigation->get();
+        });
     }
 }

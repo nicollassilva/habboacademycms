@@ -1,83 +1,28 @@
 <nav class="menu customTransition">
     <div class="container">
         <ul class="principal-list">
+            @foreach (getNavigations() as $navigation)
             <li class="item-menu">
-                <a href="/" class="title-menu">
-                    <i class="fas mr-2 fa-house-user"></i>
-                    <span>Início</span>
-                    <div class="icon-menu"></div>
+                <a href="{{ $navigation->slug }}" class="title-menu">
+                    <i class="mr-2 {{ $navigation->small_icon }}"></i>
+                    <span>{{ $navigation->label }}</span>
+                    <div class="icon-menu" style="background-image: url('{{ $navigation->hover_icon }}')"></div>
                 </a>
-            </li>
-            <li class="item-menu">
-                <a class="title-menu">
-                    <i class="fab mr-2 fa-hackerrank"></i>
-                    <span>HabboAcademy</span>
-                    <div class="icon-menu"></div>
-                </a>
+                @if ($navigation->subNavigations->count())
                 <div class="drop-menu">
                     <ul>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
+                        @foreach ($navigation->subNavigations as $subNavigation)
+                        <li>
+                            <a @if ($subNavigation->new_tab) target="_blank" @endif href="{{ $subNavigation->slug }}">
+                                {{ $subNavigation->label }}
+                            </a>
+                        </li>
+                        @endforeach
                     </ul>
                 </div>
+                @endif
             </li>
-            <li class="item-menu">
-                <a class="title-menu">
-                    <i class="fab mr-2 fa-hire-a-helper"></i>
-                    <span>Habbo</span>
-                    <div class="icon-menu"></div>
-                </a>
-                <div class="drop-menu">
-                    <ul>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="item-menu">
-                <a class="title-menu">
-                    <i class="fab mr-2 fa-neos"></i>
-                    <span>Conteúdos</span>
-                    <div class="icon-menu"></div>
-                </a>
-                <div class="drop-menu">
-                    <ul>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="item-menu">
-                <a class="title-menu">
-                    <i class="fas mr-2 fa-magic"></i>
-                    <span>Fã-Center</span>
-                    <div class="icon-menu"></div>
-                </a>
-                <div class="drop-menu">
-                    <ul>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="item-menu">
-                <a class="title-menu">
-                    <i class="fas mr-2 fa-music"></i>
-                    <span>Rádio</span>
-                    <div class="icon-menu"></div>
-                </a>
-                <div class="drop-menu">
-                    <ul>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                        <li><a href="">olá tudo bem?</a></li>
-                    </ul>
-                </div>
-            </li>
+            @endforeach
         </ul>
     </div>
 </nav>
