@@ -4,8 +4,8 @@ namespace App\Filament\Resources\Academy;
 
 use Filament\Forms;
 use Filament\Tables;
-use Filament\Tables\Filters;
 use App\Models\Badge;
+use Filament\Tables\Filters;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
@@ -19,6 +19,8 @@ class BadgeResource extends Resource
     use ShowLatestResources;
 
     protected static ?string $model = Badge::class;
+
+    protected static ?string $slug = 'academy/badges';
 
     protected static ?string $recordTitleAttribute = 'code';
 

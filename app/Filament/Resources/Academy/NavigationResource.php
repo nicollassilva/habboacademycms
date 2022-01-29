@@ -16,6 +16,8 @@ class NavigationResource extends Resource
 {
     protected static ?string $model = Navigation::class;
 
+    protected static ?string $slug = 'academy/navigations';
+
     protected static ?string $recordTitleAttribute = 'label';
 
     protected static ?string $navigationGroup = 'Academy';
@@ -82,7 +84,6 @@ class NavigationResource extends Resource
                     ->trueIcon('heroicon-o-badge-check')
                     ->falseIcon('heroicon-o-x-circle')
             ])
-            ->defaultSort('order', 'desc')
             ->filters([]);
     }
 

@@ -11,6 +11,7 @@ use App\Observers\{
     TopicCommentObserver,
     ArticleObserver
 };
+use Filament\Facades\Filament;
 use App\Models\Topic\TopicComment;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -39,5 +40,13 @@ class AppServiceProvider extends ServiceProvider
         Article::observe(ArticleObserver::class);
         Topic::observe(TopicObserver::class);
         TopicComment::observe(TopicCommentObserver::class);
+
+        Filament::registerNavigationGroups([
+            'Painel',
+            'Academy',
+            'Notícias',
+            'Usuários',
+            'Fórum'
+        ]);
     }
 }

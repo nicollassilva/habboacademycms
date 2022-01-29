@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Slide;
+namespace App\Filament\Resources\Academy;
 
 use Filament\Forms;
 use Filament\Tables;
@@ -11,13 +11,15 @@ use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
 use App\Filament\Traits\ShowLatestResources;
-use App\Filament\Resources\Slide\SlideResource\Pages;
+use App\Filament\Resources\Academy\SlideResource\Pages;
 
 class SlideResource extends Resource
 {
     use ShowLatestResources;
 
     protected static ?string $model = Slide::class;
+
+    protected static ?string $slug = 'academy/slides';
 
     protected static ?string $navigationGroup = 'Academy';
 

@@ -15,6 +15,8 @@ class TopicCategoryResource extends Resource
 {
     protected static ?string $model = TopicCategory::class;
 
+    protected static ?string $slug = 'forum/categories';
+
     protected static ?string $navigationGroup = 'Fórum';
 
     protected static ?string $navigationLabel = 'Gerenciar Categorias';

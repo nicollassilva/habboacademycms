@@ -18,6 +18,8 @@ class UserWarningResource extends Resource
 {
     protected static ?string $model = UserWarning::class;
 
+    protected static ?string $slug = 'users/warnings';
+
     protected static ?string $navigationIcon = 'heroicon-o-shield-exclamation';
 
     protected static ?string $navigationGroup = 'Usuários';

@@ -18,6 +18,8 @@ class TopicResource extends Resource
 {
     protected static ?string $model = Topic::class;
 
+    protected static ?string $slug = 'forum/topics';
+
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static ?string $navigationGroup = 'Fórum';

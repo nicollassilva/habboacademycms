@@ -17,6 +17,8 @@ class TopicCommentResource extends Resource
 {
     protected static ?string $model = TopicComment::class;
 
+    protected static ?string $slug = 'forum/comments';
+
     protected static ?string $navigationIcon = 'heroicon-o-annotation';
 
     protected static ?string $navigationGroup = 'Fórum';

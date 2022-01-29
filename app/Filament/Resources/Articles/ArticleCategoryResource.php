@@ -15,6 +15,8 @@ class ArticleCategoryResource extends Resource
 {
     protected static ?string $model = ArticleCategory::class;
 
+    protected static ?string $slug = 'articles/categories';
+
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?string $navigationGroup = 'Notícias';

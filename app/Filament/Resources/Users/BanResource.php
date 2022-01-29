@@ -16,6 +16,8 @@ class BanResource extends Resource
 {
     protected static ?string $model = UserBan::class;
 
+    protected static ?string $slug = 'users/bans';
+
     protected static ?string $navigationGroup = 'Usuários';
 
     protected static ?string $navigationLabel = 'Gerenciar Banimentos';

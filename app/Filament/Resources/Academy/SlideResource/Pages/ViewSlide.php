@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\Slide\SlideResource\Pages;
+namespace App\Filament\Resources\Academy\SlideResource\Pages;
 
 use Filament\Resources\Pages\ViewRecord;
-use App\Filament\Resources\Slide\SlideResource;
+use App\Filament\Resources\Academy\SlideResource;
 
 class ViewSlide extends ViewRecord
 {

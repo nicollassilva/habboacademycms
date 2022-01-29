@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\Slide\SlideResource\Pages;
+namespace App\Filament\Resources\Academy\SlideResource\Pages;
 
 use Filament\Resources\Pages\CreateRecord;
-use App\Filament\Resources\Slide\SlideResource;
+use App\Filament\Resources\Academy\SlideResource;
 
 class CreateSlide extends CreateRecord
 {

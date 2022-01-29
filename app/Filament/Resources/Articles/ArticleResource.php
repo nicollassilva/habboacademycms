@@ -21,6 +21,8 @@ class ArticleResource extends Resource
 
     protected static ?string $model = Article::class;
 
+    protected static ?string $slug = 'articles/articles';
+
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static ?string $navigationGroup = 'Notícias';
