@@ -1,0 +1,104 @@
+<?php
+
+namespace App\Filament\Resources\Academy;
+
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+use App\Models\Academy\Navigation;
+use Filament\Forms\Components\Grid;
+use App\Filament\Resources\Academy\NavigationResource\Pages;
+use App\Filament\Traits\ShowLatestResources;
+
+class NavigationResource extends Resource
+{
+    protected static ?string $model = Navigation::class;
+
+    protected static ?string $recordTitleAttribute = 'label';
+
+    protected static ?string $navigationGroup = 'Academy';
+
+    protected static ?string $navigationLabel = 'Gerenciar Menus';
+
+    protected static ?string $navigationIcon = 'heroicon-o-menu';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Grid::make(['default' => 0])->schema([
+                    Forms\Components\TextInput::make('label')
+                        ->label('Label do Menu')
+                        ->required(),
+                ]),
+
+                Forms\Components\TextInput::make('small_icon')
+                    ->label('Ícone pequeno')
+                    ->helperText('Digite toda a classe do ícone, exemplo FontAwesome: fas fa-user'),
+
+                Forms\Components\TextInput::make('hover_icon')
+                    ->label('Ícone ao passar o mouse')
+                    ->url()
+                    ->helperText('Digite a URL da imagem'),
+
+                Forms\Components\TextInput::make('slug')
+                    ->label('URL de redirecionamento')
+                    ->url(),
+
+                Forms\Components\TextInput::make('order')
+                    ->numeric()
+                    ->label('Ordem de exibição (0 a 6)'),
+
+                Forms\Components\Toggle::make('visible')
+                    ->label('Visível no site'),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->searchable(),
+
+                Tables\Columns\ImageColumn::make('hover_icon')
+                    ->label('Imagem (hover)'),
+
+                Tables\Columns\TextColumn::make('label')
+                    ->searchable()
+                    ->label('Label')
+                    ->limit(15),
+
+                Tables\Columns\TextColumn::make('order')
+                    ->searchable()
+                    ->sortable()
+                    ->label('Ordem de Exibição'),
+
+                Tables\Columns\BooleanColumn::make('visible')
+                    ->label('Visível')
+                    ->trueIcon('heroicon-o-badge-check')
+                    ->falseIcon('heroicon-o-x-circle')
+            ])
+            ->defaultSort('order', 'desc')
+            ->filters([]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            NavigationResource\RelationManagers\SubNavigationsRelationManager::class
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListNavigations::route('/'),
+            'create' => Pages\CreateNavigation::route('/create'),
+            'edit' => Pages\EditNavigation::route('/{record}/edit'),
+        ];
+    }
+}

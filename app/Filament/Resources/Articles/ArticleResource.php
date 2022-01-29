@@ -18,7 +18,7 @@ use App\Filament\Traits\ShowLatestResources;
 class ArticleResource extends Resource
 {
     use ShowLatestResources;
-    
+
     protected static ?string $model = Article::class;
 
     protected static ?string $recordTitleAttribute = 'title';
@@ -47,10 +47,10 @@ class ArticleResource extends Resource
                         ->required(),
 
                     Forms\Components\BelongsToSelect::make('category_id')
-                            ->label('Categoria')
-                            ->relationship('category', 'name')
-                            ->options(ArticleCategory::pluck('name', 'id'))
-                            ->searchable(),
+                        ->label('Categoria')
+                        ->relationship('category', 'name')
+                        ->options(ArticleCategory::pluck('name', 'id'))
+                        ->searchable(),
 
                     Forms\Components\FileUpload::make('image_path')
                         ->label('Imagem')

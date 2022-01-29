@@ -10449,6 +10449,7 @@ i.noticias {
 }
 .menu ul.principal-list {
   display: flex;
+  justify-content: center;
 }
 .menu ul.principal-list li.item-menu {
   width: 185px;

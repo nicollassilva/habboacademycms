@@ -70,7 +70,7 @@ class TopicCommentResource extends Resource
                     ->trueIcon('heroicon-o-badge-check')
                     ->falseIcon('heroicon-o-x-circle'),
 
-                    Tables\Columns\TextColumn::make('moderated')
+                Tables\Columns\TextColumn::make('moderated')
                     ->label('Situação')
                     ->searchable()
                     ->enum([

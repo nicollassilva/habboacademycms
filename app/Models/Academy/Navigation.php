@@ -17,7 +17,8 @@ class Navigation extends Model
         'small_icon',
         'hover_icon',
         'slug',
-        'order'
+        'order',
+        'visible'
     ];
 
     protected $casts = [
@@ -34,7 +35,6 @@ class Navigation extends Model
     public function subNavigations()
     {
         return $this->hasMany(SubNavigation::class)
-            ->whereVisible(true)
             ->orderBy('order')
             ->orderByDesc('id');
     }
@@ -47,7 +47,9 @@ class Navigation extends Model
             $navigation = Navigation::defaultQuery();
 
             if($subNavigations) {
-                $navigation->with('subNavigations');
+                $navigation->with(['subNavigations' => function($query) {
+                    return $query->whereVisible(true);
+                }]);
             }
 
             return $navigation->get();

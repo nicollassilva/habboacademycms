@@ -47,7 +47,7 @@ class NavigationSeeder extends Seeder
             return [
                 'order' => 0,
                 'small_icon' => 'fas fa-house-user',
-                'hover_icon' => '/images/menu/inicio.png'
+                'hover_icon' => asset('/images/menu/inicio.png')
             ];
         }
 
@@ -55,7 +55,7 @@ class NavigationSeeder extends Seeder
             return [
                 'order' => 1,
                 'small_icon' => 'fab fa-hackerrank',
-                'hover_icon' => '/images/menu/habboacademy.png'
+                'hover_icon' => asset('/images/menu/habboacademy.png')
             ];
         }
 
@@ -63,7 +63,7 @@ class NavigationSeeder extends Seeder
             return [
                 'order' => 2,
                 'small_icon' => 'fab fa-hire-a-helper',
-                'hover_icon' => '/images/menu/habbo.png'
+                'hover_icon' => asset('/images/menu/habbo.png')
             ];
         }
 
@@ -71,7 +71,7 @@ class NavigationSeeder extends Seeder
             return [
                 'order' => 3,
                 'small_icon' => 'fab fa-neos',
-                'hover_icon' => '/images/menu/conteudos.png'
+                'hover_icon' => asset('/images/menu/conteudos.png')
             ];
         }
 
@@ -79,7 +79,7 @@ class NavigationSeeder extends Seeder
             return [
                 'order' => 4,
                 'small_icon' => 'fas fa-magic',
-                'hover_icon' => '/images/menu/facenter.png'
+                'hover_icon' => asset('/images/menu/facenter.png')
             ];
         }
 
@@ -87,7 +87,7 @@ class NavigationSeeder extends Seeder
             return [
                 'order' => 5,
                 'small_icon' => 'fas fa-music',
-                'hover_icon' => '/images/menu/radio.png'
+                'hover_icon' => asset('/images/menu/radio.png')
             ];
         }
     }

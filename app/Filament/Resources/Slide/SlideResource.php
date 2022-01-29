@@ -19,7 +19,7 @@ class SlideResource extends Resource
 
     protected static ?string $model = Slide::class;
 
-    protected static ?string $navigationGroup = 'Site';
+    protected static ?string $navigationGroup = 'Academy';
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -36,13 +36,13 @@ class SlideResource extends Resource
                         ->maxLength(255)
                         ->required()
                         ->label('Título'),
-    
+
                     Forms\Components\TextInput::make('description')
                         ->label('Descrição'),
-    
+
                     Forms\Components\TextInput::make('slug')
                         ->label('Link para Navegação'),
-    
+
                     Forms\Components\FileUpload::make('image_path')
                         ->image()
                         ->label('Imagem')

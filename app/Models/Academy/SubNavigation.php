@@ -15,7 +15,8 @@ class SubNavigation extends Model
         'label',
         'slug',
         'new_tab',
-        'order'
+        'order',
+        'visible'
     ];
 
     protected $casts = [
