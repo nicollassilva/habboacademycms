@@ -1,73 +1,27 @@
 <?php
 
-namespace App\Filament\Resources\Users;
+namespace App\Filament\Resources\Academy\BadgeResource\RelationManagers;
 
 use Filament\Forms;
-use App\Models\User;
 use Filament\Tables;
-use Filament\Tables\Filters;
 use Filament\Resources\Form;
+use Filament\Tables\Filters;
 use Filament\Resources\Table;
-use Filament\Resources\Resource;
-use Filament\Forms\Components\Grid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Traits\ShowLatestResources;
-use App\Filament\Resources\Users\UserResource\Pages;
+use Filament\Resources\RelationManagers\BelongsToManyRelationManager;
 
-class UserResource extends Resource
+class UsersRelationManager extends BelongsToManyRelationManager
 {
-    use ShowLatestResources;
-
-    protected static ?string $model = User::class;
+    protected static string $relationship = 'users';
 
     protected static ?string $recordTitleAttribute = 'username';
-
-    protected static ?string $navigationGroup = 'Usuários';
-
-    protected static ?string $navigationLabel = 'Gerenciar Usuários';
-
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-
-    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Grid::make(['default' => 0])->schema([
-                    Forms\Components\TextInput::make('username')
-                        ->label('Usuário')
-                        ->minLength(2)
-                        ->maxLength(30)
-                        ->unique(User::class, 'username', fn ($record) => $record)
-                        ->required(),
-
-                    Forms\Components\TextInput::make('name')
-                        ->label('Nome Real'),
-
-                    Forms\Components\TextInput::make('email')
-                        ->email()
-                        ->unique(User::class, 'email', fn ($record) => $record)
-                        ->label('Email')
-                        ->required(),
-
-                    Forms\Components\FileUpload::make('profile_image_path')
-                        ->label('Avatar')
-                        ->directory('profiles')
-                        ->helperText('PS: Espere carregar a imagem para salvar o usuário.')
-                        ->default('profiles/default.png')
-                        ->image(),
-
-                    Forms\Components\TextInput::make('topics_comment_count')
-                        ->label('Total de Comentários no Fórum')
-                        ->numeric()
-                        ->disabled(),
-
-                    Forms\Components\Toggle::make('disabled')
-                        ->label('Conta desativada')
-                        ->helperText('Marque acima para desativar uma conta, é preferível não excluir para não perder os seus dados.'),
-                ])
+                //
             ]);
     }
 
@@ -132,26 +86,22 @@ class UserResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
+    public function canCreate(): bool
     {
-        return [
-            UserResource\RelationManagers\BansRelationManager::class,
-            UserResource\RelationManagers\WarningsRelationManager::class,
-            UserResource\RelationManagers\TopicsRelationManager::class,
-            UserResource\RelationManagers\BadgesRelationManager::class,
-        ];
+        return false;
     }
 
-    public static function getPages(): array
+    public function canDelete(Model $record): bool
     {
-        return [
-            'index' => Pages\ListUsers::route('/'),
-            'view' => Pages\ViewUser::route('/{record}'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
-        ];
+        return false;
     }
 
-    public static function canDelete(Model $model): bool
+    public function canEdit(Model $record): bool
+    {
+        return false;
+    }
+
+    public function canDeleteAny(): bool
     {
         return false;
     }

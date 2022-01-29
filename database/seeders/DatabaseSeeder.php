@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ArticleCategorySeeder::class,
             TopicCategorySeeder::class,
             UserSeeder::class,
-            NavigationSeeder::class
+            NavigationSeeder::class,
+            BadgeSeeder::class
         ]);
     }
 }

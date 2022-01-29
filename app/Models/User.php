@@ -87,6 +87,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         return $this->topicComments()->count();
     }
 
+    public function badges()
+    {
+        return $this->belongsToMany(Badge::class, 'user_badges');
+    }
+
     public function articles()
     {
         return $this->hasMany(Article::class);

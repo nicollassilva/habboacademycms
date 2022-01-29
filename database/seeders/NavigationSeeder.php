@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Academy\Navigation;
 use Illuminate\Database\Seeder;
+use App\Models\Academy\Navigation;
 
 class NavigationSeeder extends Seeder
 {
@@ -46,6 +46,7 @@ class NavigationSeeder extends Seeder
         if ($navigationLabel == 'Início') {
             return [
                 'order' => 0,
+                'slug' => '/',
                 'small_icon' => 'fas fa-house-user',
                 'hover_icon' => asset('/images/menu/inicio.png')
             ];

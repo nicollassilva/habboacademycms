@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Topic\TopicCategory;
 use Illuminate\Database\Seeder;
+use App\Models\Topic\TopicCategory;
 
 class TopicCategorySeeder extends Seeder
 {

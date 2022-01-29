@@ -49,11 +49,16 @@
         </div>
     </div>
     <div class="box-content">
-        <?php if(!empty($lastBadges)) { foreach($lastBadges as $badge) { ?>
+        @foreach (getLastBadges() as $badge)
             <div class="content last-badge"
                 data-toggle="tooltip"
-                title="<b><?= $badge['code'] . ' - ' . $badge['name'] ?></b><br><b><?= $badge['badge_owners'] ?></b> usuários com esse emblema"
-                style="background-image: url('<?= $badge['image'] ?>');"></div>
-        <?php }} ?>
+                title="
+                    <b>Código:</b> {{ $badge->code }}<br>
+                    <b>Título:</b> {{ $badge->title }}<br>
+                    @if($badge->description) <b>Descrição:</b> {{ $badge->description }} @endif
+                "
+                style="background-image: url('{{ $badge->image_path }}');">
+            </div>
+        @endforeach
     </div>
 </div>

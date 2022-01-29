@@ -1,12 +1,13 @@
 <?php
 
-use App\Models\Academy\Navigation;
 use App\Services\{
     ForumLevelService,
     TimeService,
     UserCodeService
 };
 use App\Models\User;
+use App\Models\Badge;
+use App\Models\Academy\Navigation;
 
 if (! function_exists('dateToString')) {
     /**
@@ -94,5 +95,17 @@ if (! function_exists('getNavigations')) {
     function getNavigations(bool $subNavigations = true)
     {
         return Navigation::getAcademyNavigation($subNavigations);
+    }
+}
+
+if (! function_exists('getLastBadges')) {
+    /**
+     * Returns the latest website badges
+     * 
+     * @return \App\Models\Badge|array
+     */
+    function getLastBadges()
+    {
+        return Badge::latest()->limit(9)->get();
     }
 }
