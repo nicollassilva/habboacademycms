@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ArticleCategorySeeder::class,
             TopicCategorySeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            NavigationSeeder::class
         ]);
     }
 }
