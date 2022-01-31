@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Página') - {{ config('app.name') }}</title>
+    <title>{{ config('app.name') }}: @yield('title', 'Página')</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -30,47 +30,49 @@
 </head>
 <body>
     <div class="container-fluid p-0">
-        <main>
+        @if (!isset($ignoreHeader) || !$ignoreHeader)
             @include('habboacademy.layouts.menu')
-        <header class="customTransition">
-            <div class="top-bar">
-                <div class="container">
-                    <div class="last-registers">
-                        <div class="default-title">
-                            <b class="customTransition">Últimos</b>Registrados
+            <header class="customTransition">
+                <div class="top-bar">
+                    <div class="container">
+                        <div class="last-registers">
+                            <div class="default-title">
+                                <b class="customTransition">Últimos</b>Registrados
+                            </div>
+                            <div class="latests-box">
+                                @foreach (lastUsers() as $lastUser)
+                                    <a href="/profile/{{ $lastUser->username }}" class="latest-user"
+                                        style="background-image: url('{{ getAvatar($lastUser->username, '&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s') }}')"
+                                        data-toggle="tooltip"
+                                        title="<b>{{ $lastUser->username }}</b><br>Cadastrou {{ dateToString($lastUser->created_at) }}"
+                                        data-placement="bottom"></a>
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="latests-box">
-                            @foreach (lastUsers() as $lastUser)
-                                <a href="/profile/{{ $lastUser->username }}" class="latest-user"
-                                    style="background-image: url('{{ getAvatar($lastUser->username, '&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s') }}')"
-                                    data-toggle="tooltip"
-                                    title="<b>{{ $lastUser->username }}</b><br>Cadastrou {{ dateToString($lastUser->created_at) }}"
-                                    data-placement="bottom"></a>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="search-field">
-                        <div class="default-title border-left-0">
-                            <b class="customTransition">Pesquise</b>algo aqui
-                        </div>
-                        <div class="input customTransition">
-                            <input type="text" name="search" autocomplete="off" placeholder="Pesquise por tópicos, notícias, etc">
-                            <button><i class="fas fa-search fa-flip-horizontal"></i></button>
+                        <div class="search-field">
+                            <div class="default-title border-left-0">
+                                <b class="customTransition">Pesquise</b>algo aqui
+                            </div>
+                            <div class="input customTransition">
+                                <input type="text" name="search" autocomplete="off" placeholder="Pesquise por tópicos, notícias, etc">
+                                <button><i class="fas fa-search fa-flip-horizontal"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            @auth
-                <div class="container position-relative">
-                    @include('habboacademy.layouts.user.menu')
-                </div>
-            @endauth
-        </header>
+                @auth
+                    <div class="container position-relative">
+                        @include('habboacademy.layouts.user.menu')
+                    </div>
+                @endauth
+            </header>
+        @endif
 
-        <main class="py-4">
+        <main @class([
+            "py-4" => !isset($ignoreHeader) || !$ignoreHeader
+        ])>
             @yield('content')
         </main>
-    </main>
 </div>
 @if (config('app.env') == 'local')
 <script src="http://localhost:35729/livereload.js"></script>

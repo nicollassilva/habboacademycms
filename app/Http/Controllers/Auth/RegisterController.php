@@ -27,6 +27,16 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view('habboacademy.users.auth.register');
+    }
+
+    /**
      * Where to redirect users after registration.
      *
      * @var string

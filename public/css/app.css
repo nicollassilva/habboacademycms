@@ -10017,6 +10017,7 @@ i.menuinteracao,
 i.toolbox,
 i.config,
 i.forums,
+i.delete,
 i.arte2,
 i.emblemas,
 i.frank,
@@ -10041,14 +10042,17 @@ i.alerta,
 i.shop,
 i.frank-comentarios,
 i.logout,
-i.comentarios,
+i.comments,
 i.fixo,
 i.loja,
 i.eventsIcon,
 i.moderado,
-i.salvar,
+i.save,
 i.valoresM,
 i.new,
+i.icon-email,
+i.icon-pass,
+i.user,
 i.hotel,
 i.cancelar,
 i.presente {
@@ -10065,6 +10069,30 @@ i.descer {
 
 i.descer {
   background-image: url("/images/mini-icons/descer.png");
+}
+
+i.icon-pass {
+  width: 13px;
+  height: 15px;
+  background-image: url("/images/mini-icons/iconpass.png");
+}
+
+i.icon-email {
+  width: 16px;
+  height: 16px;
+  background-image: url("/images/mini-icons/iconemail.png");
+}
+
+i.user-icon {
+  width: 18px;
+  height: 17px;
+  background-image: url("/images/mini-icons/user-icon.png");
+}
+
+i.delete {
+  width: 14px;
+  height: 13px;
+  background-image: url("/images/mini-icons/delete.gif");
 }
 
 i.retrocoin {
@@ -10117,7 +10145,7 @@ i.eventsIcon {
   background-image: url("/images/mini-icons/events.gif");
 }
 
-i.salvar {
+i.save {
   width: 15px;
   height: 13px;
   background-image: url("/images/mini-icons/salvar.gif");
@@ -10181,7 +10209,7 @@ i.fixo {
   background-image: url("/images/mini-icons/fixo.png");
 }
 
-i.comentarios {
+i.comments {
   width: 13px;
   height: 12px;
   background-image: url("/images/mini-icons/comentarios.png");
@@ -12112,6 +12140,115 @@ main .capa span {
 }
 .bbcode .moreButtons.cor button:nth-child(10) span {
   background-color: #A300D9;
+}
+
+.register-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.register-page .register-header {
+  width: 100%;
+  height: 200px;
+  background: url("/images/register/header_bg.webp"), #192a56;
+  background-position: center bottom;
+  background-repeat: repeat-x;
+}
+.register-page .register-step {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.register-page .register-step button {
+  text-decoration: none;
+  color: #bbb;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 2px 0 0 rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  cursor: default;
+  padding: 10px 20px;
+}
+.register-page .register-step button.active {
+  background-color: #4a69bd;
+  border: 1px solid #7158e2;
+  color: white;
+}
+.register-page .register-step button.completed {
+  background-color: #2ed573;
+  border: 1px solid #44bd32;
+  color: white;
+}
+.register-page .register-step .buttons {
+  width: 15px;
+  border-radius: 50%;
+  height: 15px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 2px 0 0 rgba(255, 255, 255, 0.5);
+}
+.register-page .register-step .buttons.left {
+  margin-left: 10px;
+}
+.register-page .register-step .buttons.right {
+  margin-right: 10px;
+}
+.register-page .register-step .buttons.completed {
+  background-color: #2ed573;
+  border: 1px solid #44bd32;
+  color: white;
+}
+.register-page .steps {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.register-page .steps .step-widget {
+  width: 400px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 2px 0 0 rgba(255, 255, 255, 0.5), 0 3px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.register-page .steps .step-widget input {
+  height: 45px;
+  outline: none;
+  box-shadow: none;
+  font-weight: 500;
+  color: #aaa;
+  font-size: 14px;
+}
+.register-page .steps .step-widget input:focus {
+  border: 1px solid #ced4da;
+}
+.register-page .steps .step-widget .input-group span.input-group-text {
+  border-radius: 0;
+  border-right: none;
+  background-color: white;
+}
+.register-page .steps .step-widget .input-group input {
+  border-left: none;
+}
+.register-page .steps .step-widget button.nextStep {
+  text-decoration: none;
+  color: #fafafa;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #7158e2;
+  background-color: #8c7ae6;
+  float: right;
+  display: block;
+  border-radius: 5px;
+  padding: 10px 20px;
 }
 
 .topic-owner {

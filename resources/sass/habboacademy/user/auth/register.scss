@@ -1,0 +1,126 @@
+.register-page {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    .register-header {
+        width: 100%;
+        height: 200px;
+        background: url('/images/register/header_bg.webp'), $strongblue;
+        background-position: center bottom;
+        background-repeat: repeat-x;
+    }
+
+    .register-step {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+
+        button {
+            text-decoration: none;
+            color: #bbb;
+            font-weight: 600;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            background-color: #fafafa;
+            box-shadow: inset 0 2px 0 rgba(255, 255, 255, .5), inset 2px 0 0 rgba(255, 255, 255, .5);
+            border-radius: 5px;
+            cursor: default;
+            padding: 10px 20px;
+
+            &.active {
+                background-color: $darkblue;
+                border: 1px solid $purple;
+                color: white;
+            }
+
+            &.completed {
+                background-color: $success;
+                border: 1px solid $theme3;
+                color: white;
+            }
+        }
+
+        .buttons {
+            width: 15px;
+            border-radius: 50%;
+            height: 15px;
+            border: 1px solid #ddd;
+            background-color: #fafafa;
+            box-shadow: inset 0 2px 0 rgba(255, 255, 255, .5), inset 2px 0 0 rgba(255, 255, 255, .5);
+
+            &.left {
+                margin-left: 10px;
+            }
+
+            &.right {
+                margin-right: 10px;
+            }
+
+            &.completed {
+                background-color: $success;
+                border: 1px solid $theme3;
+                color: white;
+            }
+        }
+    }
+
+    .steps {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .step-widget {
+            width: 400px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+            box-shadow: inset 0 2px 0 rgba(255, 255, 255, .5), inset 2px 0 0 rgba(255, 255, 255, .5), 0 3px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+
+            input {
+                height: 45px;
+                outline: none;
+                box-shadow: none;
+                font-weight: 500;
+                color: #aaa;
+                font-size: 14px;
+                
+                &:focus {
+                    border: 1px solid #ced4da;
+                }
+            }
+
+            .input-group {
+                span.input-group-text {
+                    border-radius: 0;
+                    border-right: none;
+                    background-color: white;
+                }
+
+                input {
+                    border-left: none;
+                }
+            }
+
+            button.nextStep {
+                text-decoration: none;
+                color: #fafafa;
+                font-weight: 600;
+                font-size: 12px;
+                border: 1px solid $purple;
+                background-color: $theme4;
+                float: right;
+                display: block;
+                border-radius: 5px;
+                padding: 10px 20px;
+            }
+        }
+    }
+}

@@ -27,5 +27,20 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 document.addEventListener('turbolinks:load', () => {
+    let hasRegisterParent = !! document.getElementById('register-app')
+    
     HabboAcademy.init()
+
+    if(hasRegisterParent) {
+        new Vue({ el: '#register-app',
+            beforeMount() {
+                if (this.$el.parentNode) {
+                    document.addEventListener('turbolinks:visit', () => this.$destroy(), { once: true });
+                    this.$originalEl = this.$el.outerHTML;
+                }
+            },
+    
+            destroyed() { this.$el.outerHTML = this.$originalEl; }
+        });
+    }
 })

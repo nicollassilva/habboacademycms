@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Login
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+
+// Register
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
