@@ -15,6 +15,7 @@ i.config,
 i.forums,
 i.arte2,
 i.emblemas,
+i.notifications,
 i.frank,
 i.ferramenta,
 i.calendario,
@@ -214,6 +215,12 @@ i.calendario {
 	background-image: url('/images/mini-icons/calendario.gif');
 }
 
+i.notifications {
+	width: 14px;
+	height: 17px;
+	background-image: url('/images/mini-icons/notifications.png');
+}
+
 i.emblemas {
 	width: 15px;
 	height: 15px;
@@ -221,8 +228,8 @@ i.emblemas {
 }
 
 i.logout {
-	width: 31px;
-	height: 31px;
+	width: 21px;
+	height: 21px;
 	background-image: url('/images/mini-icons/logout.png');
 }
 
@@ -352,7 +359,7 @@ i.topmusic {
 	background-image: url('/images/mini-icons/topmusic.gif');
 }
 
-i.topicos {
+i.topics {
 	background-image: url('/images/mini-icons/topicos.png');
 }
 
@@ -364,7 +371,7 @@ i.ranking {
 	background-image: url('/images/mini-icons/ranking.png');
 }
 
-i.noticias {
+i.pencil {
 	background-image: url('/images/mini-icons/noticias.png');
 }
 
@@ -406,10 +413,10 @@ i.somx {
 }
 
 i.topmusic,
-i.topicos,
+i.topics,
 i.galeria,
 i.ranking,
-i.noticias {
+i.pencil {
 	width: 36px;
 	height: 25px;
 	background-position: center;

@@ -76,20 +76,21 @@ body {
 
 header {
 	width: 100vw;
-	height: 450px;
+	height: 300px;
 	position: relative;
 	overflow: hidden;
 	background-color: $strongblue;
 	margin-top: 1px;
+	border-bottom: 2px solid $strongblue;
 
 	&::after {
 		content: '';
 		width: 551px;
-		height: 312px;
+		height: 260px;
 		position: absolute;
 		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
+		left: 30%;
+		transform: translateX(-30%);
 		background-image: url('/images/right_header.png');
 	}
 
@@ -101,8 +102,6 @@ header {
 		background-position: top;
 		background-repeat: no-repeat;
 		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
 		background-image: url('/images/planeta.webp');
 	}
 
@@ -196,45 +195,55 @@ header {
 			}
 		}
 	}
+}
 
-	.user-menu {
-		width: 90px;
-		height: 320px;
-		background-color: #f1f1f1;
-		box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
-		position: absolute;
-		top: 30px;
-		right: 0;
-		padding-top: 10px;
+.user-menu {
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+	display: flex;
+	justify-content: space-between;
+
+	.buttons {
+		width: 300px;
+		height: 50px;
+		float: left;
+	}
+
+	.menu-button {
+		width: 60px;
+		height: 50px;
 		display: flex;
-		flex-direction: column;
+		background-color: #fefefe;
+		border: 1px solid #eee;
+		justify-content: center;
 		align-items: center;
-		border-radius: 5px;
+		float: left;
+		text-decoration: none;
+		box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.02);
+		transition: background-color .3s;
+		margin-right: 5px;
 
-		.button {
-			width: 40px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 40px;
-			border-radius: 50%;
-			color: $strongblue;
-			margin-top: 8px;
-			margin-bottom: 8px;
-			border: none;
-			transition: all .3s;
-			box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
-			background-color: white;
-
-			&:hover {
-				color: white;
-				background-color: $strongblue;
-				text-decoration: none;
-			}
+		.badge {
+			color: white;
 		}
 
+		&.logout {
+			&:hover {
+				background-color: $theme5;
+				box-shadow: none;
+			}
+		}
+	}
+
+	.user-config {
+		float: right;
+
 		.picture {
+			margin-top: -15px;
 			width: 80px;
+			margin-right: 5px;
 			height: 80px;
 			background-color: white;
 			border: 2px solid #f0f0f0;
@@ -244,6 +253,7 @@ header {
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
+			float: left;
 
 			.head {
 				width: 54px;

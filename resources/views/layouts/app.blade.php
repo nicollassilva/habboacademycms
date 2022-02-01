@@ -60,12 +60,12 @@
                     </div>
                 </div>
             </div>
-            @auth
-                <div class="container position-relative">
-                    @include('habboacademy.layouts.user.menu')
-                </div>
-            @endauth
         </header>
+        @auth
+            <div class="user-menu">
+                @include('habboacademy.layouts.user.menu')
+            </div>
+        @endauth
 
         <main class="py-4">
             @yield('content')

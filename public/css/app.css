@@ -7369,6 +7369,7 @@ button.bg-dark:focus {
 }
 
 .position-sticky {
+  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -7388,8 +7389,9 @@ button.bg-dark:focus {
   z-index: 1030;
 }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
   .sticky-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -10019,6 +10021,7 @@ i.config,
 i.forums,
 i.arte2,
 i.emblemas,
+i.notifications,
 i.frank,
 i.ferramenta,
 i.calendario,
@@ -10236,6 +10239,12 @@ i.calendario {
   background-image: url("/images/mini-icons/calendario.gif");
 }
 
+i.notifications {
+  width: 14px;
+  height: 17px;
+  background-image: url("/images/mini-icons/notifications.png");
+}
+
 i.emblemas {
   width: 15px;
   height: 15px;
@@ -10243,8 +10252,8 @@ i.emblemas {
 }
 
 i.logout {
-  width: 31px;
-  height: 31px;
+  width: 21px;
+  height: 21px;
   background-image: url("/images/mini-icons/logout.png");
 }
 
@@ -10374,7 +10383,7 @@ i.topmusic {
   background-image: url("/images/mini-icons/topmusic.gif");
 }
 
-i.topicos {
+i.topics {
   background-image: url("/images/mini-icons/topicos.png");
 }
 
@@ -10386,7 +10395,7 @@ i.ranking {
   background-image: url("/images/mini-icons/ranking.png");
 }
 
-i.noticias {
+i.pencil {
   background-image: url("/images/mini-icons/noticias.png");
 }
 
@@ -10428,10 +10437,10 @@ i.somx {
 }
 
 i.topmusic,
-i.topicos,
+i.topics,
 i.galeria,
 i.ranking,
-i.noticias {
+i.pencil {
   width: 36px;
   height: 25px;
   background-position: center;
@@ -10701,20 +10710,21 @@ body {
 
 header {
   width: 100vw;
-  height: 450px;
+  height: 300px;
   position: relative;
   overflow: hidden;
   background-color: #192a56;
   margin-top: 1px;
+  border-bottom: 2px solid #192a56;
 }
 header::after {
   content: "";
   width: 551px;
-  height: 312px;
+  height: 260px;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 30%;
+  transform: translateX(-30%);
   background-image: url("/images/right_header.png");
 }
 header::before {
@@ -10725,8 +10735,6 @@ header::before {
   background-position: top;
   background-repeat: no-repeat;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
   background-image: url("/images/planeta.webp");
 }
 header .top-bar {
@@ -10810,42 +10818,48 @@ header .top-bar .search-field .input button {
   right: 10px;
   color: #192a56;
 }
-header .user-menu {
-  width: 90px;
-  height: 320px;
-  background-color: #f1f1f1;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 30px;
-  right: 0;
-  padding-top: 10px;
+
+.user-menu {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
+  justify-content: space-between;
 }
-header .user-menu .button {
-  width: 40px;
+.user-menu .buttons {
+  width: 300px;
+  height: 50px;
+  float: left;
+}
+.user-menu .menu-button {
+  width: 60px;
+  height: 50px;
   display: flex;
+  background-color: #fefefe;
+  border: 1px solid #eee;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  border-radius: 50%;
-  color: #192a56;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  border: none;
-  transition: all 0.3s;
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
-  background-color: white;
-}
-header .user-menu .button:hover {
-  color: white;
-  background-color: #192a56;
+  float: left;
   text-decoration: none;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.02);
+  transition: background-color 0.3s;
+  margin-right: 5px;
 }
-header .user-menu .picture {
+.user-menu .menu-button .badge {
+  color: white;
+}
+.user-menu .menu-button.logout:hover {
+  background-color: #eb3b5a;
+  box-shadow: none;
+}
+.user-menu .user-config {
+  float: right;
+}
+.user-menu .user-config .picture {
+  margin-top: -15px;
   width: 80px;
+  margin-right: 5px;
   height: 80px;
   background-color: white;
   border: 2px solid #f0f0f0;
@@ -10855,8 +10869,9 @@ header .user-menu .picture {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  float: left;
 }
-header .user-menu .picture .head {
+.user-menu .user-config .picture .head {
   width: 54px;
   height: 62px;
   background-position: center;
@@ -10866,7 +10881,7 @@ header .user-menu .picture .head {
   top: 2px;
   z-index: 1;
 }
-header .user-menu .picture .body {
+.user-menu .user-config .picture .body {
   width: 33px;
   height: 56px;
   background-position: center;
