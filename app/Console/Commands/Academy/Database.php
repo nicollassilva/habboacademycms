@@ -43,5 +43,7 @@ class Database extends Command
         }
 
         Artisan::call('migrate:fresh --seed');
+
+        $this->info('Database resetada!');
     }
 }

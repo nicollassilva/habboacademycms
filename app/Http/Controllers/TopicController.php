@@ -11,12 +11,12 @@ class TopicController extends Controller
 {
     public function show($id, $slug)
     {
-        if(! $topic = Topic::getTopic($id, $slug)) {
+        if (!$topic = Topic::getTopic($id, $slug)) {
             return redirect()->route('web.academy.index');
         }
 
         $comments = $topic->comments()
-            ->with('user')
+            ->with(['user', 'user.badges'])
             ->latest()
             ->paginate(10);
 
@@ -44,7 +44,7 @@ class TopicController extends Controller
 
         $user = \Auth::user();
 
-        if($user->checkLastTopicTime()) {
+        if ($user->checkLastTopicTime()) {
             return redirect()
                 ->back()
                 ->withInput()
@@ -54,7 +54,7 @@ class TopicController extends Controller
         $user->topics()->create($data);
 
         return redirect()
-                ->back()
-                ->with('success', 'Tópico criado com sucesso!');
+            ->back()
+            ->with('success', 'Tópico criado com sucesso!');
     }
 }

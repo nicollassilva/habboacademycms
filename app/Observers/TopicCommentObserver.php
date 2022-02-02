@@ -26,6 +26,7 @@ class TopicCommentObserver
     public function created(TopicComment $topicComment)
     {
         $topicComment->user->increment('topics_comment_count');
+        $topicComment->topic->increment('comments_count');
     }
 
     /**

@@ -21,11 +21,12 @@ Route::prefix('user')
     ->group(function() {
 
     Route::get('/edit', 'UserController@edit')->name('users.edit');
-    Route::put('/update', 'UserController@update')->name('users.update');
+    Route::put('/update', 'UserController@update')->name('users.update')->middleware('api');
+    Route::put('/forumUpdate', 'UserController@forumUpdate')->name('users.forumUpdate')->middleware('api');
 
     Route::get('/topics/me', 'UserController@topics')->name('topics.me');
     Route::get('/topics/create', 'TopicController@create')->name('topics.create');
-    Route::post('/topics', 'TopicController@store')->name('topics.store');
+    Route::post('/topics', 'TopicController@store')->name('topics.store')->middleware('api');
     Route::post('/topic/{id}/{slug}/comment', 'Topic\TopicCommentController@store')->name('topics.comments.store');
     
 });

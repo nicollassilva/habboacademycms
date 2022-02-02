@@ -17,7 +17,8 @@ class Kernel extends ConsoleKernel
         // Academy Commands
         Academy\Optimize::class,
         Academy\Commands::class,
-        Academy\Database::class
+        Academy\Database::class,
+        Academy\LocalRunner::class,
     ];
 
     /**

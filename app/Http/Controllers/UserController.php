@@ -64,4 +64,21 @@ class UserController extends Controller
             ->route('web.users.edit')
             ->with('success', 'Perfil alterado!');
     }
+
+    public function forumUpdate(Request $request)
+    {
+        $data = $request->validate([
+            'forumSignature' => ['nullable', 'string', 'max:1000']
+        ]);
+
+        $user = \Auth::user();
+
+        $user->update([
+            'forum_signature' => nl2br(htmlspecialchars($data['forumSignature']))
+        ]);
+
+        return redirect()
+            ->route('web.users.edit')
+            ->with('success', 'Assinatura foi atualizada.');
+    }
 }

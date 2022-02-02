@@ -10,7 +10,8 @@ class Commands extends Command
     protected $commands = [
         ['academy:list', 'Lista todos os comandos da CMS'],
         ['academy:database', 'Exclui a database atual com todos os dados e recria com os valores padrões.'],
-        ['academy:config', 'Esse comando irá limpar o cache da sua aplicação, útil após alterações em arquivos de configuração']
+        ['academy:config', 'Esse comando irá limpar o cache da sua aplicação, útil após alterações em arquivos de configuração'],
+        ['academy:run', 'Inicia o projeto']
     ];
     /**
      * The name and signature of the console command.

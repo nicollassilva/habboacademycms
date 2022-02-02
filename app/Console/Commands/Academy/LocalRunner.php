@@ -5,21 +5,21 @@ namespace App\Console\Commands\Academy;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
-class Optimize extends Command
+class LocalRunner extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'academy:config';
+    protected $signature = 'academy:run';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Esse comando irá limpar o cache da sua aplicação, útil após alterações em arquivos de configuração';
+    protected $description = 'Inicia o projeto';
 
     /**
      * Create a new command instance.
@@ -38,9 +38,9 @@ class Optimize extends Command
      */
     public function handle()
     {
-        Artisan::call('config:cache');
-        Artisan::call('optimize:clear');
+        $this->info('Iniciando servidor, acesse: ' . getenv('APP_URL'));
 
-        $this->info('Cache da aplicação excluídos e arquivos de configurações recarregados.');
+        Artisan::call('serve --port=80');
+
     }
 }

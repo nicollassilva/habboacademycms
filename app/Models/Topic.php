@@ -55,7 +55,7 @@ class Topic extends Model
             ->where('id', $id)
             ->whereSlug($slug)
             ->whereStatus(true)
-            ->with(['user', 'category'])
+            ->with(['user', 'user.badges', 'category'])
             ->first();
     }
 

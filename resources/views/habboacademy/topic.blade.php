@@ -24,13 +24,18 @@
                 <i class="forums"></i> <span class="text-truncate" data-toggle="tooltip" title="{{ $topic->title }}">{{ $topic->title }}</span>
             </div>
             <div class="emblemas-owner">
-                <!--div class="paginacao">
-                    <button><i class="fas fa-angle-left"></i></button>
-                    <button><i class="fas fa-angle-right"></i></button>
-                </div-->
                 <span><i class="emblemas"></i>Últimos emblemas de <a href="/home/{{ $topic->user->username }}" class="text-white"><b class="ml-1">{{ $topic->user->username }}</b></a></span>
                 <div class="box-emblemas">
-                    {{-- <div class="emblema" style="background-image: url('uploads/adminUploads/')" data-placement="bottom" data-toggle="tooltip" title="<b class='mr-1'>Código:</b><br>"></div> --}}
+                    @forelse ($topic->user->badges as $badge)
+                    <div class="emblema"
+                        style="background-image: url('{{ $badge->image_path }}')"
+                        data-placement="bottom"
+                        data-toggle="tooltip"
+                        title="<b class='mr-1'>Código:</b>{{ $badge->code }}<br><b class='mr-1'>Título:</b>{{ $badge->title }}<br>">
+                    </div>
+                    @empty
+                        
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -39,7 +44,7 @@
             <div class="estatistica" data-toggle="tooltip" title="Não gostei"><i class="descurtida mr-1"></i><b class="ml-1">3</b></div>
             <div class="estatistica" data-toggle="tooltip" title="Comentários"><i class="comentarios mr-1"></i><b class="ml-1">{{ $topic->comments_count }}</b></div>
             <div class="estatistica"><i class="calendario mr-1"></i>{{ dateToString($topic->created_at) }}</div>
-            <div class="estatistica"><i class="noticias mr-1"></i>Categoria:<b class="ml-1">{{ $topic->category->name }}</b></div>
+            <div class="estatistica"><i class="pencil"></i>Categoria:<b class="ml-1">{{ $topic->category->name }}</b></div>
             @if ($topic->moderated == 'moderated')
             <div class="estatistica"><i class="moderado mr-1"></i>Moderado por <b class="ml-1">{{ $topic->moderator }}</b></div>
             @endif
@@ -59,7 +64,7 @@
             <span class="titleAss">
                 <i class="noticias"></i> Assinatura de <b class="ml-1"><?php echo $topic->user->username ?></b>
             </span>
-            Assinatura do usuário
+            {!! renderUserCode($topic->user->forum_signature, 2) !!}
         </div>
     </div>
 </div>
@@ -130,7 +135,7 @@
                     <div class="avatar normal" style="background-image: url('{{ getAvatar($comment->user->username, '&headonly=0&direction=2&head_direction=3&action=wav&gesture=sit&size=m') }}')"></div>
                 </div>
                 <div class="box-tarja">
-                    <div class="restantes" data-toggle="tooltip" data-placement="bottom" title="15 comentários no fórum">
+                    <div class="restantes" data-toggle="tooltip" data-placement="bottom" title="{{ $comment->user->topics_comment_count }} comentário(s) no fórum">
                         @php
                             $totalComments = $comment->user->topics_comment_count;
 
@@ -149,7 +154,7 @@
                     <span class="titleAss">
                         <i class="noticias"></i> Assinatura de <b class="ml-1">{{ $comment->user->username }}</b>
                     </span>
-                    Assinatura do usuário do comentário
+                    {!! renderUserCode($comment->user->forum_signature, 2) !!}
                 </div>
             </div>
         </div>

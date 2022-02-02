@@ -34,7 +34,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         'password',
         'name',
         'profile_image_path',
-        'disabled'
+        'disabled',
+        'forum_signature'
     ];
 
     /**
