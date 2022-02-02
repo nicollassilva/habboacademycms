@@ -7,13 +7,13 @@
         <a class="menu-button" href="{{ route('web.users.notifications.index') }}" data-toggle="tooltip" title="Minhas notificações">
             <i class="notifications"></i>
             @php
-                $i = false;
+                $notifications = \Auth::user()->notifications()->where('user_saw', false)->count();
             @endphp
             <span @class([
                 'badge',
-                'bg-danger' => $i,
-                'bg-success' => !$i
-            ])>{{ $i ? '2' : '0' }}</span>
+                'bg-danger' => $notifications > 0,
+                'bg-success' => $notifications <= 0
+            ])>{{ $notifications }}</span>
         </a>
         <div class="picture" style="background-image: url('{{ asset('storage/' . auth()->user()->profile_image_path) }}')">
             <div class="head" style="background-image: url('{{ getAvatar(auth()->user()->username, '&direction=3&head_direction=3&gesture=sml&headonly=1&size=m') }}')"></div>

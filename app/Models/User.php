@@ -122,4 +122,12 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     {
         return Str::length($this->name, 'utf-8') > 3 ? $this->name : $this->username;
     }
+
+    public function getNotificationsByTopic(Topic $topic)
+    {
+        return $this->notifications()
+            ->where('user_saw', false)
+            ->where('slug', route('web.topics.show', ['id' => $topic->id, 'slug' => $topic->slug]))
+            ->get();
+    }
 }

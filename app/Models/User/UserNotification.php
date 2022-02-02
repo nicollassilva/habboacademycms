@@ -15,6 +15,7 @@ class UserNotification extends Model
     protected $table = 'user_notifications';
 
     protected $fillable = [
+        'from_user_id',
         'type',
         'slug',
         'title',
@@ -29,7 +30,7 @@ class UserNotification extends Model
     {
         return auth()->user()
             ->notifications()
-            ->where('user_saw', false)
+            ->orderBy('user_saw')
             ->orderByDesc('id')
             ->paginate(10);
     }

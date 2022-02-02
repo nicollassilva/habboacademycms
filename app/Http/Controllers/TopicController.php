@@ -3,16 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
+use Illuminate\Http\Request;
 use App\Models\Topic\TopicCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateTopic;
 
 class TopicController extends Controller
 {
-    public function show($id, $slug)
+    public function show(Request $request, $id, $slug)
     {
         if (!$topic = Topic::getTopic($id, $slug)) {
             return redirect()->route('web.academy.index');
+        }
+
+        if($request->query('fromNotification') && $topic->user_id === \Auth::id()) {
+            $allNotificationsFromTopic = \Auth::user()->getNotificationsByTopic($topic);
+
+            $allNotificationsFromTopic->each(function($notification) {
+                $notification->update(['user_saw' => true]);
+            });
         }
 
         $comments = $topic->comments()

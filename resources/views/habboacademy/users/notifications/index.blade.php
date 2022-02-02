@@ -11,7 +11,7 @@
         </div>
         <div class="content p-0 table-responsive" style="min-height: auto; max-height: auto;">
             <table class="table table-striped table-hover">
-                <thead>
+                <thead class="font-weight-bold">
                     <tr>
                         <th scope="col" class="text-center">Origem</th>
                         <th scope="col">Notificação</th>
@@ -28,7 +28,10 @@
                                 ])>{{ $notification->getNotificationType() }}</span>
                             </td>
                             <td>
-                                <a class="text-dark" href="{{ $notification->slug }}">
+                                @if ($notification->userSaw())
+                                <span class="badge bg-success">Visto</span>
+                                @endif
+                                <a class="text-dark @if (!$notification->userSaw()) font-weight-bold @endif" href="{{ !empty($notification->slug) ? $notification->slug . '?fromNotification=true' : '' }}">
                                     {{ $notification->title }}
                                 </a>
                             </td>

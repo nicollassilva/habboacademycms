@@ -27,6 +27,19 @@ class TopicCommentObserver
     {
         $topicComment->user->increment('topics_comment_count');
         $topicComment->topic->increment('comments_count');
+
+        $topic = $topicComment->topic;
+
+        // O usuário que comentou é o dono do tópico
+        if($topic->user->id === \Auth::id()) return;
+        $authUser = \Auth::user();
+
+        $topic->user->notifications()->create([
+            'from_user_id' => \Auth::id(),
+            'type' => 'comment',
+            'title' => "{$authUser->username} comentou no seu tópico \"{$topicComment->topic->title}\"",
+            'slug' => route('web.topics.show', ['id' => $topic->id, 'slug' => $topic->slug])
+        ]);
     }
 
     /**
