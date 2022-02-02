@@ -4,7 +4,7 @@
         <a class="menu-button" href="{{ route('web.topics.me') }}" data-toggle="tooltip" title="Meus tópicos"><i class="topics"></i></a>
     </div>
     <div class="user-config">
-        <a class="menu-button" href="{{ route('web.users.edit') }}" data-toggle="tooltip" title="Minhas notificações">
+        <a class="menu-button" href="{{ route('web.users.notifications.index') }}" data-toggle="tooltip" title="Minhas notificações">
             <i class="notifications"></i>
             @php
                 $i = false;

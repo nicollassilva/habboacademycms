@@ -8,6 +8,7 @@ use App\Models\User\UserBan;
 use App\Models\User\UserLog;
 use App\Models\Topic\TopicComment;
 use App\Models\Traits\FilamentTrait;
+use App\Models\User\UserNotification;
 use App\Models\User\UserWarning;
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasAvatar;
@@ -66,6 +67,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     public function logs()
     {
         return $this->hasMany(UserLog::class);
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany(UserNotification::class, 'to_user_id');
     }
 
     public function bans()
