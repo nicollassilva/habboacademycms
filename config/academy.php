@@ -15,8 +15,8 @@ return [
 
         'register' => [
             'activated' => true,
-            'accountsPerIp' => 2,
-            'captchaActivated' => false,
+            'accountsPerIp' => 5,
+            'captchaActivated' => true,
         ]
     ],
 

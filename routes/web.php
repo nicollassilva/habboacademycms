@@ -15,6 +15,9 @@ Route::get('/client/flash', 'ClientController@flash')->name('client.flash');
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('/register', 'Auth\RegisterController@register');
 
+// User Logout
+Route::post('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
+
 // Global routes
 Route::get('/topic/{id}/{slug}', 'TopicController@show')->name('topics.show');
 Route::get('/article/{id}/{slug}', 'ArticleController@show')->name('articles.show');

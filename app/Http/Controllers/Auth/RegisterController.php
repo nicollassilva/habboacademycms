@@ -64,7 +64,7 @@ class RegisterController extends Controller
         $academySettings = [
             'registerActivated' => config('academy.site.register.activated', true),
             'maxAccountsByIp' => config('academy.site.register.accountsPerIp', 10),
-            'usesCaptcha' => config('academy.site.register.enableCaptcha', false),
+            'usesCaptcha' => config('academy.site.register.captchaActivated', false),
             'maintenance' => config('academy.site.maintenance', false)
         ];
 
@@ -103,7 +103,7 @@ class RegisterController extends Controller
         ];
 
         if($academySettings['usesCaptcha']) {
-            $validations['g-recaptcha-response'] = ['recaptcha'];
+            $validations['g-recaptcha-response'] = ['required', 'recaptcha'];
         }
 
         return Validator::make($data, $validations);

@@ -1,5 +1,15 @@
 @extends('layouts.app', ['ignoreDefaultContainers' => true])
 
+@php
+    $usesCaptcha = config('academy.site.register.captchaActivated', false);
+@endphp
+
+@if ($usesCaptcha)
+    @push('scripts')
+        {!! ReCaptcha::htmlScriptTagJsApi() !!}
+    @endpush
+@endif
+
 @section('content')
     <div class="register-container">
         <div class="container">
@@ -41,6 +51,11 @@
                     <i class="password"></i>
                     <input type="password" class="form-control" placeholder="Confirme a senha" name="password_confirmation" id="password-confirm">
                 </div>
+                @if ($usesCaptcha)
+                <div class="default-box full d-flex justify-content-center">
+                    {!! htmlFormSnippet() !!}
+                </div>
+                @endif
                 <div class="default-box full">
                     <button class="join" type="submit">Cadastrar</button>
                 </div>

@@ -31,7 +31,7 @@ if (! function_exists('getForumLevel')) {
      * 
      * @return array
      */
-    function getForumLevel(Int $messageCount): Array
+    function getForumLevel(int $messageCount): Array
     {
         return ForumLevelService::make($messageCount);
     }
@@ -46,7 +46,7 @@ if (! function_exists('renderUserCode')) {
      * 
      * @return string
      */
-    function renderUserCode(String $userText, Int $renderType = 1): String
+    function renderUserCode(?string $userText, int $renderType = 1): String
     {
         return UserCodeService::render($userText, $renderType);
     }
