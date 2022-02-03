@@ -2,17 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Index route
 Route::get('/', 'AcademyController@index')->name('academy.index');
+
+// Login
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+
+Route::get('/client/flash', 'ClientController@flash')->name('client.flash');
+
+// Register
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/register', 'Auth\RegisterController@register');
+
+// Global routes
 Route::get('/topic/{id}/{slug}', 'TopicController@show')->name('topics.show');
 Route::get('/article/{id}/{slug}', 'ArticleController@show')->name('articles.show');
 
@@ -31,11 +34,9 @@ Route::prefix('user')
     Route::post('/topics', 'TopicController@store')->name('topics.store')->middleware('api');
     Route::post('/topic/{id}/{slug}/comment', 'Topic\TopicCommentController@store')->name('topics.comments.store');
 
-    // User notifications
+    // User notification routes
     Route::get('/notifications', 'User\NotificationController@index')->name('users.notifications.index');
     Route::delete('/notifications/deleteAll', 'User\NotificationController@destroyAll')->name('users.notifications.deleteAll');
     Route::delete('/notifications/{id}/delete', 'User\NotificationController@destroy')->name('users.notifications.delete');
     
 });
-
-Auth::routes();

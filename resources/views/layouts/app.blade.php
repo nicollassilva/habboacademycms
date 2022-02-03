@@ -1,3 +1,6 @@
+@php
+    $ignoreDefaultContainers = isset($ignoreDefaultContainers) ? $ignoreDefaultContainers : false;
+@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -31,43 +34,47 @@
 <body>
     <div class="container-fluid p-0">
         <main>
+        @if (!$ignoreDefaultContainers)
             @include('habboacademy.layouts.menu')
-        <header class="customTransition">
-            <div class="top-bar">
-                <div class="container">
-                    <div class="last-registers">
-                        <div class="default-title">
-                            <b class="customTransition">Últimos</b>Registrados
+            <header class="customTransition">
+                <div class="top-bar">
+                    <div class="container">
+                        <div class="last-registers">
+                            <div class="default-title">
+                                <b class="customTransition">Últimos</b>Registrados
+                            </div>
+                            <div class="latests-box">
+                                @foreach (lastUsers() as $lastUser)
+                                    <a href="/profile/{{ $lastUser->username }}" class="latest-user"
+                                        style="background-image: url('{{ getAvatar($lastUser->username, '&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s') }}')"
+                                        data-toggle="tooltip"
+                                        title="<b>{{ $lastUser->username }}</b><br>Cadastrou {{ dateToString($lastUser->created_at) }}"
+                                        data-placement="bottom"></a>
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="latests-box">
-                            @foreach (lastUsers() as $lastUser)
-                                <a href="/profile/{{ $lastUser->username }}" class="latest-user"
-                                    style="background-image: url('{{ getAvatar($lastUser->username, '&action=std&direction=4&head_direction=3&img_format=png&gesture=std&headonly=1&size=s') }}')"
-                                    data-toggle="tooltip"
-                                    title="<b>{{ $lastUser->username }}</b><br>Cadastrou {{ dateToString($lastUser->created_at) }}"
-                                    data-placement="bottom"></a>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="search-field">
-                        <div class="default-title border-left-0">
-                            <b class="customTransition">Pesquise</b>algo aqui
-                        </div>
-                        <div class="input customTransition">
-                            <input type="text" name="search" autocomplete="off" placeholder="Pesquise por tópicos, notícias, etc">
-                            <button><i class="fas fa-search fa-flip-horizontal"></i></button>
+                        <div class="search-field">
+                            <div class="default-title border-left-0">
+                                <b class="customTransition">Pesquise</b>algo aqui
+                            </div>
+                            <div class="input customTransition">
+                                <input type="text" name="search" autocomplete="off" placeholder="Pesquise por tópicos, notícias, etc">
+                                <button><i class="fas fa-search fa-flip-horizontal"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-        @auth
-            <div class="user-menu">
-                @include('habboacademy.layouts.user.menu')
-            </div>
-        @endauth
+            </header>
+            @auth
+                <div class="user-menu">
+                    @include('habboacademy.layouts.user.menu')
+                </div>
+            @endauth
+        @endif
 
-        <main class="py-4">
+        <main @class([
+            "py-4" => !$ignoreDefaultContainers
+        ])>
             @yield('content')
         </main>
     </main>

@@ -33,7 +33,7 @@ i.icone-registros,
 i.curtida,
 i.descurtida,
 i.boia,
-i.carta,
+i.letter,
 i.alerta,
 i.shop,
 i.frank-comentarios,
@@ -46,7 +46,9 @@ i.moderado,
 i.salvar,
 i.valoresM,
 i.new,
+i.user,
 i.hotel,
+i.password,
 i.cancelar,
 i.presente {
 	position: relative;
@@ -62,6 +64,18 @@ i.descer {
 
 i.descer {
 	background-image: url('/images/mini-icons/descer.png');
+}
+
+i.user {
+	width: 14px;
+	height: 14px;
+	background-image: url('/images/mini-icons/user.png');
+}
+
+i.password {
+	width: 16px;
+	height: 12px;
+	background-image: url('/images/mini-icons/password.gif');
 }
 
 i.retrocoin {
@@ -375,7 +389,7 @@ i.pencil {
 	background-image: url('/images/mini-icons/noticias.png');
 }
 
-i.carta {
+i.letter {
 	width: 16px;
 	height: 11px;
 	background-image: url('/images/mini-icons/carta.gif');
