@@ -3,7 +3,7 @@
 @section('title', "Notícia: {$article->title}")
 
 @section('content')
-<div class="capa" style="background-image: url('{{ asset("storage/{$article->image_path}") }}')">
+<div class="capa" style="background-image: url('{{ \Str::contains($article->image_path, 'articles') ? asset("storage/{$article->image_path}") : $article->image_path }}')">
     <div class="obscure"></div>
     <h2 class="title text-center">{{ $article->title }}</h2>
     <span><i class="relogio mr-1 mt-1"></i>Notícia postada {{ dateToString($article->created_at) }}</span>

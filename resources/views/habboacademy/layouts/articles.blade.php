@@ -37,7 +37,7 @@
         <div class="swiper-container customTransition newsSlider">
             <div class="swiper-wrapper">
                 @foreach ($fixedArticles as $fixedArticle)
-                    <div class="swiper-slide" style="background-image: url('{{ asset("storage/{$fixedArticle->image_path}") }}')">
+                    <div class="swiper-slide" style="background-image: url('{{ \Str::contains($fixedArticle->image_path, 'articles') ? asset("storage/{$fixedArticle->image_path}") : $fixedArticle->image_path }}')">
                         <div class="swiper-mirror">
                             <a href="{{ route('web.articles.show', [$fixedArticle->id, $fixedArticle->slug]) }}">
                                 <div class="title">{{ $fixedArticle->title }}</div>
@@ -66,7 +66,7 @@
                         <i class="fas fa-clock"></i> {{ dateToString($article->created_at) }}
                     </div>
                 </div>
-                <div class="image" style="background-image: url('{{ asset("storage/{$article->image_path}") }}')"></div>
+                <div class="image" style="background-image: url('{{ \Str::contains($article->image_path, 'articles') ? asset("storage/{$article->image_path}") : $article->image_path }}')"></div>
                 <div class="title" style="height: 35px">
                     <a href="{{ route('web.articles.show', [$article->id, $article->slug]) }}">{{ $article->title }}</a>
                 </div>
@@ -74,7 +74,7 @@
                     <div class="category text-truncate">{{ $article->category->name }}</div>
                     <div class="author">
                         <div class="avatar" 
-                             style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&user={{ $article->user->username }}&action=wlk&direction=3&head_direction=3&gesture=sml&size=s')"></div>
+                             style="background-image: url('{{ getAvatar($article->user->username, '&action=wlk&direction=3&head_direction=3&gesture=sml&size=s') }}')"></div>
                             <a href="">{{ $article->user->username }}</a>
                     </div>
                 </div>

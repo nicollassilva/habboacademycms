@@ -1,6 +1,6 @@
 .slider {
 	width: 49%;
-	height: 300px;
+	height: 270px;
 	border-radius: 5px;
 	float: left;
 
@@ -8,6 +8,22 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 5px;
+	}
+
+	.swiper-pagination {
+		bottom: 30px;
+
+		.swiper-pagination-bullet {
+			width: 12px;
+			height: 12px;
+			border-radius: 0;
+			transition: border-radius .3s;
+		}
+
+		.swiper-pagination-bullet-active {
+			background-color: #444;
+			border-radius: 100%;
+		}
 	}
 
 	.swiper-slide {
@@ -25,29 +41,29 @@
 
 		.swiper-data {
 			width: calc(100% - 20px);
-			height: 60px;
+			height: 50px;
 			position: absolute;
-			bottom: -30px;
-			box-shadow: 0 2px 0 2px rgba(0, 0, 0, .02);
+			bottom: 10px;
+			box-shadow: 0 0 0 2px rgba(0, 0, 0, .08), inset 0 0 0 2px rgba(0, 0, 0, 0.08);
 			background-color: white;
-			border-radius: 5px;
 			padding: 0 10px;
 			left: 10px;
 
 			.title {
 				width: 100%;
 				float: left;
-				text-align: center;
-				margin-top: 5px;
-				font-weight: 600;
-				color: $strongblue;
+				text-align: left;
+				margin-top: 2px;
+				font-weight: 700;
+				color: #444;
 			}
 
 			.description {
 				width: 100%;
 				float: left;
-				text-align: center;
-				font-size: 14px;
+				text-align: left;
+				font-weight: 400;
+				font-size: 13px;
 				color: #777;
 			}
 		}
@@ -89,12 +105,18 @@
             height: 50px;
             background-color: white;
             border-radius: 5px;
-            box-shadow: 0 3px 0 2px rgba(0, 0, 0, .02);
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, .05), inset 0 0 0 2px rgba(0, 0, 0, .08);
+			border: 1px solid #bbb;
             background-position: center;
             background-repeat: no-repeat;
             margin-right: 12px;
+			transition: margin-top .2s ease-in-out;
 
             &:last-of-type { margin-right: 0; }
+
+			&:hover {
+				margin-top: -10px;
+			}
         }
     }
 }

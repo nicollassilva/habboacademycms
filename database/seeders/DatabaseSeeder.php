@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\TopicCategorySeeder;
-use Database\Seeders\ArticleCategorySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +18,9 @@ class DatabaseSeeder extends Seeder
             TopicCategorySeeder::class,
             UserSeeder::class,
             NavigationSeeder::class,
-            BadgeSeeder::class
+            BadgeSeeder::class,
+            SlideSeeder::class,
+            ArticleSeeder::class
         ]);
     }
 }
