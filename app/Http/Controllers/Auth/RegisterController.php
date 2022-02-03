@@ -61,40 +61,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $academySettings = [
-            'registerActivated' => config('academy.site.register.activated', true),
-            'maxAccountsByIp' => config('academy.site.register.accountsPerIp', 10),
-            'usesCaptcha' => config('academy.site.register.captchaActivated', false),
-            'maintenance' => config('academy.site.maintenance', false)
-        ];
+        $usesCaptcha = config('academy.site.register.captchaActivated', false);
+        
+        $this->checkActivatedRegister();
+        $this->checkActivatedMaintenance();
 
-        if(!$academySettings['registerActivated']) {
-            throw ValidationException::withMessages([
-                'username' => 'O registro de novas contas foi desabilitado pelo administrador.',
-            ]);
-        }
-
-        if($academySettings['maintenance']) {
-            throw ValidationException::withMessages([
-                'username' => 'O site está passando por uma manutenção e o registro de contas foi desativado.',
-            ]);
-        }
-
-        $accounts = User::where('ip_register', \Request::ip())->count();
-
-        if($accounts >= $academySettings['maxAccountsByIp']) {
-            throw ValidationException::withMessages([
-                'username' => 'Você excedeu o total de contas permitidas por IP.',
-            ]);
-        }
-
-        $userBannedByIp = UserBan::userHasBeenIpBanned();
-
-        if($userBannedByIp) {
-            throw ValidationException::withMessages([
-                'username' => 'Você está banido por IP e não pode criar novas contas!',
-            ]);
-        }
+        $this->userHasBeenIpBanned();
+        $this->checkAccountsByIP();
 
         $validations = [
             'username' => ['required', 'string', 'min:3', 'max:50', 'unique:users', 'regex:/^([À-üA-Za-z\.:_\-0-9\!]+)$/'],
@@ -102,11 +75,82 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed']
         ];
 
-        if($academySettings['usesCaptcha']) {
-            $validations['g-recaptcha-response'] = ['required', 'recaptcha'];
+        if($usesCaptcha) {
+            $validations['g-recaptcha-response'] = ['recaptcha'];
         }
 
         return Validator::make($data, $validations);
+    }
+
+    /**
+     * @return void
+     */
+    public function checkActivatedRegister(): void
+    {
+        $registerActivated = config('academy.site.register.activated', true);
+
+        if(!$registerActivated) {
+            throw ValidationException::withMessages([
+                'username' => 'O registro de novas contas foi desabilitado pelo administrador.',
+            ]);
+        }
+    }
+
+    /**
+     * @return void
+     */
+    public function checkActivatedMaintenance(): void
+    {
+        $maintenance = config('academy.site.maintenance', false);
+
+        if($maintenance) {
+            throw ValidationException::withMessages([
+                'username' => 'O site está passando por uma manutenção e o registro de contas foi desativado.',
+            ]);
+        }
+    }
+
+    /**
+     * @return void
+     */
+    public function checkAccountsByIP(): void
+    {
+        $accountLimits = config('academy.site.register.accountsPerIp', 10);
+        $accounts = User::where('ip_register', \Request::ip())->count();
+
+        if($accounts >= $accountLimits) {
+            throw ValidationException::withMessages([
+                'username' => 'Você excedeu o total de contas permitidas por IP.',
+            ]);
+        }
+    }
+
+    /**
+     * @return void
+     */
+    public function userHasBeenIpBanned(): void
+    {
+        $userBannedByIp = UserBan::userHasBeenIpBanned();
+
+        if($userBannedByIp) {
+            throw ValidationException::withMessages([
+                'username' => 'Você está banido por IP e não pode criar novas contas!',
+            ]);
+        }
+    }
+    
+    /**
+     * @return void
+     */
+    public function checkBlockedUsernames(?string $username): void
+    {
+        $blockedUsernames = config('academy.site.register.blockedUsernames', []);
+
+        if(in_array($username, $blockedUsernames)) {
+            throw ValidationException::withMessages([
+                'username' => 'Não é possível criar uma conta com esse nome de usuário.',
+            ]);
+        }
     }
 
     /**
@@ -117,6 +161,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $this->checkBlockedUsernames($data['username']);
+
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],

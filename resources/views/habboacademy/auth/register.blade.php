@@ -21,7 +21,7 @@
                 @csrf
                 <div class="default-box full">
                     <i class="user" style="top: 30px"></i>
-                    <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Seu usuário" name="username" id="username" autocomplete="username" autofocus>
+                    <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Seu usuário" name="username" id="username" value="{{ old('username') }}" autocomplete="username" autofocus>
                     @error('username')
                         <span class="invalid-feedback" role="alert">
                             <i class="fas fa-exclamation-circle mr-2"></i><strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="default-box full">
                     <i class="letter"></i>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Seu e-mail" name="email" id="email" autocomplete="email">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Seu e-mail" name="email" id="email" value="{{ old('email') }}" autocomplete="email">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <i class="fas fa-exclamation-circle mr-2"></i><strong>{{ $message }}</strong>

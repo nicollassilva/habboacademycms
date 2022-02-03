@@ -15,8 +15,11 @@ return [
 
         'register' => [
             'activated' => true,
-            'accountsPerIp' => 5,
+            'accountsPerIp' => 3,
             'captchaActivated' => true,
+
+            // Isso é necessário caso você queira bloquear registros de usuários se passando como staffs
+            'blockedUsernames' => []
         ]
     ],
 
