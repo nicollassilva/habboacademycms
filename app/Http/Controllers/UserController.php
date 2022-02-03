@@ -79,6 +79,6 @@ class UserController extends Controller
 
         return redirect()
             ->route('web.users.edit')
-            ->with('success', 'Assinatura foi atualizada.');
+            ->with('success', 'user-signature foi atualizada.');
     }
 }

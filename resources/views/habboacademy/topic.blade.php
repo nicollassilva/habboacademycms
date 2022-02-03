@@ -60,8 +60,8 @@
 <div class="container">
     <div class="display topico-ler">
         {!! renderUserCode($topic->content, 2); !!}
-        <div class="assinatura">
-            <span class="titleAss">
+        <div class="user-signature">
+            <span class="signature-title">
                 <i class="noticias"></i> Assinatura de <b class="ml-1"><?php echo $topic->user->username ?></b>
             </span>
             {!! renderUserCode($topic->user->forum_signature, 2) !!}
@@ -150,8 +150,8 @@
             </div>
             <div class="conteudo">
                 {!! renderUserCode($comment->content, 2) !!}
-                <div class="assinatura">
-                    <span class="titleAss">
+                <div class="user-signature">
+                    <span class="signature-title">
                         <i class="noticias"></i> Assinatura de <b class="ml-1">{{ $comment->user->username }}</b>
                     </span>
                     {!! renderUserCode($comment->user->forum_signature, 2) !!}
