@@ -1,5 +1,7 @@
 @extends('layouts.app', ['ignoreDefaultContainers' => true])
 
+@section('title', "Cadastro de Contas")
+
 @php
     $usesCaptcha = config('academy.site.register.captchaActivated', false);
 @endphp
@@ -58,6 +60,10 @@
                 @endif
                 <div class="default-box full">
                     <button class="join" type="submit">Cadastrar</button>
+                    <p class="text-muted mb-0 pb-0 mt-2">
+                        Já possui conta?
+                        <a href="{{ route('web.login') }}">Faça login</a>.
+                    </p>
                 </div>
             </form>
         </div>

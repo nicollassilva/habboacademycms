@@ -13343,6 +13343,9 @@ label[avatarImage]::before {
   background: url("/images/register-images/palooza14_background_left.png") bottom left no-repeat, url("/images/register-images/palooza14_background_right.png") bottom right no-repeat, #19a8d1 linear-gradient(#19a8d1, #99d3f1) bottom;
   overflow: hidden auto;
 }
+.register-container.login {
+  background: url("/images/register-images/palooza14_background_left.png") bottom left no-repeat, url("/images/register-images/palooza14_background_right.png") bottom right no-repeat, #19a8d1 linear-gradient(#ffa502, #FFC312) bottom;
+}
 .register-container .container {
   display: flex;
   align-items: center;
@@ -13405,6 +13408,13 @@ label[avatarImage]::before {
   letter-spacing: 1px;
   color: #f8f9fa;
 }
+.register-container .container .default-box button:hover {
+  -webkit-animation: pulse 0.5s linear infinite;
+          animation: pulse 0.5s linear infinite;
+}
 .register-container .container .default-box button.join {
   background: linear-gradient(#2ed573, #44bd32);
+}
+.register-container .container .default-box button.login {
+  background: linear-gradient(#6cb2eb, #0abde3);
 }

@@ -24,6 +24,16 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        return view('habboacademy.auth.login');
+    }
+
+    /**
      * Get the login username to be used by the controller.
      *
      * @return string

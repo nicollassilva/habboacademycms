@@ -6,6 +6,12 @@
                 #19a8d1 linear-gradient(#19a8d1, #99d3f1) bottom;
     overflow: hidden auto;
 
+    &.login {
+        background: url('/images/register-images/palooza14_background_left.png') bottom left no-repeat, 
+                    url('/images/register-images/palooza14_background_right.png') bottom right no-repeat, 
+                    #19a8d1 linear-gradient(#ffa502, #FFC312) bottom;
+    }
+
     .container {
         display: flex;
         align-items: center;
@@ -75,8 +81,16 @@
                 letter-spacing: 1px;
                 color: $light;
 
+                &:hover {
+                    animation: pulse .5s linear infinite;
+                }
+
                 &.join {
                     background: linear-gradient($success, $theme3);
+                }
+
+                &.login {
+                    background: linear-gradient($cyan, $primary);
                 }
             }
         }

@@ -44,7 +44,7 @@
                             </a>
                             <div class="data text-truncate">
                                 <div class="avatar" 
-                                        style="background-image: url('https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&user={{ $fixedArticle->user->username }}&action=wlk&direction=3&head_direction=3&gesture=sml&size=s')"></div>
+                                        style="background-image: url('{{ getAvatar($fixedArticle->user->username, '&action=wlk&direction=3&head_direction=3&gesture=sml&size=s') }}')"></div>
                                 <a href="">{{ $fixedArticle->user->username }}</a>
                                 <span>• <i class="fas fa-clock mr-1"></i>{{ dateToString($fixedArticle->created_at) }}</span>
                             </div>
