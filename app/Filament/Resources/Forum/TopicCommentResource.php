@@ -11,10 +11,13 @@ use Filament\Resources\Resource;
 use App\Models\Topic\TopicComment;
 use Filament\Forms\Components\Grid;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Traits\ShowLatestResources;
 use App\Filament\Resources\Forum\TopicCommentResource\Pages;
 
 class TopicCommentResource extends Resource
 {
+    use ShowLatestResources;
+
     protected static ?string $model = TopicComment::class;
 
     protected static ?string $slug = 'forum/comments';

@@ -102,10 +102,12 @@ class ArticleResource extends Resource
                     ->trueIcon('heroicon-o-badge-check')
                     ->falseIcon('heroicon-o-x-circle'),
 
-                Tables\Columns\TextColumn::make('status')->enum([
-                    '0' => 'Rascunho',
-                    '1' => 'Publicada'
-                ])
+                Tables\Columns\TextColumn::make('status')
+                    ->extraAttributes(['class' => 'font-bold'])
+                    ->enum([
+                        '0' => 'Rascunho',
+                        '1' => 'Publicada'
+                    ])
             ])
             ->filters([
                 Filters\SelectFilter::make('reviewed')

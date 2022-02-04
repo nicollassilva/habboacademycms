@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Filament\Resources\Forum;
+namespace App\Filament\Resources\Furni;
 
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Resources\Form;
-use App\Models\Topic\TopicCategory;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use App\Models\Furni\FurniCategory;
 use Filament\Forms\Components\Grid;
-use App\Filament\Resources\Forum\TopicCategoryResource\Pages;
+use App\Filament\Resources\Furni\FurniCategoryResource\Pages;
 
-class TopicCategoryResource extends Resource
+class FurniCategoryResource extends Resource
 {
-    protected static ?string $model = TopicCategory::class;
+    protected static ?string $model = FurniCategory::class;
 
-    protected static ?string $slug = 'forum/categories';
+    protected static ?string $slug = 'furni/categories';
 
-    protected static ?string $navigationGroup = 'Fórum';
+    protected static ?string $navigationGroup = 'Valores';
 
     protected static ?string $navigationLabel = 'Gerenciar Categorias';
 
-    protected static ?int $navigationSort = 4;
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
@@ -54,10 +54,10 @@ class TopicCategoryResource extends Resource
                     ->label('Ícone')
                     ->size(20),
 
-                Tables\Columns\TextColumn::make('topics_count')
+                Tables\Columns\TextColumn::make('furnis_count')
+                    ->label('Contador de Mobis')
+                    ->counts('furnis')
                     ->extraAttributes(['class' => 'font-bold'])
-                    ->label('Contagem de Tópicos')
-                    ->counts('topics')
             ])
             ->filters([
                 //
@@ -67,17 +67,16 @@ class TopicCategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            TopicCategoryResource\RelationManagers\TopicsRelationManager::class
+            FurniCategoryResource\RelationManagers\FurnisRelationManager::class
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTopicCategories::route('/'),
-            'create' => Pages\CreateTopicCategory::route('/create'),
-            'view' => Pages\ViewTopicCategory::route('/{record}'),
-            'edit' => Pages\EditTopicCategory::route('/{record}/edit'),
+            'index' => Pages\ListFurniCategories::route('/'),
+            'create' => Pages\CreateFurniCategory::route('/create'),
+            'edit' => Pages\EditFurniCategory::route('/{record}/edit'),
         ];
     }
 }

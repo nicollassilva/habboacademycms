@@ -10,7 +10,6 @@ use Filament\Resources\Resource;
 use App\Models\Academy\Navigation;
 use Filament\Forms\Components\Grid;
 use App\Filament\Resources\Academy\NavigationResource\Pages;
-use App\Filament\Traits\ShowLatestResources;
 
 class NavigationResource extends Resource
 {

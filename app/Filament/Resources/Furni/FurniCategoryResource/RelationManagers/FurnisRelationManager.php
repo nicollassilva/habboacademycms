@@ -1,34 +1,30 @@
 <?php
 
-namespace App\Filament\Resources\Furni;
+namespace App\Filament\Resources\Furni\FurniCategoryResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\FurniValue;
 use Filament\Resources\Form;
 use Filament\Tables\Filters;
 use Filament\Resources\Table;
-use Filament\Resources\Resource;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\Grid;
-use App\Models\Furni\FurniCategory;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Pages\CreateRecord;
-use App\Filament\Traits\ShowLatestResources;
-use App\Filament\Resources\Furni\FurniResource\Pages;
+use Filament\Resources\RelationManagers\HasManyRelationManager;
 
-class FurniResource extends Resource
+class FurnisRelationManager extends HasManyRelationManager
 {
-    use ShowLatestResources;
+    protected static string $relationship = 'furnis';
 
-    protected static ?string $model = FurniValue::class;
+    protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $slug = 'furni/values';
-
-    protected static ?string $navigationGroup = 'Valores';
-
-    protected static ?string $navigationLabel = 'Gerenciar Valores';
-
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['admin_id'] = Filament::auth()->user()->id;
+    
+        return $data;
+    }
 
     public static function form(Form $form): Form
     {
@@ -39,15 +35,6 @@ class FurniResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->label('Nome do item'),
-
-                    Forms\Components\BelongsToSelect::make('category_id')
-                        ->label('Categoria')
-                        ->relationship('category', 'name')
-                        ->placeholder('Categoria')
-                        ->disablePlaceholderSelection()
-                        ->options(FurniCategory::pluck('name', 'id'))
-                        ->searchable()
-                        ->required(),
 
                     Forms\Components\TextInput::make('price')
                         ->numeric()
@@ -119,7 +106,6 @@ class FurniResource extends Resource
 
                 Tables\Columns\TextColumn::make('state')
                     ->label('Estado do Preço')
-                    ->extraAttributes(['class' => 'font-bold'])
                     ->enum([
                         'up' => 'Subiu',
                         'down' => 'Caiu',
@@ -156,21 +142,5 @@ class FurniResource extends Resource
                             );
                     })
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListFurnis::route('/'),
-            'create' => Pages\CreateFurni::route('/create'),
-            'edit' => Pages\EditFurni::route('/{record}/edit'),
-        ];
     }
 }

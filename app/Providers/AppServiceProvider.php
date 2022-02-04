@@ -46,7 +46,8 @@ class AppServiceProvider extends ServiceProvider
             'Academy',
             'Notícias',
             'Usuários',
-            'Fórum'
+            'Fórum',
+            'Valores'
         ]);
     }
 }

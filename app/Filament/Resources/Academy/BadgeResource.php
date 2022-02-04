@@ -94,6 +94,7 @@ class BadgeResource extends Resource
                     ->enum(Badge::$rarities),
 
                 Tables\Columns\TextColumn::make('users_count')
+                    ->extraAttributes(['class' => 'font-bold'])
                     ->label('Usuários que possuem')
                     ->counts('users')
             ])

@@ -12,10 +12,13 @@ use Filament\Resources\Resource;
 use App\Models\Topic\TopicCategory;
 use Filament\Forms\Components\Grid;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Traits\ShowLatestResources;
 use App\Filament\Resources\Forum\TopicResource\Pages;
 
 class TopicResource extends Resource
 {
+    use ShowLatestResources;
+
     protected static ?string $model = Topic::class;
 
     protected static ?string $slug = 'forum/topics';
@@ -29,10 +32,6 @@ class TopicResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-chat-alt-2';
 
     protected static ?int $navigationSort = 3;
-
-    protected $queryString = [
-        'tableSearchQuery' => ['except' => ''],
-    ];
 
     public static function form(Form $form): Form
     {

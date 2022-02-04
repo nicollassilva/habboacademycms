@@ -20,6 +20,6 @@ class FurniCategory extends Model
 
     public function furnis()
     {
-        return $this->hasMany(FurniValue::class);
+        return $this->hasMany(FurniValue::class, 'category_id');
     }
 }
