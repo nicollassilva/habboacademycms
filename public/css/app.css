@@ -10747,6 +10747,16 @@ header::before {
   bottom: 0;
   background-image: url("/images/planeta.webp");
 }
+header .logo {
+  width: 244px;
+  height: 180px;
+  background-image: url("/images/logo.png");
+  position: relative;
+  float: right;
+  margin-top: 20px;
+  margin-right: 40px;
+  z-index: 5;
+}
 header .top-bar {
   width: 100%;
   height: 70px;

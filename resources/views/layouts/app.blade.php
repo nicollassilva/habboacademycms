@@ -64,6 +64,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="logo"></div>
+                </div>
             </header>
             @auth
                 <div class="user-menu">

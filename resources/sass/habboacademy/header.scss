@@ -104,6 +104,17 @@ header {
 		bottom: 0;
 		background-image: url('/images/planeta.webp');
 	}
+	
+	.logo {
+		width: 244px;
+		height: 180px;
+		background-image: url('/images/logo.png');
+		position: relative;
+		float: right;
+		margin-top: 20px;
+		margin-right: 40px;
+		z-index: 5;
+	}
 
 	.top-bar {
 		width: 100%;
