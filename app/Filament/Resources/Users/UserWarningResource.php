@@ -43,6 +43,7 @@ class UserWarningResource extends Resource
                         ->required(),
 
                     Forms\Components\Textarea::make('reason')
+                        ->hint('<strong>Padrão:</strong> Vazio')
                         ->label('Razão da Advertência'),
                 ])
             ]);

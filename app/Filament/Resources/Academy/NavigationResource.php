@@ -38,22 +38,27 @@ class NavigationResource extends Resource
 
                 Forms\Components\TextInput::make('small_icon')
                     ->label('Ícone pequeno')
+                    ->hint('<strong>Padrão:</strong> Não terá ícone')
                     ->helperText('Digite toda a classe do ícone, exemplo FontAwesome: fas fa-user'),
 
                 Forms\Components\TextInput::make('hover_icon')
                     ->label('Ícone ao passar o mouse')
                     ->url()
+                    ->hint('<strong>Padrão:</strong> Não terá ícone ao passar o mouse')
                     ->helperText('Digite a URL da imagem'),
 
                 Forms\Components\TextInput::make('slug')
+                    ->hint('<strong>Padrão:</strong> Não terá redirecionamento')
                     ->label('URL de redirecionamento')
                     ->url(),
 
                 Forms\Components\TextInput::make('order')
                     ->numeric()
+                    ->hint('<strong>Padrão:</strong> 0 - Ficará entre os primeiros (em ordem alfabética)')
                     ->label('Ordem de exibição (0 a 6)'),
 
                 Forms\Components\Toggle::make('visible')
+                    ->hint('<strong>Padrão:</strong> Visível')
                     ->label('Visível no site'),
             ]);
     }

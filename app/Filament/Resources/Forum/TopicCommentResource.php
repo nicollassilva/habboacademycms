@@ -34,12 +34,14 @@ class TopicCommentResource extends Resource
                 Grid::make(['default' => 0])->schema([
                     Forms\Components\Select::make('moderated')
                         ->label('Situação do Comentário')
+                        ->hint('<strong>Padrão:</strong> Pendente')
                         ->options([
                             'moderated' => 'Moderado',
                             'pending' => 'Pendente'
                         ]),
 
                     Forms\Components\Toggle::make('active')
+                        ->hint('<strong>Padrão:</strong> Ativo')
                         ->label('Comentário ativo')
                 ])
             ]);

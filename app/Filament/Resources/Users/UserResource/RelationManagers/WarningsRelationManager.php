@@ -31,6 +31,7 @@ class WarningsRelationManager extends HasManyRelationManager
             ->schema([
                 Grid::make(['default' => 0])->schema([
                     Forms\Components\Textarea::make('reason')
+                        ->hint('<strong>Padrão:</strong> Vazio')
                         ->label('Razão da Advertência'),
                 ])
             ]);

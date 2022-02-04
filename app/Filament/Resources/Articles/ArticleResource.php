@@ -52,7 +52,8 @@ class ArticleResource extends Resource
                         ->label('Categoria')
                         ->relationship('category', 'name')
                         ->options(ArticleCategory::pluck('name', 'id'))
-                        ->searchable(),
+                        ->searchable()
+                        ->required(),
 
                     Forms\Components\FileUpload::make('image_path')
                         ->label('Imagem')
@@ -67,6 +68,7 @@ class ArticleResource extends Resource
                         ->fileAttachmentsDirectory('articles'),
 
                     Forms\Components\Toggle::make('fixed')
+                        ->hint('<strong>Padrão:</strong> Não fixado')
                         ->label('Fixar notícia')
                 ])
             ]);

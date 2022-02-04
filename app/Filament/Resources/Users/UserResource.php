@@ -46,6 +46,7 @@ class UserResource extends Resource
                         ->required(),
 
                     Forms\Components\TextInput::make('name')
+                        ->hint('<strong>Padrão:</strong> Vazio')
                         ->label('Nome Real'),
 
                     Forms\Components\TextInput::make('email')

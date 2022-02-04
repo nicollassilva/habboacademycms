@@ -38,7 +38,7 @@ class ArticleCategoryResource extends Resource
                     Forms\Components\FileUpload::make('icon')
                         ->label('Imagem')
                         ->directory('articles/categories')
-                        ->required()
+                        ->hint('<strong>Padrão:</strong> Sem ícone')
                         ->helperText('PS: Espere carregar a imagem para salvar a categoria.')
                         ->image(),
                 ])

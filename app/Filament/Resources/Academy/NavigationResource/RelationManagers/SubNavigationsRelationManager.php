@@ -27,16 +27,20 @@ class SubNavigationsRelationManager extends HasManyRelationManager
 
                 Forms\Components\TextInput::make('slug')
                     ->label('URL de redirecionamento')
+                    ->hint('<strong>Padrão:</strong> Não terá redirecionamento')
                     ->url(),
 
                 Forms\Components\TextInput::make('order')
                     ->numeric()
+                    ->hint('<strong>Padrão:</strong> 0 - Ficará entre os primeiros (em ordem alfabética)')
                     ->label('Ordem de exibição (0 a 6)'),
 
                 Forms\Components\Toggle::make('new_tab')
+                    ->hint('<strong>Padrão:</strong> Não abrirá em uma nova guia')
                     ->label('Abrir URL em uma nova guia'),
 
                 Forms\Components\Toggle::make('visible')
+                    ->hint('<strong>Padrão:</strong> Visível')
                     ->label('Visível no site'),
             ]);
     }

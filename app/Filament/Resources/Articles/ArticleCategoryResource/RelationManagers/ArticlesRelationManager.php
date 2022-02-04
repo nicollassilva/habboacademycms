@@ -45,6 +45,7 @@ class ArticlesRelationManager extends HasManyRelationManager
                         ->fileAttachmentsDirectory('articles'),
 
                     Forms\Components\Toggle::make('fixed')
+                        ->hint('<strong>Padrão:</strong> Não fixado')
                         ->label('Fixar notícia')
                 ])
             ]);

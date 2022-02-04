@@ -35,6 +35,7 @@ class UsersRelationManager extends BelongsToManyRelationManager
 
                 Tables\Columns\ImageColumn::make('profile_image_path')
                     ->label('Avatar')
+                    ->hint('<strong>Padrão:</strong> HabboAcademy')
                     ->rounded(),
 
                 Tables\Columns\TextColumn::make('username')

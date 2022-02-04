@@ -38,9 +38,11 @@ class BansRelationManager extends HasManyRelationManager
                         ->required(),
 
                     Forms\Components\Textarea::make('reason')
+                        ->hint('<strong>Padrão:</strong> Vazio')
                         ->label('Razão do Banimento'),
 
                     Forms\Components\DateTimePicker::make('expires_at')
+                        ->hint('<strong>Padrão:</strong> Permanente')
                         ->label('Expiração do Banimento')
                         ->displayFormat('d/m/y H:i')
                 ])

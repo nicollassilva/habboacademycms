@@ -40,6 +40,7 @@ class BadgeResource extends Resource
                         ->required(),
 
                     Forms\Components\TextInput::make('description')
+                        ->hint('<strong>Padrão:</strong> Sem descrição')
                         ->label('Descrição'),
                 ]),
 
@@ -62,6 +63,7 @@ class BadgeResource extends Resource
 
                 Forms\Components\TextInput::make('content_slug')
                     ->url()
+                    ->hint('<strong>Padrão:</strong> Sem conteúdo relacionado')
                     ->helperText('Coloque apenas URLs internos (do site)')
                     ->label('URL relacionado ao Emblema'),
             ]);

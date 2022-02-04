@@ -50,10 +50,12 @@ class BanResource extends Resource
                         ->required(),
 
                     Forms\Components\Textarea::make('reason')
+                        ->hint('<strong>Padrão:</strong> Sem motivo')
                         ->label('Razão do Banimento'),
 
                     Forms\Components\DateTimePicker::make('expires_at')
                         ->label('Expiração do Banimento')
+                        ->hint('<strong>Padrão:</strong> Permanente')
                         ->displayFormat('d/m/y H:i')
                 ])
             ]);

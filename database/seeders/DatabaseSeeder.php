@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             NavigationSeeder::class,
             BadgeSeeder::class,
             SlideSeeder::class,
-            ArticleSeeder::class
+            ArticleSeeder::class,
+            FurniCategorySeeder::class
         ]);
     }
 }

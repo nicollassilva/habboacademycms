@@ -40,9 +40,11 @@ class SlideResource extends Resource
                         ->label('Título'),
 
                     Forms\Components\TextInput::make('description')
+                        ->hint('<strong>Padrão:</strong> Não terá descrição')
                         ->label('Descrição'),
 
                     Forms\Components\TextInput::make('slug')
+                        ->hint('<strong>Padrão:</strong> Não terá redirecionamento')
                         ->label('Link para Navegação'),
 
                     Forms\Components\FileUpload::make('image_path')
@@ -53,13 +55,16 @@ class SlideResource extends Resource
 
                 Forms\Components\Toggle::make('active')
                     ->label('Ativo')
+                    ->hint('<strong>Padrão:</strong> Desativado')
                     ->helperText('Marque para aparecer no site'),
 
                 Forms\Components\Toggle::make('fixed')
+                    ->hint('<strong>Padrão:</strong> Não fixado')
                     ->label('Slide fixo')
                     ->helperText('Sempre aparecerá primeiro dos outros'),
 
                 Forms\Components\Toggle::make('new_tab')
+                    ->hint('<strong>Padrão:</strong> Não abrirá em uma nova guia')
                     ->label('Nova guia')
                     ->helperText('Abrirá o link em uma nova guia')
             ]);
