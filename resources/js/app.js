@@ -31,21 +31,16 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 document.addEventListener('turbolinks:load', () => {
-    let hasFurniValuesApp = !! document.getElementById('furniValuesApp')
-
     HabboAcademy.init()
 
-    // FurniValues VueJS Component
-    if(hasFurniValuesApp) {
-        const furniValuesApp = new Vue({ el: '#furniValuesApp',
-            beforeMount() {
-                if (this.$el.parentNode) {
-                    document.addEventListener('turbolinks:visit', () => this.$destroy(), { once: true })
-                    this.$originalEl = this.$el.outerHTML
-                }
-            },
-    
-            destroyed() { this.$el.outerHTML = this.$originalEl }
-        });
-    }
+    const habboAcademyApp = new Vue({ el: '#app',
+        beforeMount() {
+            if (this.$el.parentNode) {
+                document.addEventListener('turbolinks:visit', () => this.$destroy(), { once: true })
+                this.$originalEl = this.$el.outerHTML
+            }
+        },
+
+        destroyed() { this.$el.outerHTML = this.$originalEl }
+    });
 })

@@ -77,7 +77,7 @@
 
         <main @class([
             "py-4" => !$ignoreDefaultContainers
-        ])>
+        ]) id="app">
             @yield('content')
         </main>
     </main>

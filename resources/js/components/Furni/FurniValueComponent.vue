@@ -24,7 +24,7 @@
                 <div 
                     v-for="furni in furniPaginator.data"
                     :key="furni.id"
-                    :class="['content animated bounceIn', furni.state]"
+                    :class="['content animated', boxAnimate, furni.state]"
                     :style="`background-image: url('/storage/${furni.icon_path}')`"
                     data-toggle="tooltip"
                     :title="`<b>Nome:</b> ${furni.name}<br /><b>Preço:</b> ${furni.price} ${furni.price_type}`"
@@ -46,13 +46,15 @@ export default {
 
     data() {
         return {
-            furniPaginator: { data: [] },
+            search: '',
             loading: false,
-            search: ''
+            boxAnimate: null,
+            furniPaginator: { data: [] },
         }
     },
 
     created() {
+        this.setEntryAnimation()
         this.getFurnis()
     },
 
@@ -87,27 +89,6 @@ export default {
     },
 
     methods: {
-        getFurnis(page = 1, search = null) {
-            if(!Number.isInteger(page) || this.loading) return
-
-            this.loading = true
-
-            this.$http.get(this.getApiUrl(page))
-                .then(({ data }) => {
-                    if(data.data) {
-                        this.furniPaginator = data
-
-                        setTimeout(_ => this.loading = false, 1000)
-                    }
-                })
-        },
-
-        getApiUrl(page) {
-            return this.search
-                ? `api/v1/furnis/values?page=${page}&search=${this.search}`
-                : `api/v1/furnis/values?page=${page}`
-        },
-
         nextPage() {
             if(this.loading) return
 
@@ -115,7 +96,8 @@ export default {
 
             if(!currentPage || currentPage >= this.furniPaginator.last_page) return
 
-            this.getFurnis(++currentPage)
+            this.setExitAnimation()
+            setTimeout(() => this.getFurnis(++currentPage), 1000)
         },
 
         previousPage() {
@@ -125,16 +107,45 @@ export default {
 
             if(!currentPage || currentPage <= 1) return
 
-            this.getFurnis(--currentPage)
+            this.setExitAnimation()
+            setTimeout(() => this.getFurnis(--currentPage), 1000)
+        },
+
+        setExitAnimation() {
+            this.boxAnimate = 'bounceOut'
         },
 
         firstPage() {
-            return this.getFurnis(1)
+            this.setExitAnimation()
+            setTimeout(() => this.getFurnis(1), 1000)
+        },
+        
+        getFurnis(page = 1) {
+            if(!Number.isInteger(page) || this.loading) return
+
+            this.loading = true
+
+            this.$http.get(this.getFetchUrl(page))
+                .then(({ data }) => {
+                    if(data.data) {
+                        this.setEntryAnimation()
+                        this.furniPaginator = data
+
+                        setTimeout(_ => this.loading = false, 1000)
+                    }
+                })
+                .catch(() => {})
         },
 
-        lastPage() {
-            return this.getFurnis(this.furniPaginator.last_page)
-        }
+        setEntryAnimation() {
+            this.boxAnimate = 'bounceIn'
+        },
+
+        getFetchUrl(page) {
+            return this.search
+                ? `api/v1/furnis/values?page=${page}&search=${this.search}`
+                : `api/v1/furnis/values?page=${page}`
+        },
     }
 }
 </script>
