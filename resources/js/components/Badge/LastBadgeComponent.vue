@@ -52,7 +52,7 @@ export default {
         }
     },
 
-    created() {
+    mounted() {
         this.setEntryAnimation()
         this.getLastBadges()
     },

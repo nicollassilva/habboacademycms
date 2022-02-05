@@ -31,8 +31,6 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 document.addEventListener('turbolinks:load', () => {
-    HabboAcademy.init()
-
     const habboAcademyApp = new Vue({ el: '#app',
         beforeMount() {
             if (this.$el.parentNode) {
@@ -43,4 +41,6 @@ document.addEventListener('turbolinks:load', () => {
 
         destroyed() { this.$el.outerHTML = this.$originalEl }
     });
+
+    HabboAcademy.init()
 })

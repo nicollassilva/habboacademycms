@@ -26,8 +26,27 @@ class Badge extends Model
         'content_slug'
     ];
 
+    protected const API_PAGINATION_LIMIT = 9;
+
+    public static function defaultQuery()
+    {
+        return Badge::orderByDesc('id');
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_badges');
+    }
+
+    public static function resultsForApi(?string $search)
+    {
+        if(!$search) {
+            return Badge::defaultQuery()
+                ->paginate(self::API_PAGINATION_LIMIT);
+        }
+
+        return Badge::defaultQuery()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->paginate(self::API_PAGINATION_LIMIT);
     }
 }

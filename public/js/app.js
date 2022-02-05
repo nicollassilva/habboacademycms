@@ -2118,7 +2118,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     this.setEntryAnimation();
     this.getLastBadges();
   },
@@ -2279,7 +2279,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     this.setEntryAnimation();
     this.getFurnis();
   },
@@ -2417,7 +2417,6 @@ files.keys().map(function (key) {
  */
 
 document.addEventListener('turbolinks:load', function () {
-  HabboAcademy.init();
   var habboAcademyApp = new Vue({
     el: '#app',
     beforeMount: function beforeMount() {
@@ -2436,6 +2435,7 @@ document.addEventListener('turbolinks:load', function () {
       this.$el.outerHTML = this.$originalEl;
     }
   });
+  HabboAcademy.init();
 });
 
 /***/ }),
