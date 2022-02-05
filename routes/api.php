@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\FurniValue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::name('v1.')->prefix('v1')->group(function() {
 
+    // Furni Values API Route
+    Route::get('furnis/values', function (Request $request) {
+        if($request->search) {
+            return FurniValue::latest()->where('name', 'LIKE', "%{$request->search}%")->paginate(9);
+        }
 
+        return FurniValue::latest()->paginate(9);
+    });
     
 });

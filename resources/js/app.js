@@ -5,9 +5,13 @@
  */
 
 require('./bootstrap');
+const { default: Axios } = require('./external/Axios.js');
 const { default: HabboAcademy } = require('./habboacademy/default');
 
-window.Vue = require('vue').default;
+window.Vue = require('vue').default
+window.academyEventBus = new Vue({})
+
+Vue.prototype.$http = Axios;
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,5 +31,21 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 document.addEventListener('turbolinks:load', () => {
+    let hasFurniValuesApp = !! document.getElementById('furniValuesApp')
+
     HabboAcademy.init()
+
+    // FurniValues VueJS Component
+    if(hasFurniValuesApp) {
+        const furniValuesApp = new Vue({ el: '#furniValuesApp',
+            beforeMount() {
+                if (this.$el.parentNode) {
+                    document.addEventListener('turbolinks:visit', () => this.$destroy(), { once: true })
+                    this.$originalEl = this.$el.outerHTML
+                }
+            },
+    
+            destroyed() { this.$el.outerHTML = this.$originalEl }
+        });
+    }
 })

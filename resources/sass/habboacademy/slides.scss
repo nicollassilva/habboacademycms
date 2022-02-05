@@ -111,6 +111,33 @@
             background-repeat: no-repeat;
             margin-right: 12px;
 			transition: margin-top .2s ease-in-out;
+			position: relative;
+
+			i {
+				position: absolute;
+				font-size: 24px;
+				left: 14px;
+
+				&.down {
+					color: $theme5;
+					bottom: -10px;
+				}
+
+				&.up {
+					color: $success;
+					top: -10px;
+				}
+			}
+
+			&.up {
+				background-color: $success;
+				border: 1px solid $green;
+			}
+
+			&.down {
+				background-color: $theme5;
+				border: 1px solid $red;
+			}
 
             &:last-of-type { margin-right: 0; }
 

@@ -11178,6 +11178,28 @@ section .content-title .action-buttons .search i:not(.mirror) {
   background-repeat: no-repeat;
   margin-right: 12px;
   transition: margin-top 0.2s ease-in-out;
+  position: relative;
+}
+.last-contents .box-content .content i {
+  position: absolute;
+  font-size: 24px;
+  left: 14px;
+}
+.last-contents .box-content .content i.down {
+  color: #eb3b5a;
+  bottom: -10px;
+}
+.last-contents .box-content .content i.up {
+  color: #2ed573;
+  top: -10px;
+}
+.last-contents .box-content .content.up {
+  background-color: #2ed573;
+  border: 1px solid #38c172;
+}
+.last-contents .box-content .content.down {
+  background-color: #eb3b5a;
+  border: 1px solid #e3342f;
 }
 .last-contents .box-content .content:last-of-type {
   margin-right: 0;
