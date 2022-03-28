@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Article;
 use App\Models\Article\ArticleCategory;
 use App\Models\Badge;
 use App\Models\FurniValue;
@@ -24,5 +25,11 @@ Route::name('v1.')->prefix('v1')->group(function() {
 
     // Last Badges API Route
     Route::get('badges/latest', fn (Request $request) => Badge::resultsForApi($request->search));
+
+    // Articles Categories API Route
+    Route::get('articles/categories', fn () => ArticleCategory::all());
+    
+    // Articles Categories API Route
+    Route::get('articles', fn (Request $request) => Article::resultsFromApi($request->search, $request->category));
     
 });

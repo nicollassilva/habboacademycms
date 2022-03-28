@@ -7,10 +7,12 @@
 require('./bootstrap');
 const { default: Axios } = require('./external/Axios.js');
 const { default: HabboAcademy } = require('./habboacademy/default');
+import TurbolinksAdapter from 'vue-turbolinks'
 
 window.Vue = require('vue').default
 window.academyEventBus = new Vue({})
 
+Vue.use(TurbolinksAdapter);
 Vue.prototype.$http = Axios;
 
 /**
@@ -31,15 +33,8 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 document.addEventListener('turbolinks:load', () => {
-    const habboAcademyApp = new Vue({ el: '#app',
-        beforeMount() {
-            if (this.$el.parentNode) {
-                document.addEventListener('turbolinks:visit', () => this.$destroy(), { once: true })
-                this.$originalEl = this.$el.outerHTML
-            }
-        },
-
-        destroyed() { this.$el.outerHTML = this.$originalEl }
+    const habboAcademyApp = new Vue({
+        el: '#app'
     });
 
     HabboAcademy.init()

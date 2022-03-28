@@ -23,7 +23,7 @@
         </div>
     </div>
     @include('habboacademy.layouts.lastdata')
-    @include('habboacademy.layouts.articles')
+    <articles-component />
 </div>
 @include('habboacademy.layouts.forum')
 @endsection

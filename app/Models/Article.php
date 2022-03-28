@@ -24,6 +24,10 @@ class Article extends Model
         'fixed' => 'boolean'
     ];
 
+    protected $hidden = [
+        'reviewer', 'reviewed', 'status', 'user_id'
+    ];
+
     protected const INDEX_PAGINATION_LIMIT = 8;
 
     public function user()
@@ -52,28 +56,44 @@ class Article extends Model
             ->paginate(35);
     }
 
-    public static function getDefaultResources()
+    public static function resultsFromApi(?string $category, ?string $search)
     {
-        return Article::query()
-            ->with(['user', 'category'])
+        $query = Article::query()
+            ->with(['user:id,username', 'category'])
             ->whereReviewed(true)
             ->whereStatus(true)
-            ->whereFixed(false)
-            ->latest()
-            ->limit(self::INDEX_PAGINATION_LIMIT)
-            ->get();
-    }
+            ->orderByDesc('fixed')
+            ->orderByDesc('id');
 
-    public static function getFixedResources()
-    {
-        return Article::query()
-            ->with(['user', 'category'])
-            ->whereReviewed(true)
-            ->whereStatus(true)
-            ->whereFixed(true)
-            ->latest()
-            ->limit(self::INDEX_PAGINATION_LIMIT)
-            ->get();
+        if($category) {
+            $query->where('category_id', $category);
+        }
+
+        if($search) {
+            $query->where('title', $search);
+        }
+
+        $items = $query->paginate(self::INDEX_PAGINATION_LIMIT);
+
+        if(count($items->items()) <= 0) {
+            return $items;
+        }
+
+        $filteredItems = collect($items->items())->map(
+            function($article) {
+                $article->stringTime = dateToString($article->created_at);
+                $article->route = route('web.articles.show', ['id' => $article->id, 'slug' => $article->slug]);
+                $article->image_path = \Str::contains($article->image_path, 'articles') ? asset("storage/{$article->image_path}") : $article->image_path;
+
+                return $article;
+            }
+        );
+
+        return [
+            "current_page" => $items->currentPage(),
+            "last_page" => $items->lastPage(),
+            "data" => $filteredItems
+        ];
     }
 
     public static function getArticle($id, $slug)
@@ -92,7 +112,7 @@ class Article extends Model
             ->with(['user', 'category'])
             ->where('category_id', $article->category_id)
             ->where('id', '<>', $article->id)
-            ->latest()
+            ->orderByDesc('id')
             ->limit(4)
             ->get();
     }

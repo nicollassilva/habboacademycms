@@ -7369,7 +7369,6 @@ button.bg-dark:focus {
 }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -7389,9 +7388,8 @@ button.bg-dark:focus {
   z-index: 1030;
 }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
   .sticky-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -10754,8 +10752,13 @@ header .logo {
   position: relative;
   float: right;
   margin-top: 20px;
-  margin-right: 40px;
+  margin-right: 100px;
   z-index: 5;
+}
+@media screen and (max-width: 1100px) {
+  header .logo {
+    margin-right: 40px;
+  }
 }
 header .top-bar {
   width: 100%;

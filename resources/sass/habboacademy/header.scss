@@ -112,8 +112,10 @@ header {
 		position: relative;
 		float: right;
 		margin-top: 20px;
-		margin-right: 40px;
+		margin-right: 100px;
 		z-index: 5;
+
+		@media screen and (max-width: 1100px) { margin-right: 40px; }
 	}
 
 	.top-bar {

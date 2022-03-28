@@ -1,4 +1,5 @@
 <div class="container position-relative">
+    @auth
     <div class="buttons">
         <a class="menu-button" href="{{ route('web.topics.create') }}" data-toggle="tooltip" title="Postar tópico"><i class="pencil"></i></a>
         <a class="menu-button" href="{{ route('web.topics.me') }}" data-toggle="tooltip" title="Meus tópicos"><i class="topics"></i></a>
@@ -27,4 +28,17 @@
             </button>
         </form>
     </div>
+    @endauth
+    @guest
+        <div class="buttons w-100 d-flex justify-content-center align-items-center">
+            <a href="{{ route('web.register') }}" class="btn font-weight-bold text-white btn-sm btn-success mr-2">
+                <i class="user mr-1" style="margin-top: 2px"></i>
+                Faça seu registro agora!
+            </a>
+            <a href="{{ route('web.login') }}" class="btn font-weight-bold text-white btn-sm btn-primary">
+                <i class="password mr-1 mt-1"></i>
+                Fazer login
+            </a>
+        </div>
+    @endguest
 </div>
