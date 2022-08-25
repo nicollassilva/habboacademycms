@@ -6,10 +6,10 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\User\UserBan;
 use App\Models\User\UserLog;
+use App\Models\User\UserWarning;
 use App\Models\Topic\TopicComment;
 use App\Models\Traits\FilamentTrait;
 use App\Models\User\UserNotification;
-use App\Models\User\UserWarning;
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
@@ -83,7 +83,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     {
         return $this->hasMany(UserWarning::class);
     }
-    
+
     public function topicComments()
     {
         return $this->hasMany(TopicComment::class);
