@@ -68,9 +68,6 @@
                     <div class="logo"></div>
                 </div>
             </header>
-            <div class="user-menu">
-                @include('habboacademy.layouts.user.menu')
-            </div>
         @endif
 
         <main @class([
