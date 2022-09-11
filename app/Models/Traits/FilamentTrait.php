@@ -14,6 +14,8 @@ trait FilamentTrait
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return asset("storage/{$this->profile_image_path}");
+        return $this->profile_image_path
+            ? asset("storage/{$this->profile_image_path}")
+            : 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=200&d=mp';
     }
 }

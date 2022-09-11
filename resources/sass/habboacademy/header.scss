@@ -71,7 +71,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: $strongblue;
+	background: $primaryColor;
 }
 
 header {
@@ -79,31 +79,7 @@ header {
 	height: 300px;
 	position: relative;
 	overflow: hidden;
-	background-color: $strongblue;
-	margin-top: 1px;
-	border-bottom: 2px solid $strongblue;
-
-	&::after {
-		content: '';
-		width: 551px;
-		height: 260px;
-		position: absolute;
-		bottom: 0;
-		left: 30%;
-		transform: translateX(-30%);
-		background-image: url('/images/right_header.png');
-	}
-
-	&::before {
-		content: '';
-		width: 100%;
-		height: 450px;
-		position: absolute;
-		background-position: top;
-		background-repeat: no-repeat;
-		bottom: 0;
-		background-image: url('/images/planeta.webp');
-	}
+	background-color: $secondColor;
 
 	.logo {
 		width: 244px;
@@ -116,97 +92,6 @@ header {
 		z-index: 5;
 
 		@media screen and (max-width: 1100px) { margin-right: 40px; }
-	}
-
-	.top-bar {
-		width: 100%;
-		height: 70px;
-		background-color: #fff;
-		overflow: hidden;
-		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
-		position: relative;
-
-		.last-registers {
-			width: 50%;
-			height: 70px;
-			float: left;
-
-			.latests-box {
-				width: calc(100% - 140px);
-				height: 60px;
-				float: left;
-				margin-top: 5px;
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				position: relative;
-				margin-left: 8px;
-
-				.latest-user {
-					width: 30px;
-					height: 30px;
-					background-color: $strongblue;
-					border-radius: 3px;
-					background-position: center;
-					background-repeat: no-repeat;
-
-					&:not(:first-of-type) {
-						margin-left: 10px;
-					}
-				}
-			}
-		}
-
-		.search-field {
-			width: 50%;
-			height: 70px;
-			float: left;
-			padding-left: 8px;
-
-			.input {
-				width: calc(100% - 140px);
-				height: 60px;
-				float: left;
-				margin-top: 5px;
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-				position: relative;
-				margin-left: 8px;
-				height: 45px;
-				background-color: rgba(0, 0, 0, 0.05);
-				margin-top: 12px;
-				border-radius: 5px;
-				display: block;
-				position: relative;
-
-				input {
-					width: 100%;
-					height: 45px;
-					border: none;
-					background: transparent;
-					color: #222;
-					font-size: 13px;
-					padding-left: 10px;
-					padding-right: 35px;
-					font-weight: 500;
-
-					&::-webkit-input-placeholder {
-						color: #222;
-					}
-				}
-
-				button {
-					position: absolute;
-					border: none;
-					background: transparent;
-					font-size: 14px;
-					top: 10px;
-					right: 10px;
-					color: $strongblue;
-				}
-			}
-		}
 	}
 }
 
@@ -312,7 +197,7 @@ header {
 	border-right: 1px solid rgba(0, 0, 0, 0.1);
 
 	b {
-		color: $strongblue;
+		color: $primaryColor;
 		font-weight: 800;
 	}
 }

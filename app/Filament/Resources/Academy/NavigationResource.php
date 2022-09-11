@@ -35,11 +35,6 @@ class NavigationResource extends Resource
                         ->required(),
                 ]),
 
-                Forms\Components\TextInput::make('small_icon')
-                    ->label('Ícone pequeno')
-                    ->hint('<strong>Padrão:</strong> Não terá ícone')
-                    ->helperText('Digite toda a classe do ícone, exemplo FontAwesome: fas fa-user'),
-
                 Forms\Components\TextInput::make('hover_icon')
                     ->label('Ícone ao passar o mouse')
                     ->url()

@@ -4,7 +4,6 @@
             @foreach (getNavigations() as $navigation)
             <li class="item-menu">
                 <a href="{{ $navigation->slug }}" class="title-menu">
-                    <i class="mr-2 {{ $navigation->small_icon }}"></i>
                     <span>{{ $navigation->label }}</span>
                     <div class="icon-menu" style="background-image: url('{{ $navigation->hover_icon }}')"></div>
                 </a>
@@ -23,6 +22,12 @@
                 @endif
             </li>
             @endforeach
+            <li class="user-club">
+                <button class="club-modal">
+                    Entrar
+                    <i class="fa-regular fa-circle-user ml-2"></i>
+                </button>
+            </li>
         </ul>
     </div>
 </nav>

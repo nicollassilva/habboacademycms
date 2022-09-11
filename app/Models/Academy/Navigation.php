@@ -14,7 +14,6 @@ class Navigation extends Model
 
     protected $fillable = [
         'label',
-        'small_icon',
         'hover_icon',
         'slug',
         'order',

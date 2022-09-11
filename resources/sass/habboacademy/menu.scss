@@ -1,41 +1,45 @@
 .menu {
 	width: 100vw;
-	height: 70px;
-	background-color: $strongblue;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+	height: $menuHeight;
+	background-color: white;
 	position: relative;
+    box-shadow: rgb(0 0 0 / 20%) 4px 0 3px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 2px;
+        background-color: rgba(0, 0, 0, .15);
+        z-index: 1;
+    }
 
 	ul.principal-list {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 
 		li.item-menu {
-			width: 185px;
-			height: 70px;
+            width: $menuWidth;
+			height: $menuHeight;
 			list-style: none;
 			display: flex;
 			position: relative;
-			transition: box-shadow .4s;
-			border-left: 1px solid rgba(255, 255, 255, .2);
-			border-right: 1px solid rgba(255, 255, 255, .2);
+			transition: background-color .2s ease-in-out;
 			cursor: pointer !important;
+            border-left: 1px solid #efefef;
 
-			&:first-of-type {
+            &:nth-child(6) {
+                border-right: 1px solid #efefef;
+            }
 
-				border-left-width: 2px;
-				
-				.icon-menu {
-					background-image: url('/images/menu/inicio.png');
-				}
-			}
-
-			&:last-of-type {
-				border-right-width: 2px;
-
-				.icon-menu {
-					background-image: url('/images/menu/radio.png');
-				}
-			}
+            span {
+                color: #777;
+                font-weight: 600;
+                transition: all .2s ease-in-out;
+                font-size: 13px;
+            }
 
 			a {
 				flex: 1;
@@ -49,14 +53,14 @@
 			}
 
 			&:hover {
-				border: 2px solid rgba(0, 0, 0, 0.1);
-				height: 70px;
-				background-color: rgba(0, 0, 0, 0.5);
+				height: $menuHeight;
+				background-color: $secondColor;
 
 				a.title-menu {
-					span, i {
-						visibility: hidden;
-					}
+                    span {
+                        color: #ddd;
+                        margin-top: 40px;
+                    }
 
 					.icon-menu {
 						transform: translate(-50%, -50%) rotateY(0deg);
@@ -74,44 +78,20 @@
 					height: 40px;
 					position: absolute;
 					left: 50%;
-					top: 50%;
-					transform: translate(-50%, -50%) rotateY(90deg);
+					top: 39%;
+					transform: translate(-39%, -50%) rotateY(90deg);
 					background-position: center;
 					background-repeat: no-repeat;
 					transition: transform .2s;
-					filter: drop-shadow(-2px 0 0 $strongblue) drop-shadow(0 -2px 0 $strongblue) drop-shadow(2px 0 0 $strongblue) drop-shadow(0 2px 0 $strongblue);
-				}
-			}
-
-			&:nth-child(2) {
-				.icon-menu {
-					background-image: url('/images/menu/habboacademy.png');
-				}
-			}
-
-			&:nth-child(3) {
-				.icon-menu {
-					background-image: url('/images/menu/habbo.png');
-				}
-			}
-
-			&:nth-child(4) {
-				.icon-menu {
-					background-image: url('/images/menu/conteudos.png');
-				}
-			}
-
-			&:nth-child(5) {
-				.icon-menu {
-					background-image: url('/images/menu/facenter.png');
+					filter: drop-shadow(-2px 0 0 $primaryColor) drop-shadow(0 -2px 0 $primaryColor) drop-shadow(2px 0 0 $primaryColor) drop-shadow(0 2px 0 $primaryColor);
 				}
 			}
 
 			.drop-menu {
 				position: absolute;
 				width: 215px;
-				top: 68px;
-				left: -15px;
+				top: $menuHeight;
+				left: -42px;
 				background-color: white;
 				min-height: 40px;
 				border-bottom-left-radius: 5px;
@@ -132,7 +112,7 @@
 						display: flex;
 
 						&:not(:last-of-type) {
-							border-bottom: 1px solid #eee;
+							border-bottom: 1px solid #efefef;
 						}
 
 						a {
@@ -144,7 +124,7 @@
 							transition: all .3s;
 
 							&:hover {
-								background-color: $strongblue;
+								background-color: $primaryColor;
 								color: white !important;
 								font-weight: 600;
 								padding-left: 20px;
@@ -161,5 +141,29 @@
 				}
 			}
 		}
+
+        li.user-club {
+            flex: 1;
+            height: $menuHeight;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            button.club-modal {
+                padding: 10px 20px;
+                border-radius: 5px;
+                background-color: $primaryColor;
+                color: white;
+                font-weight: 600;
+                font-size: 12px;
+                border: none;
+                box-shadow: 0 0 2px 3px rgba(0, 0, 0, .15);
+                transition: all .2s;
+
+                &:hover {
+                    background-color: $secondColor;
+                }
+            }
+        }
 	}
 }
