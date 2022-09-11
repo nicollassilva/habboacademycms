@@ -3,7 +3,6 @@
 	height: $menuHeight;
 	background-color: white;
 	position: relative;
-    box-shadow: rgb(0 0 0 / 20%) 4px 0 3px;
 
     &::before {
         content: '';
@@ -38,7 +37,7 @@
                 color: #777;
                 font-weight: 600;
                 transition: all .2s ease-in-out;
-                font-size: 13px;
+                font-size: 12px;
             }
 
 			a {
@@ -122,6 +121,7 @@
 							padding-left: 10px;
 							font-weight: 400;
 							transition: all .3s;
+                            font-size: 12px;
 
 							&:hover {
 								background-color: $primaryColor;
@@ -149,20 +149,35 @@
             justify-content: center;
             align-items: center;
 
-            button.club-modal {
+            button.club-button {
                 padding: 10px 20px;
                 border-radius: 5px;
-                background-color: $primaryColor;
+                background-color: $darkblue;
                 color: white;
                 font-weight: 600;
                 font-size: 12px;
                 border: none;
-                box-shadow: 0 0 2px 3px rgba(0, 0, 0, .15);
+                box-shadow: 0 0 4px 2px rgba(0, 0, 0, .25), inset 0 -18px 0 rgba(0, 0, 0, .07);
                 transition: all .2s;
 
                 &:hover {
-                    background-color: $secondColor;
+                    background-color: $indigo;
                 }
+
+                &.register {
+                    background-color: $green;
+
+                    &:hover {
+                        background-color: $success;
+                    }
+                }
+            }
+
+            span {
+                @extend .text-muted;
+                font-weight: 600;
+                font-size: 12px;
+                margin: 0 15px;
             }
         }
 	}

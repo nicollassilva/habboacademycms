@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 // Variables
 @import 'variables';
@@ -11,6 +12,7 @@
 @import 'habboacademy/icons';
 
 // HabboAcademy
+@import 'bootstrap';
 @import 'habboacademy/menu';
 @import 'habboacademy/tooltip';
 @import 'habboacademy/header';

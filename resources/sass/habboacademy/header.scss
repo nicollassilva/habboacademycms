@@ -1,98 +1,30 @@
-* {
-	box-sizing: border-box;
-	image-rendering: pixelated;
-}
-
-.no-pixelated {
-	image-rendering: optimizeQuality;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	font-family: 'Exo 2', sans-serif;
-	background: url('/images/background.webp'), $background;
-	background-attachment: fixed;
-	overflow: hidden auto;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-	font-display: swap;
-}
-
-.avatar,
-.avatar,
-.avatar {
-	position: relative;
-	float: left;
-
-	&.normal {
-		width: 64px;
-		height: 110px;
-	}
-
-	&.small {
-		width: 33px;
-		height: 54px;
-	}
-
-	&.big {
-		width: 128px;
-		height: 220px;
-	}
-}
-
-.stage {
-	width: 93px;
-	height: 54px;
-	background-image: url('/images/stage.png');
-	float: left;
-	position: relative;
-}
-
-.stage-user {
-	width: 73px;
-	height: 45px;
-	background-image: url('/images/user_base.png');
-	float: left;
-	position: relative;
-}
-
-::-webkit-scrollbar {
-	width: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background: #ddd;
-}
-
-::-webkit-scrollbar-thumb {
-	background: $darkblue;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: $primaryColor;
-}
-
 header {
 	width: 100vw;
-	height: 300px;
+	height: 320px;
 	position: relative;
 	overflow: hidden;
-	background-color: $secondColor;
+	background-color: $cyan;
+    box-shadow: rgb(0 0 0 / 20%) 4px 0 3px;
 
 	.logo {
 		width: 244px;
 		height: 180px;
 		background-image: url('/images/logo.png');
 		position: relative;
-		float: right;
-		margin-top: 20px;
-		margin-right: 100px;
-		z-index: 5;
-
-		@media screen and (max-width: 1100px) { margin-right: 40px; }
 	}
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 551px;
+        height: 312px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('/images/tubes.png');
+        bottom: 0;
+        image-rendering: pixelated;
+        z-index: 0;
+    }
 }
 
 .user-menu {

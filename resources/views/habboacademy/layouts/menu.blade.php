@@ -23,9 +23,14 @@
             </li>
             @endforeach
             <li class="user-club">
-                <button class="club-modal">
+                <button class="club-button">
                     Entrar
                     <i class="fa-regular fa-circle-user ml-2"></i>
+                </button>
+                <span class="text-muted">ou</span>
+                <button class="club-button register">
+                    Registrar
+                    <i class="fa-regular fa-share-from-square ml-2"></i>
                 </button>
             </li>
         </ul>

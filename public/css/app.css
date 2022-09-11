@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
 @charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -33,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Montserrat", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -56,7 +57,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -5585,7 +5586,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -5687,7 +5688,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -9867,7 +9868,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: #212529 !important;
 }
 
-.text-muted {
+.text-muted, .menu ul.principal-list li.user-club span {
   color: #6c757d !important;
 }
 
@@ -10002,12 +10003,72 @@ h3 {
     border-color: #dee2e6;
   }
 }
+* {
+  box-sizing: border-box;
+}
+
+.no-pixelated {
+  image-rendering: optimizeQuality;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #eee;
+  overflow: hidden auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a69bd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.avatar,
+.avatar,
+.avatar {
+  position: relative;
+  float: left;
+}
+.avatar.normal,
+.avatar.normal,
+.avatar.normal {
+  width: 64px;
+  height: 110px;
+}
+.avatar.small,
+.avatar.small,
+.avatar.small {
+  width: 33px;
+  height: 54px;
+}
+.avatar.big,
+.avatar.big,
+.avatar.big {
+  width: 128px;
+  height: 220px;
+}
+
 .menu {
   width: 100vw;
   height: 65px;
   background-color: white;
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.2) 4px 0 3px;
 }
 .menu::before {
   content: "";
@@ -10040,7 +10101,7 @@ h3 {
   color: #777;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
-  font-size: 13px;
+  font-size: 12px;
 }
 .menu ul.principal-list li.item-menu a {
   flex: 1;
@@ -10112,6 +10173,7 @@ h3 {
   padding-left: 10px;
   font-weight: 400;
   transition: all 0.3s;
+  font-size: 12px;
 }
 .menu ul.principal-list li.item-menu .drop-menu ul li a:hover {
   background-color: #555;
@@ -10130,19 +10192,30 @@ h3 {
   justify-content: center;
   align-items: center;
 }
-.menu ul.principal-list li.user-club button.club-modal {
+.menu ul.principal-list li.user-club button.club-button {
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #555;
+  background-color: #4a69bd;
   color: white;
   font-weight: 600;
   font-size: 12px;
   border: none;
-  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25), inset 0 -18px 0 rgba(0, 0, 0, 0.07);
   transition: all 0.2s;
 }
-.menu ul.principal-list li.user-club button.club-modal:hover {
-  background-color: #333;
+.menu ul.principal-list li.user-club button.club-button:hover {
+  background-color: #6574cd;
+}
+.menu ul.principal-list li.user-club button.club-button.register {
+  background-color: #38c172;
+}
+.menu ul.principal-list li.user-club button.club-button.register:hover {
+  background-color: #2ed573;
+}
+.menu ul.principal-list li.user-club span {
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0 15px;
 }
 
 .bs-tooltip-top .tooltip-inner, .bs-tooltip-auto[x-placement^=top] .tooltip-inner,
@@ -10191,108 +10264,33 @@ h3 {
   opacity: 1;
 }
 
-* {
-  box-sizing: border-box;
-  -ms-interpolation-mode: nearest-neighbor;
-      image-rendering: -moz-crisp-edges;
-      image-rendering: pixelated;
-}
-
-.no-pixelated {
-  image-rendering: optimizeQuality;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Exo 2", sans-serif;
-  background: url("/images/background.webp"), #dcdde1;
-  background-attachment: fixed;
-  overflow: hidden auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-display: swap;
-}
-
-.avatar,
-.avatar,
-.avatar {
-  position: relative;
-  float: left;
-}
-.avatar.normal,
-.avatar.normal,
-.avatar.normal {
-  width: 64px;
-  height: 110px;
-}
-.avatar.small,
-.avatar.small,
-.avatar.small {
-  width: 33px;
-  height: 54px;
-}
-.avatar.big,
-.avatar.big,
-.avatar.big {
-  width: 128px;
-  height: 220px;
-}
-
-.stage {
-  width: 93px;
-  height: 54px;
-  background-image: url("/images/stage.png");
-  float: left;
-  position: relative;
-}
-
-.stage-user {
-  width: 73px;
-  height: 45px;
-  background-image: url("/images/user_base.png");
-  float: left;
-  position: relative;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #ddd;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #4a69bd;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 header {
   width: 100vw;
-  height: 300px;
+  height: 320px;
   position: relative;
   overflow: hidden;
-  background-color: #333;
+  background-color: #6cb2eb;
+  box-shadow: rgba(0, 0, 0, 0.2) 4px 0 3px;
 }
 header .logo {
   width: 244px;
   height: 180px;
   background-image: url("/images/logo.png");
   position: relative;
-  float: right;
-  margin-top: 20px;
-  margin-right: 100px;
-  z-index: 5;
 }
-@media screen and (max-width: 1100px) {
-  header .logo {
-    margin-right: 40px;
-  }
+header::before {
+  content: "";
+  position: absolute;
+  width: 551px;
+  height: 312px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url("/images/tubes.png");
+  bottom: 0;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+  z-index: 0;
 }
 
 .user-menu {

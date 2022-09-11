@@ -1,6 +1,3 @@
-@php
-    $ignoreDefaultContainers = isset($ignoreDefaultContainers) ? $ignoreDefaultContainers : false;
-@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -34,7 +31,6 @@
 <body>
     <div class="container-fluid p-0">
         <main>
-        @if (!$ignoreDefaultContainers)
             @include('habboacademy.layouts.menu')
             <header class="customTransition">
 
@@ -42,11 +38,8 @@
                     <div class="logo"></div>
                 </div>
             </header>
-        @endif
 
-        <main @class([
-            "py-4" => !$ignoreDefaultContainers
-        ]) id="app">
+        <main id="app">
             @yield('content')
         </main>
     </main>
