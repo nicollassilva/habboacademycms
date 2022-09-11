@@ -1,6 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap);
 @charset "UTF-8";
+@-webkit-keyframes umbrellaRotation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes umbrellaRotation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10269,7 +10285,7 @@ header {
   height: 320px;
   position: relative;
   overflow: hidden;
-  background-color: #6cb2eb;
+  background: url("/images/background.webp"), #6cb2eb;
   box-shadow: rgba(0, 0, 0, 0.2) 4px 0 3px;
 }
 header .logo {
@@ -10277,6 +10293,18 @@ header .logo {
   height: 180px;
   background-image: url("/images/logo.png");
   position: relative;
+  margin-top: 60px;
+}
+header .logo::before {
+  content: "";
+  position: absolute;
+  width: 402px;
+  height: 402px;
+  top: 50%;
+  left: 50%;
+  -webkit-animation: umbrellaRotation 10s linear infinite;
+          animation: umbrellaRotation 10s linear infinite;
+  background-image: url("/images/umbrella.webp");
 }
 header::before {
   content: "";

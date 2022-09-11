@@ -3,7 +3,7 @@ header {
 	height: 320px;
 	position: relative;
 	overflow: hidden;
-	background-color: $cyan;
+	background: url('/images/background.webp'), $cyan;
     box-shadow: rgb(0 0 0 / 20%) 4px 0 3px;
 
 	.logo {
@@ -11,6 +11,18 @@ header {
 		height: 180px;
 		background-image: url('/images/logo.png');
 		position: relative;
+        margin-top: 60px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 402px;
+            height: 402px;
+            top: 50%;
+            left: 50%;
+            animation: umbrellaRotation 10s linear infinite;
+            background-image: url('/images/umbrella.webp');
+        }
 	}
 
     &::before {
