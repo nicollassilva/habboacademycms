@@ -17,6 +17,22 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+@-webkit-keyframes cloudsAnimation {
+  from {
+    transform: translate(-100%, -30%);
+  }
+  to {
+    transform: translate(100%, -60%);
+  }
+}
+@keyframes cloudsAnimation {
+  from {
+    transform: translate(-100%, -30%);
+  }
+  to {
+    transform: translate(100%, -60%);
+  }
+}
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10285,7 +10301,7 @@ header {
   height: 320px;
   position: relative;
   overflow: hidden;
-  background: url("/images/background.webp"), #6cb2eb;
+  background: url("/images/background.webp"), radial-gradient(circle at center, #6cb2eb, #3490dc);
   box-shadow: rgba(0, 0, 0, 0.2) 4px 0 3px;
 }
 header .logo {
@@ -10294,6 +10310,7 @@ header .logo {
   background-image: url("/images/logo.png");
   position: relative;
   margin-top: 60px;
+  margin-left: 100px;
 }
 header .logo::before {
   content: "";
@@ -10311,8 +10328,8 @@ header::before {
   position: absolute;
   width: 551px;
   height: 312px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 60%;
+  transform: translateX(-60%);
   background-image: url("/images/tubes.png");
   bottom: 0;
   -ms-interpolation-mode: nearest-neighbor;
@@ -10320,103 +10337,19 @@ header::before {
       image-rendering: pixelated;
   z-index: 0;
 }
-
-.user-menu {
-  width: 100%;
-  height: 50px;
-  background-color: white;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.02);
+header::after {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 314px;
+  top: 60%;
+  -webkit-animation: cloudsAnimation 60s linear infinite;
+          animation: cloudsAnimation 60s linear infinite;
+  background-image: url("/images/clouds.png");
+  background-repeat: repeat-x;
+  opacity: 0.4;
+}
+header .container {
   display: flex;
   justify-content: space-between;
-}
-.user-menu .buttons {
-  width: 300px;
-  height: 50px;
-  float: left;
-}
-.user-menu .menu-button {
-  width: 60px;
-  height: 50px;
-  display: flex;
-  background-color: #fefefe;
-  border: 1px solid #eee;
-  justify-content: center;
-  align-items: center;
-  float: left;
-  text-decoration: none;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.02);
-  transition: background-color 0.3s;
-  margin-right: 5px;
-}
-.user-menu .menu-button .badge {
-  color: white;
-}
-.user-menu .menu-button.logout:hover {
-  background-color: #eb3b5a;
-  box-shadow: none;
-}
-.user-menu .user-config {
-  float: right;
-}
-.user-menu .user-config .picture {
-  margin-top: -15px;
-  width: 80px;
-  margin-right: 5px;
-  height: 80px;
-  background-color: white;
-  border: 2px solid #f0f0f0;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
-  position: relative;
-  border-radius: 10px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  float: left;
-}
-.user-menu .user-config .picture .head {
-  width: 54px;
-  height: 62px;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 11px;
-  top: 2px;
-  z-index: 1;
-}
-.user-menu .user-config .picture .body {
-  width: 33px;
-  height: 56px;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 21.5px;
-  top: 20px;
-}
-
-.customTransition {
-  transition: background-color 0.5s;
-}
-
-.default-title {
-  width: 120px;
-  height: 60px;
-  margin-top: 5px;
-  float: left;
-  line-height: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: 13px;
-  text-transform: uppercase;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-}
-.default-title b {
-  color: #555;
-  font-weight: 800;
-}
-
-.default-title.mini {
-  height: 40px;
 }

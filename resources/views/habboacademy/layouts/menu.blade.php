@@ -1,4 +1,4 @@
-<nav class="menu customTransition">
+<nav class="menu">
     <div class="container">
         <ul class="principal-list">
             @foreach (getNavigations() as $navigation)

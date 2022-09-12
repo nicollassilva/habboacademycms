@@ -36,6 +36,9 @@
 
                 <div class="container">
                     <div class="logo"></div>
+                    <div class="slider">
+
+                    </div>
                 </div>
             </header>
 

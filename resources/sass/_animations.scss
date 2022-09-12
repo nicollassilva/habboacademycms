@@ -7,3 +7,12 @@
     }
 }
 
+@keyframes cloudsAnimation {
+    from {
+        transform: translate(-100%, -30%);
+    }
+    to {
+        transform: translate(100%, -60%);
+    }
+}
+
